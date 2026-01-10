@@ -6,6 +6,7 @@ import {
 } from "next/font/google"
 import "./globals.css"
 import { Navbar } from "@/components/common/Navbar"
+import { Footer } from "@/components/common/Footer"
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
@@ -44,6 +45,7 @@ export default function RootLayout({
       >
         <Navbar />
         <main>{children}</main>
+        <Footer />
       </body>
     </html>
   )

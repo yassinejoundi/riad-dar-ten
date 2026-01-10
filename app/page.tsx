@@ -5,6 +5,7 @@ import { RoomsCarousel } from "@/components/home/RoomsCarousel"
 import { PoolSpotlight } from "@/components/home/PoolSpotlight"
 import { GuestExperience } from "@/components/home/GuestExperience"
 import { LocationSection } from "@/components/home/LocationSection"
+import { FinalCTA } from "@/components/home/FinalCTA"
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <PoolSpotlight />
       <GuestExperience />
       <LocationSection />
+      <FinalCTA />
     </div>
   )
 }
