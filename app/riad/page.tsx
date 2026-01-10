@@ -6,6 +6,7 @@ import { CourtyardPool } from "@/components/riad/CourtyardPool"
 import { RooftopTerrace } from "@/components/riad/RooftopTerrace"
 import { DiningExperience } from "@/components/riad/DiningExperience"
 import { AmenitiesServices } from "@/components/riad/AmenitiesServices"
+import { DarTenDifference } from "@/components/riad/DarTenDifference"
 
 export const metadata: Metadata = {
   title: "The Riad | Riad Dar Ten",
@@ -23,6 +24,7 @@ export default function RiadPage() {
       <RooftopTerrace />
       <DiningExperience />
       <AmenitiesServices />
+      <DarTenDifference />
     </main>
   )
 }
