@@ -1,0 +1,43 @@
+import Image from "next/image"
+import Link from "next/link"
+
+export function HeroSection() {
+  return (
+    <section className="relative h-screen w-full overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0">
+        <Image
+          src="/assets/images/home/hero-background.png"
+          alt="Riad Dar Ten Interior"
+          fill
+          className="object-cover"
+          priority
+          quality={100}
+        />
+        {/* Overlay for readability */}
+        <div className="absolute inset-0 bg-black/40" />
+      </div>
+
+      {/* Content */}
+      <div className="relative z-10 flex h-full flex-col items-center justify-center px-4 text-center text-white">
+        <h1 className="mb-4 font-serif text-5xl font-light tracking-wide md:text-7xl lg:text-8xl animate-fade-in-up">
+          RIAD DAR TEN
+        </h1>
+        <p className="mb-8 max-w-2xl font-accent text-2xl italic tracking-wider text-cream md:text-3xl animate-fade-in-up delay-200">
+          "Where Tradition Meets Tranquility"
+        </p>
+        <p className="mb-10 max-w-xl text-lg font-light leading-relaxed text-gray-200 md:text-xl animate-fade-in-up delay-300">
+          An intimate Moroccan sanctuary in the heart of Marrakech, where
+          contemporary comfort meets timeless tradition.
+        </p>
+
+        <Link
+          href="/book"
+          className="group relative overflow-hidden rounded-sm bg-terracotta px-8 py-4 font-sans text-sm font-semibold uppercase tracking-widest text-white transition-all hover:bg-deep-spice hover:shadow-lg animate-fade-in-up delay-500"
+        >
+          <span className="relative z-10">Book Your Stay</span>
+        </Link>
+      </div>
+    </section>
+  )
+}
