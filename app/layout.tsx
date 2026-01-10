@@ -5,6 +5,7 @@ import {
   Playfair_Display,
 } from "next/font/google"
 import "./globals.css"
+import { Navbar } from "@/components/common/Navbar"
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
@@ -41,7 +42,8 @@ export default function RootLayout({
       <body
         className={`${cormorant.variable} ${montserrat.variable} ${playfair.variable} antialiased font-sans`}
       >
-        {children}
+        <Navbar />
+        <main>{children}</main>
       </body>
     </html>
   )
