@@ -1,6 +1,7 @@
 import { Metadata } from "next"
 import { RiadHero } from "@/components/riad/RiadHero"
 import { OurStory } from "@/components/riad/OurStory"
+import { ArchitectureDesign } from "@/components/riad/ArchitectureDesign"
 
 export const metadata: Metadata = {
   title: "The Riad | Riad Dar Ten",
@@ -13,6 +14,7 @@ export default function RiadPage() {
     <main className="min-h-screen bg-cream">
       <RiadHero />
       <OurStory />
+      <ArchitectureDesign />
     </main>
   )
 }
