@@ -24,7 +24,7 @@ export function HeroSection() {
           RIAD DAR TEN
         </h1>
         <p className="mb-8 max-w-2xl font-accent text-2xl italic tracking-wider text-cream md:text-3xl animate-fade-in-up delay-200">
-          "Where Tradition Meets Tranquility"
+          &quot;Where Tradition Meets Tranquility&quot;
         </p>
         <p className="mb-10 max-w-xl text-lg font-light leading-relaxed text-gray-200 md:text-xl animate-fade-in-up delay-300">
           An intimate Moroccan sanctuary in the heart of Marrakech, where
