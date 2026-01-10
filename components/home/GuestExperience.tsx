@@ -33,9 +33,9 @@ export function GuestExperience() {
 
               <blockquote className="relative z-10">
                 <p className="font-serif text-2xl md:text-3xl text-muted-foreground italic leading-relaxed mb-8">
-                  "An absolute gem in the medina. The atmosphere is magical, the
-                  staff incredibly warm, and the attention to detail is
-                  stunning. A perfect romantic escape."
+                  &ldquo;An absolute gem in the medina. The atmosphere is
+                  magical, the staff incredibly warm, and the attention to
+                  detail is stunning. A perfect romantic escape.&rdquo;
                 </p>
 
                 <div className="flex items-center space-x-1 text-saffron-gold mb-4">

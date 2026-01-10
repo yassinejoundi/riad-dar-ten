@@ -4,6 +4,7 @@ import { FeaturedExperiences } from "@/components/home/FeaturedExperiences"
 import { RoomsCarousel } from "@/components/home/RoomsCarousel"
 import { PoolSpotlight } from "@/components/home/PoolSpotlight"
 import { GuestExperience } from "@/components/home/GuestExperience"
+import { LocationSection } from "@/components/home/LocationSection"
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <RoomsCarousel />
       <PoolSpotlight />
       <GuestExperience />
+      <LocationSection />
     </div>
   )
 }
