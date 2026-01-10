@@ -1,26 +1,159 @@
 @import "tailwindcss";
+@import "tw-animate-css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  
+  --font-sans: var(--font-montserrat);
+  --font-serif: var(--font-cormorant);
+  --font-accent: var(--font-playfair);
+
+  /* Brand Colors Exposed as Utilities */
+  --color-terracotta: var(--terracotta);
+  --color-desert-sand: var(--desert-sand);
+  --color-deep-spice: var(--deep-spice);
+  --color-tadelakt-green: var(--tadelakt-green);
+  --color-midnight-blue: var(--midnight-blue);
+  --color-cream: var(--cream);
+  --color-saffron-gold: var(--saffron-gold);
+  --color-paprika-red: var(--paprika-red);
+
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  --radius: 0.625rem;
+
+  /* Brand Colors */
+  --terracotta: #d4a574;
+  --desert-sand: #e8d5c4;
+  --deep-spice: #8b4513;
+  --tadelakt-green: #7fb8a5;
+  --midnight-blue: #1a2942;
+  --cream: #f5f1e8;
+  --saffron-gold: #f4c430;
+  --paprika-red: #c64b3c;
+
+  /* Theme Mapping */
+  --background: var(--cream);
+  --foreground: var(--midnight-blue);
+
+  --card: #ffffff;
+  --card-foreground: var(--midnight-blue);
+
+  --popover: #ffffff;
+  --popover-foreground: var(--midnight-blue);
+
+  --primary: var(--terracotta);
+  --primary-foreground: #ffffff; /* White text on terracotta */
+
+  --secondary: var(--tadelakt-green);
+  --secondary-foreground: #ffffff;
+
+  --muted: var(--desert-sand);
+  --muted-foreground: var(--deep-spice);
+
+  --accent: var(--saffron-gold);
+  --accent-foreground: var(--midnight-blue);
+
+  --destructive: var(--paprika-red);
+  --destructive-foreground: #ffffff;
+
+  --border: var(--desert-sand);
+  --input: var(--desert-sand);
+  --ring: var(--terracotta);
+
+  --chart-1: var(--terracotta);
+  --chart-2: var(--tadelakt-green);
+  --chart-3: var(--midnight-blue);
+  --chart-4: var(--saffron-gold);
+  --chart-5: var(--deep-spice);
+
+  --sidebar: var(--cream);
+  --sidebar-foreground: var(--midnight-blue);
+  --sidebar-primary: var(--terracotta);
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: var(--desert-sand);
+  --sidebar-accent-foreground: var(--midnight-blue);
+  --sidebar-border: var(--desert-sand);
+  --sidebar-ring: var(--terracotta);
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.dark {
+  /* For dark mode, we can invert or adjust. 
+     Maybe Midnight Blue background? */
+  --background: var(--midnight-blue);
+  --foreground: var(--cream);
+
+  --card: #142033; /* Slightly darker/lighter than bg */
+  --card-foreground: var(--cream);
+
+  --popover: #142033;
+  --popover-foreground: var(--cream);
+
+  --primary: var(--terracotta);
+  --primary-foreground: #ffffff;
+
+  --secondary: var(--tadelakt-green);
+  --secondary-foreground: #ffffff;
+
+  --muted: #2a3f5f;
+  --muted-foreground: var(--desert-sand);
+
+  --accent: var(--saffron-gold);
+  --accent-foreground: var(--midnight-blue);
+
+  --destructive: var(--paprika-red);
+  --destructive-foreground: #ffffff;
+
+  --border: #2a3f5f;
+  --input: #2a3f5f;
+  --ring: var(--terracotta);
+
+  --sidebar: var(--midnight-blue);
+  --sidebar-foreground: var(--cream);
+  --sidebar-primary: var(--terracotta);
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #2a3f5f;
+  --sidebar-accent-foreground: var(--cream);
+  --sidebar-border: #2a3f5f;
+  --sidebar-ring: var(--terracotta);
 }
