@@ -46,7 +46,7 @@ export function Navbar() {
           <Link href="/" className="group">
             <h1 className={cn(
               "font-serif text-2xl md:text-3xl font-semibold tracking-wider transition-colors",
-              scrolled ? "text-primary" : "text-primary" // Can adjust if we have a hero image with dark overlay later
+              scrolled ? "text-primary" : "text-white"
             )}>
               RIAD DAR TEN
             </h1>
@@ -58,7 +58,12 @@ export function Navbar() {
               <Link
                 key={link.name}
                 href={link.href}
-                className="text-midnight-blue hover:text-terracotta transition-colors font-sans text-sm font-medium uppercase tracking-wide"
+                className={cn(
+                  "transition-colors font-sans text-sm font-medium uppercase tracking-wide",
+                  scrolled 
+                    ? "text-midnight-blue hover:text-terracotta" 
+                    : "text-white/90 hover:text-white"
+                )}
               >
                 {link.name}
               </Link>
@@ -75,7 +80,10 @@ export function Navbar() {
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-midnight-blue hover:text-terracotta transition-colors p-2"
+              className={cn(
+                "transition-colors p-2",
+                scrolled ? "text-midnight-blue hover:text-terracotta" : "text-white hover:text-white"
+              )}
               aria-label="Toggle menu"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
