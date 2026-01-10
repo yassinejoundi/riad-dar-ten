@@ -39,10 +39,13 @@ export function LocationNeighborhood() {
             </h2>
             <div className="prose prose-lg text-gray-600 font-sans leading-relaxed mb-8">
               <p>
-                Riad Dar Ten is situated in the prestigious **Ksour district**,
-                a hidden gem within the Medina walls. Historically home to noble
-                families, this neighborhood offers a unique blend of authentic
-                local life and serene tranquility.
+                Riad Dar Ten is situated in the prestigious{" "}
+                <span className="font-bold text-terracotta">
+                  Ksour district
+                </span>
+                , a hidden gem within the Medina walls. Historically home to
+                noble families, this neighborhood offers a unique blend of
+                authentic local life and serene tranquility.
               </p>
               <p>
                 Unlike the labyrinthine depths of the souks, Ksour provides
