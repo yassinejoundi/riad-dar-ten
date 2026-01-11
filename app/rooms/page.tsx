@@ -1,6 +1,7 @@
 import { Metadata } from "next"
 import { RoomsHero } from "@/components/rooms/RoomsHero"
 import { RoomsOverview } from "@/components/rooms/RoomsOverview"
+import { RoomListings } from "@/components/rooms/RoomListings"
 
 export const metadata: Metadata = {
   title: "Rooms & Suites | Riad Dar Ten",
@@ -13,6 +14,7 @@ export default function RoomsPage() {
     <main className="min-h-screen bg-cream">
       <RoomsHero />
       <RoomsOverview />
+      <RoomListings />
     </main>
   )
 }
