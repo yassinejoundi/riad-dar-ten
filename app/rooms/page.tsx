@@ -3,6 +3,7 @@ import { RoomsHero } from "@/components/rooms/RoomsHero"
 import { RoomsOverview } from "@/components/rooms/RoomsOverview"
 import { RoomListings } from "@/components/rooms/RoomListings"
 import { WhatsIncluded } from "@/components/rooms/WhatsIncluded"
+import { PerfectFor } from "@/components/rooms/PerfectFor"
 
 export const metadata: Metadata = {
   title: "Rooms & Suites | Riad Dar Ten",
@@ -17,6 +18,7 @@ export default function RoomsPage() {
       <RoomsOverview />
       <RoomListings />
       <WhatsIncluded />
+      <PerfectFor />
     </main>
   )
 }
