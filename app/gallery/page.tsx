@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { GalleryHero } from "@/components/gallery/GalleryHero"
+import { GalleryGrid } from "@/components/gallery/GalleryGrid"
 import { Navbar } from "@/components/common/Navbar"
 import { Footer } from "@/components/common/Footer"
 
@@ -14,10 +15,7 @@ export default function GalleryPage() {
         activeCategory={activeCategory}
         onCategoryChange={setActiveCategory}
       />
-      {/* Grid will go here */}
-      <div className="container mx-auto px-4 py-12 text-center text-gray-500">
-        <p>Gallery Grid Component Placeholder for category: {activeCategory}</p>
-      </div>
+      <GalleryGrid activeCategory={activeCategory} />
     </main>
   )
 }
