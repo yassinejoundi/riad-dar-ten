@@ -50,10 +50,10 @@ export function ContactHero() {
                   WhatsApp
                 </p>
                 <a
-                  href="https://wa.me/212612345678"
+                  href="https://wa.me/212660215700"
                   className="text-primary hover:text-terracotta transition-colors"
                 >
-                  +212 6 12 34 56 78
+                  +212 6 60 21 57 00
                 </a>
               </div>
               <div>
@@ -61,10 +61,10 @@ export function ContactHero() {
                   Email
                 </p>
                 <a
-                  href="mailto:hello@riaddarten.com"
+                  href="mailto:info@riaddarten.com"
                   className="text-primary hover:text-terracotta transition-colors break-all"
                 >
-                  hello@riaddarten.com
+                  info@riaddarten.com
                 </a>
               </div>
               <div>
