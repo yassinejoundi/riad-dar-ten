@@ -1,6 +1,7 @@
 "use client"
 
 import Image from "next/image"
+import { motion } from "motion/react"
 import {
   Carousel,
   CarouselContent,
@@ -32,8 +33,13 @@ export function CourtyardPool() {
     <section className="py-24 bg-white overflow-hidden">
       <div className="container mx-auto px-4 md:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          {/* Text Content */}
-          <div className="order-2 lg:order-1">
+          <motion.div
+            className="order-2 lg:order-1"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.3 }}
+          >
             <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-primary mb-6">
               The Soul of Dar Ten
             </h2>
@@ -60,10 +66,15 @@ export function CourtyardPool() {
                 creating a peaceful oasis in the bustling Medina.
               </p>
             </div>
-          </div>
+          </motion.div>
 
-          {/* Image Gallery Carousel */}
-          <div className="order-1 lg:order-2">
+          <motion.div
+            className="order-1 lg:order-2"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.15 }}
+            viewport={{ once: true, amount: 0.3 }}
+          >
             <Carousel
               opts={{
                 align: "start",
@@ -95,7 +106,7 @@ export function CourtyardPool() {
                 <CarouselNext className="static translate-y-0 text-primary border-primary hover:bg-primary hover:text-white" />
               </div>
             </Carousel>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

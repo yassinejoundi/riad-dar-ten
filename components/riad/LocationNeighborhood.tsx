@@ -1,6 +1,7 @@
 "use client"
 
 import { MapPin, Footprints, ShieldCheck, Compass } from "lucide-react"
+import { motion } from "motion/react"
 
 export function LocationNeighborhood() {
   const distances = [
@@ -29,8 +30,13 @@ export function LocationNeighborhood() {
     <section className="py-24 bg-cream">
       <div className="container mx-auto px-4 md:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
-          {/* Narrative Content */}
-          <div className="order-2 lg:order-1">
+          <motion.div
+            className="order-2 lg:order-1"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.3 }}
+          >
             <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-primary mb-6">
               The Ksour District: <br />
               <span className="italic text-terracotta">
@@ -92,10 +98,15 @@ export function LocationNeighborhood() {
                 </div>
               ))}
             </div>
-          </div>
+          </motion.div>
 
-          {/* Map Section */}
-          <div className="order-1 lg:order-2 h-[400px] lg:h-full min-h-[500px] rounded-lg overflow-hidden shadow-xl border-4 border-white relative">
+          <motion.div
+            className="order-1 lg:order-2 h-[400px] lg:h-full min-h-[500px] rounded-lg overflow-hidden shadow-xl border-4 border-white relative"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.15 }}
+            viewport={{ once: true, amount: 0.3 }}
+          >
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3397.2133549842956!2d-7.9932132238420035!3d31.628008241815227!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xdafee428df5384f%3A0xa47e07166af7acc9!2sRiad%20Dar%20Ten!5e0!3m2!1sen!2s!4v1768066932953!5m2!1sen!2s"
               width="100%"
@@ -106,7 +117,7 @@ export function LocationNeighborhood() {
               referrerPolicy="no-referrer-when-downgrade"
               className="absolute inset-0"
             />
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

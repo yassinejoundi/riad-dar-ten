@@ -1,12 +1,20 @@
+"use client"
+
 import Image from "next/image"
+import { motion } from "motion/react"
 
 export function OurStory() {
   return (
     <section className="py-24 bg-cream">
       <div className="container mx-auto px-4 md:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
-          {/* Text Content */}
-          <div className="space-y-8 animate-fade-in-up">
+          <motion.div
+            className="space-y-8"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.3 }}
+          >
             <div>
               <span className="text-sm font-sans font-bold uppercase tracking-widest text-terracotta mb-4 block">
                 Our Story
@@ -47,10 +55,15 @@ export function OurStory() {
                 inspiring.
               </p>
             </div>
-          </div>
+          </motion.div>
 
-          {/* Supporting Images */}
-          <div className="grid grid-cols-2 gap-4 md:gap-6 animate-fade-in-up delay-200">
+          <motion.div
+            className="grid grid-cols-2 gap-4 md:gap-6"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.15 }}
+            viewport={{ once: true, amount: 0.3 }}
+          >
             <div className="relative h-64 md:h-80 w-full rounded-lg overflow-hidden translate-y-8">
               <Image
                 src="/assets/images/home/welcome.png"
@@ -75,7 +88,7 @@ export function OurStory() {
                 className="object-cover hover:scale-105 transition-transform duration-700"
               />
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

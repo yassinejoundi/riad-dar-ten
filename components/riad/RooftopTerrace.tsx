@@ -2,6 +2,7 @@
 
 import Image from "next/image"
 import { Sun, Coffee, Moon, Camera } from "lucide-react"
+import { motion } from "motion/react"
 
 export function RooftopTerrace() {
   const features = [
@@ -31,8 +32,13 @@ export function RooftopTerrace() {
     <section className="py-24 bg-cream">
       <div className="container mx-auto px-4 md:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          {/* Images Grid */}
-          <div className="order-1 grid grid-cols-2 gap-4">
+          <motion.div
+            className="order-1 grid grid-cols-2 gap-4"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.3 }}
+          >
             <div className="relative h-64 md:h-80 rounded-lg overflow-hidden shadow-lg">
               <Image
                 src="/assets/images/home/cta-background.png"
@@ -58,10 +64,15 @@ export function RooftopTerrace() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
             </div>
-          </div>
+          </motion.div>
 
-          {/* Text Content */}
-          <div className="order-2">
+          <motion.div
+            className="order-2"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.15 }}
+            viewport={{ once: true, amount: 0.3 }}
+          >
             <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-primary mb-6">
               Sunrise to Sunset, <br />
               <span className="italic text-terracotta">Above the Medina</span>
@@ -89,7 +100,7 @@ export function RooftopTerrace() {
                 </div>
               ))}
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

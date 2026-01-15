@@ -18,6 +18,7 @@ import {
   Sparkles,
   Brush,
 } from "lucide-react"
+import { motion } from "motion/react"
 
 export function AmenitiesServices() {
   const categories = [
@@ -57,7 +58,13 @@ export function AmenitiesServices() {
   return (
     <section className="py-24 bg-[#EEE3D6]">
       <div className="container mx-auto px-4 md:px-8">
-        <div className="text-center mb-16">
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.3 }}
+        >
           <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-primary mb-4">
             Every Detail Considered
           </h2>
@@ -65,13 +72,21 @@ export function AmenitiesServices() {
             We've curated a comprehensive range of amenities to ensure your stay
             is as comfortable and effortless as possible.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
           {categories.map((category, index) => (
-            <div
+            <motion.div
               key={index}
               className="bg-white rounded-lg p-8 border border-desert-sand/30 hover:shadow-lg transition-shadow duration-300"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.8,
+                ease: "easeOut",
+                delay: 0.1 * index,
+              }}
+              viewport={{ once: true, amount: 0.2 }}
             >
               <h3 className="font-serif text-2xl text-primary mb-6 border-b border-terracotta/20 pb-3 inline-block pr-8">
                 {category.title}
@@ -88,7 +103,7 @@ export function AmenitiesServices() {
                   </li>
                 ))}
               </ul>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

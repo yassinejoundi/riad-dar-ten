@@ -1,23 +1,36 @@
+"use client"
+
 import Image from "next/image"
 import { Check } from "lucide-react"
+import { motion } from "motion/react"
 
 export function ArchitectureDesign() {
   return (
     <section className="py-24 bg-cream">
       <div className="container mx-auto px-4 md:px-8">
-        {/* Section Header */}
-        <div className="text-center mb-16 animate-fade-in-up">
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.3 }}
+        >
           <span className="text-sm font-sans font-bold uppercase tracking-widest text-terracotta mb-4 block">
             Design Philosophy
           </span>
           <h2 className="font-serif text-4xl md:text-5xl text-primary">
             Timeless Moroccan Craftsmanship
           </h2>
-        </div>
+        </motion.div>
 
-        {/* Traditional Elements */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center mb-24">
-          <div className="order-2 lg:order-1 animate-fade-in-up">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:grid-cols-2 gap-12 lg:gap-24 items-center mb-24">
+          <motion.div
+            className="order-2 lg:order-1"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.3 }}
+          >
             <div className="grid grid-cols-2 gap-4">
               <div className="relative h-64 rounded-lg overflow-hidden translate-y-8">
                 <Image
@@ -36,9 +49,15 @@ export function ArchitectureDesign() {
                 />
               </div>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="order-1 lg:order-2 animate-fade-in-up delay-100">
+          <motion.div
+            className="order-1 lg:order-2"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.15 }}
+            viewport={{ once: true, amount: 0.3 }}
+          >
             <h3 className="font-serif text-3xl text-primary mb-6">
               Traditional Elements
             </h3>
@@ -65,12 +84,16 @@ export function ArchitectureDesign() {
                 </li>
               ))}
             </ul>
-          </div>
+          </motion.div>
         </div>
 
-        {/* Contemporary Touches */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
-          <div className="animate-fade-in-up">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.3 }}
+          >
             <h3 className="font-serif text-3xl text-primary mb-6">
               Contemporary Touches
             </h3>
@@ -98,9 +121,14 @@ export function ArchitectureDesign() {
                 </li>
               ))}
             </ul>
-          </div>
+          </motion.div>
 
-          <div className="animate-fade-in-up delay-100">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.15 }}
+            viewport={{ once: true, amount: 0.3 }}
+          >
             <div className="grid grid-cols-2 gap-4">
               <div className="relative h-64 rounded-lg overflow-hidden">
                 <Image
@@ -119,7 +147,7 @@ export function ArchitectureDesign() {
                 />
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
