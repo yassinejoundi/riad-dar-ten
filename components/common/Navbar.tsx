@@ -1,35 +1,34 @@
-"use client";
+"use client"
 
-import { useState, useEffect } from "react";
-import Link from "next/link";
-import { Menu, X } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { useState, useEffect } from "react"
+import Link from "next/link"
+import { Menu, X } from "lucide-react"
+import { cn } from "@/lib/utils"
 
 const navLinks = [
   { name: "Home", href: "/" },
   { name: "The Riad", href: "/riad" },
   { name: "Rooms & Suites", href: "/rooms" },
-  { name: "Experiences", href: "/experiences" },
   { name: "Gallery", href: "/gallery" },
   { name: "Contact", href: "/contact" },
-];
+]
 
 export function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const [isOpen, setIsOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 20) {
-        setScrolled(true);
+        setScrolled(true)
       } else {
-        setScrolled(false);
+        setScrolled(false)
       }
-    };
+    }
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
 
   return (
     <nav
@@ -44,10 +43,12 @@ export function Navbar() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="group">
-            <h1 className={cn(
-              "font-serif text-2xl md:text-3xl font-semibold tracking-wider transition-colors",
-              scrolled ? "text-primary" : "text-white"
-            )}>
+            <h1
+              className={cn(
+                "font-serif text-2xl md:text-3xl font-semibold tracking-wider transition-colors",
+                scrolled ? "text-primary" : "text-white"
+              )}
+            >
               RIAD DAR TEN
             </h1>
           </Link>
@@ -60,8 +61,8 @@ export function Navbar() {
                 href={link.href}
                 className={cn(
                   "transition-colors font-sans text-sm font-medium uppercase tracking-wide",
-                  scrolled 
-                    ? "text-midnight-blue hover:text-terracotta" 
+                  scrolled
+                    ? "text-midnight-blue hover:text-terracotta"
                     : "text-white/90 hover:text-white"
                 )}
               >
@@ -82,7 +83,9 @@ export function Navbar() {
               onClick={() => setIsOpen(!isOpen)}
               className={cn(
                 "transition-colors p-2",
-                scrolled ? "text-midnight-blue hover:text-terracotta" : "text-white hover:text-white"
+                scrolled
+                  ? "text-midnight-blue hover:text-terracotta"
+                  : "text-white hover:text-white"
               )}
               aria-label="Toggle menu"
             >
@@ -101,33 +104,33 @@ export function Navbar() {
         style={{ top: "0", height: "100vh" }}
       >
         <button
-            onClick={() => setIsOpen(false)}
-            className="absolute top-6 right-6 text-midnight-blue hover:text-terracotta transition-colors p-2"
-            aria-label="Close menu"
+          onClick={() => setIsOpen(false)}
+          className="absolute top-6 right-6 text-midnight-blue hover:text-terracotta transition-colors p-2"
+          aria-label="Close menu"
         >
-            <X size={24} />
+          <X size={24} />
         </button>
 
         <div className="flex flex-col items-center space-y-6">
-            {navLinks.map((link) => (
+          {navLinks.map((link) => (
             <Link
-                key={link.name}
-                href={link.href}
-                onClick={() => setIsOpen(false)}
-                className="text-midnight-blue hover:text-terracotta transition-colors font-serif text-2xl font-medium"
+              key={link.name}
+              href={link.href}
+              onClick={() => setIsOpen(false)}
+              className="text-midnight-blue hover:text-terracotta transition-colors font-serif text-2xl font-medium"
             >
-                {link.name}
+              {link.name}
             </Link>
-            ))}
-            <Link
+          ))}
+          <Link
             href="/book"
             onClick={() => setIsOpen(false)}
             className="mt-4 bg-terracotta text-white px-8 py-3 rounded-sm font-sans text-lg font-semibold tracking-wide hover:bg-deep-spice transition-colors duration-300"
-            >
+          >
             BOOK NOW
-            </Link>
+          </Link>
         </div>
       </div>
     </nav>
-  );
+  )
 }

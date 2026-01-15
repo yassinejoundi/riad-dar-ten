@@ -49,18 +49,18 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/rooms"
+                  href="/riad"
                   className="hover:text-terracotta transition-colors"
                 >
-                  Our Rooms
+                  The Riad
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/experiences"
+                  href="/rooms"
                   className="hover:text-terracotta transition-colors"
                 >
-                  Experiences
+                  Our Rooms
                 </Link>
               </li>
               <li>
