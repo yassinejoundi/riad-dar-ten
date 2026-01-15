@@ -1,5 +1,8 @@
+"use client"
+
 import Image from "next/image"
 import { BedDouble, Heart, MapPin, Waves } from "lucide-react"
+import { motion } from "motion/react"
 
 const stats = [
   {
@@ -30,7 +33,13 @@ export function WelcomeSection() {
       <div className="container mx-auto px-4 md:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Text Column */}
-          <div className="order-2 lg:order-1 animate-fade-in-up">
+          <motion.div
+            className="order-2 lg:order-1"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.3 }}
+          >
             <h2 className="text-sm font-sans font-bold uppercase tracking-widest text-terracotta mb-4">
               Discover Our Sanctuary
             </h2>
@@ -60,7 +69,6 @@ export function WelcomeSection() {
               </p>
             </div>
 
-            {/* Stats Grid */}
             <div className="grid grid-cols-2 gap-8 mt-12 pt-12 border-t border-desert-sand/30">
               {stats.map((stat, index) => (
                 <div key={index} className="flex items-start space-x-4">
@@ -78,10 +86,16 @@ export function WelcomeSection() {
                 </div>
               ))}
             </div>
-          </div>
+          </motion.div>
 
           {/* Image Column */}
-          <div className="order-1 lg:order-2 relative h-[600px] w-full animate-fade-in-up delay-200">
+          <motion.div
+            className="order-1 lg:order-2 relative h-[600px] w-full"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+            viewport={{ once: true, amount: 0.3 }}
+          >
             <div className="absolute inset-0 bg-terracotta/10 rounded-t-full rounded-b-lg transform rotate-3 scale-105 z-0" />
             <div className="relative h-full w-full rounded-t-full rounded-b-lg overflow-hidden shadow-2xl z-10">
               <Image
@@ -92,13 +106,12 @@ export function WelcomeSection() {
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
-            {/* Decorative Element */}
             <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-lg shadow-xl z-20 hidden md:block max-w-xs">
               <p className="font-accent text-2xl text-terracotta italic text-center">
                 &quot;An unforgettable escape in the heart of Marrakech.&quot;
               </p>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

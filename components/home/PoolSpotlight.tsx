@@ -1,5 +1,8 @@
+"use client"
+
 import Image from "next/image"
 import { Check } from "lucide-react"
+import { motion } from "motion/react"
 
 const features = [
   "Interior courtyard pool",
@@ -14,7 +17,13 @@ export function PoolSpotlight() {
       <div className="container mx-auto px-4 md:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Image Side */}
-          <div className="relative h-[600px] w-full animate-fade-in-up group overflow-hidden rounded-lg shadow-2xl">
+          <motion.div
+            className="relative h-[600px] w-full group overflow-hidden rounded-lg shadow-2xl"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.3 }}
+          >
             <Image
               src="/assets/images/home/pool-spotlight.png" // Using the hero image as requested (reusing existing path for now)
               alt="The stunning courtyard pool"
@@ -23,10 +32,16 @@ export function PoolSpotlight() {
             />
             {/* Overlay for mood */}
             <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500" />
-          </div>
+          </motion.div>
 
           {/* Text Side */}
-          <div className="lg:pl-12 animate-fade-in-up delay-200">
+          <motion.div
+            className="lg:pl-12"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.15 }}
+            viewport={{ once: true, amount: 0.3 }}
+          >
             <span className="text-sm font-sans font-bold uppercase tracking-widest text-terracotta mb-4 block">
               Relax & Unwind
             </span>
@@ -53,7 +68,7 @@ export function PoolSpotlight() {
                 </li>
               ))}
             </ul>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

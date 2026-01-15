@@ -1,6 +1,9 @@
+"use client"
+
 import Image from "next/image"
 import { Star, Instagram } from "lucide-react"
 import Link from "next/link"
+import { motion } from "motion/react"
 
 const instagramPhotos = [
   "/assets/images/home/instagram/riaddarten-01.png",
@@ -17,7 +20,13 @@ export function GuestExperience() {
       <div className="container mx-auto px-4 md:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
           {/* Testimonial Column */}
-          <div className="flex flex-col justify-center animate-fade-in-up">
+          <motion.div
+            className="flex flex-col justify-center"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.3 }}
+          >
             <span className="text-sm font-sans font-bold uppercase tracking-widest text-terracotta mb-4 block">
               Guest Stories
             </span>
@@ -64,10 +73,16 @@ export function GuestExperience() {
                 </p>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Instagram Feed Column */}
-          <div className="animate-fade-in-up delay-200">
+          <motion.div
+            className=""
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.15 }}
+            viewport={{ once: true, amount: 0.3 }}
+          >
             <div className="flex items-center justify-between mb-8">
               <h3 className="font-serif text-2xl text-primary">
                 Follow Our Journey
@@ -100,7 +115,7 @@ export function GuestExperience() {
                 </div>
               ))}
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/carousel"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
+import { motion } from "motion/react"
 
 const rooms = [
   {
@@ -87,16 +88,28 @@ export function RoomsCarousel() {
   return (
     <section className="py-24 bg-cream overflow-hidden">
       <div className="container mx-auto px-4 md:px-8">
-        <div className="text-center mb-12 animate-fade-in-up">
+        <motion.div
+          className="text-center mb-12"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.3 }}
+        >
           <h2 className="font-serif text-4xl md:text-5xl text-primary mb-3">
             Six Rooms, Six Stories
           </h2>
           <p className="font-sans text-muted-foreground text-lg italic">
             Each named after precious Moroccan spices
           </p>
-        </div>
+        </motion.div>
 
-        <div className="relative max-w-6xl mx-auto animate-fade-in-up delay-200">
+        <motion.div
+          className="relative max-w-6xl mx-auto"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.15 }}
+          viewport={{ once: true, amount: 0.3 }}
+        >
           <Carousel
             setApi={setApi}
             className="w-full"
@@ -183,9 +196,15 @@ export function RoomsCarousel() {
               />
             ))}
           </div>
-        </div>
+        </motion.div>
 
-        <div className="text-center mt-12 animate-fade-in-up delay-300">
+        <motion.div
+          className="text-center mt-12"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
+          viewport={{ once: true, amount: 0.3 }}
+        >
           <Link href="/rooms">
             <Button
               variant="outline"
@@ -194,7 +213,7 @@ export function RoomsCarousel() {
               View All Rooms
             </Button>
           </Link>
-        </div>
+        </motion.div>
       </div>
     </section>
   )

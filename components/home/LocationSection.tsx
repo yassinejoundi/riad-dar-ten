@@ -1,4 +1,7 @@
-import { MapPin, Car, Footprints, Building2 } from "lucide-react";
+"use client"
+
+import { MapPin, Car, Footprints, Building2 } from "lucide-react"
+import { motion } from "motion/react"
 
 const distanceMarkers = [
   {
@@ -21,7 +24,7 @@ const distanceMarkers = [
     time: "30 min drive",
     icon: Car,
   },
-];
+]
 
 export function LocationSection() {
   return (
@@ -29,7 +32,13 @@ export function LocationSection() {
       <div className="container mx-auto px-4 md:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
           {/* Text Content */}
-          <div className="order-2 lg:order-1 animate-fade-in-up">
+          <motion.div
+            className="order-2 lg:order-1"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.3 }}
+          >
             <span className="text-sm font-sans font-bold uppercase tracking-widest text-terracotta mb-4 block">
               Location & Proximity
             </span>
@@ -37,7 +46,9 @@ export function LocationSection() {
               In the Medina, Yet a World Apart
             </h2>
             <p className="font-sans text-lg text-muted-foreground mb-12 leading-relaxed">
-              Located in the heart of the Medina, Riad Dar Ten offers a peaceful sanctuary just steps away from the vibrant energy of Marrakech. Experience the best of both worlds.
+              Located in the heart of the Medina, Riad Dar Ten offers a peaceful
+              sanctuary just steps away from the vibrant energy of Marrakech.
+              Experience the best of both worlds.
             </p>
 
             <div className="space-y-6">
@@ -47,16 +58,26 @@ export function LocationSection() {
                     <marker.icon size={20} />
                   </div>
                   <div>
-                    <h4 className="font-serif text-xl text-primary">{marker.label}</h4>
-                    <p className="font-sans text-sm text-muted-foreground">{marker.time}</p>
+                    <h4 className="font-serif text-xl text-primary">
+                      {marker.label}
+                    </h4>
+                    <p className="font-sans text-sm text-muted-foreground">
+                      {marker.time}
+                    </p>
                   </div>
                 </div>
               ))}
             </div>
-          </div>
+          </motion.div>
 
           {/* Map */}
-          <div className="order-1 lg:order-2 h-[450px] w-full rounded-lg overflow-hidden shadow-xl border-4 border-white animate-fade-in-up delay-200">
+          <motion.div
+            className="order-1 lg:order-2 h-[450px] w-full rounded-lg overflow-hidden shadow-xl border-4 border-white"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.15 }}
+            viewport={{ once: true, amount: 0.3 }}
+          >
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3397.2133549842956!2d-7.9932132238420035!3d31.628008241815227!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xdafee428df5384f%3A0xa47e07166af7acc9!2sRiad%20Dar%20Ten!5e0!3m2!1sen!2s!4v1768066932953!5m2!1sen!2s"
               width="100%"
@@ -68,9 +89,9 @@ export function LocationSection() {
               title="Riad Dar Ten Location Map"
               className="w-full h-full"
             ></iframe>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
-  );
+  )
 }

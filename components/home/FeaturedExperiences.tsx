@@ -1,4 +1,7 @@
+"use client"
+
 import { Landmark, Utensils, MapPin } from "lucide-react"
+import { motion } from "motion/react"
 
 const experiences = [
   {
@@ -25,21 +28,34 @@ export function FeaturedExperiences() {
   return (
     <section className="py-20 bg-cream">
       <div className="container mx-auto px-4 md:px-8">
-        <div className="text-center mb-16 animate-fade-in-up">
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.3 }}
+        >
           <span className="text-sm font-sans font-bold uppercase tracking-widest text-terracotta mb-2 block">
             Why Choose Us
           </span>
           <h2 className="font-serif text-3xl md:text-4xl text-primary">
             An Unforgettable Experience
           </h2>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {experiences.map((item, index) => (
-            <div
+            <motion.div
               key={index}
-              className="group p-8 rounded-lg bg-white border border-desert-sand/30 hover:shadow-lg hover:border-terracotta/30 transition-all duration-300 text-center animate-fade-in-up"
-              style={{ animationDelay: `${index * 150}ms` }}
+              className="group p-8 rounded-lg bg-white border border-desert-sand/30 hover:shadow-lg hover:border-terracotta/30 transition-all duration-300 text-center"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.7,
+                ease: "easeOut",
+                delay: 0.1 * index,
+              }}
+              viewport={{ once: true, amount: 0.2 }}
             >
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-terracotta/10 text-terracotta mb-6 group-hover:bg-terracotta group-hover:text-white transition-colors duration-300">
                 <item.icon size={32} strokeWidth={1.5} />
@@ -50,7 +66,7 @@ export function FeaturedExperiences() {
               <p className="font-sans text-muted-foreground leading-relaxed">
                 {item.description}
               </p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

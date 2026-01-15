@@ -1,5 +1,8 @@
+"use client"
+
 import Image from "next/image"
 import Link from "next/link"
+import { motion } from "motion/react"
 import { Button } from "@/components/ui/button"
 
 export function FinalCTA() {
@@ -18,14 +21,32 @@ export function FinalCTA() {
       </div>
 
       <div className="container relative z-10 mx-auto px-4 md:px-8 text-center">
-        <h2 className="font-serif text-4xl md:text-6xl text-white mb-6 animate-fade-in-up">
+        <motion.h2
+          className="font-serif text-4xl md:text-6xl text-white mb-6"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.3 }}
+        >
           Begin Your Marrakech Story
-        </h2>
-        <p className="font-sans text-xl md:text-2xl text-white/90 mb-10 animate-fade-in-up delay-100">
+        </motion.h2>
+        <motion.p
+          className="font-sans text-xl md:text-2xl text-white/90 mb-10"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.15 }}
+          viewport={{ once: true, amount: 0.3 }}
+        >
           Limited rooms, unlimited memories
-        </p>
+        </motion.p>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up delay-200">
+        <motion.div
+          className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
+          viewport={{ once: true, amount: 0.3 }}
+        >
           <Link href="/book">
             <Button
               size="lg"
@@ -43,7 +64,7 @@ export function FinalCTA() {
               Contact Us
             </Button>
           </Link>
-        </div>
+        </motion.div>
       </div>
     </section>
   )
