@@ -1,6 +1,7 @@
 "use client"
 
 import { Check } from "lucide-react"
+import { motion } from "motion/react"
 
 export function RoomsOverview() {
   const commonFeatures = [
@@ -15,7 +16,13 @@ export function RoomsOverview() {
   return (
     <section className="py-24 bg-cream">
       <div className="container mx-auto px-4 md:px-8">
-        <div className="max-w-4xl mx-auto text-center mb-16 animate-fade-in-up">
+        <motion.div
+          className="max-w-4xl mx-auto text-center mb-16"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.3 }}
+        >
           <span className="text-sm font-sans font-bold uppercase tracking-widest text-terracotta mb-4 block">
             The Philosophy
           </span>
@@ -39,9 +46,15 @@ export function RoomsOverview() {
               seamlessly blended with modern comforts.
             </p>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="bg-white rounded-xl p-8 md:p-12 shadow-sm border border-desert-sand/30 animate-fade-in-up delay-100">
+        <motion.div
+          className="bg-white rounded-xl p-8 md:p-12 shadow-sm border border-desert-sand/30"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.15 }}
+          viewport={{ once: true, amount: 0.3 }}
+        >
           <h3 className="font-serif text-2xl text-primary mb-8 text-center">
             Included in Every Stay
           </h3>
@@ -58,7 +71,7 @@ export function RoomsOverview() {
               </div>
             ))}
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   )

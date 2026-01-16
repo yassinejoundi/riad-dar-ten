@@ -12,6 +12,7 @@ import {
   Check,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { motion } from "motion/react";
 
 const rooms = [
   {
@@ -144,11 +145,15 @@ export function RoomListings() {
     <section className="py-24 bg-white">
       <div className="container mx-auto px-4 md:px-8 space-y-32">
         {rooms.map((room, index) => (
-          <div
+          <motion.div
             key={room.id}
             className={`flex flex-col lg:flex-row gap-12 lg:gap-20 items-center ${
               index % 2 === 1 ? "lg:flex-row-reverse" : ""
             }`}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: index * 0.1 }}
+            viewport={{ once: true, amount: 0.2 }}
           >
             {/* Image Section */}
             <div className="w-full lg:w-1/2 relative h-[400px] lg:h-[500px] rounded-xl overflow-hidden shadow-2xl group">
@@ -220,7 +225,7 @@ export function RoomListings() {
                 </Button>
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>
