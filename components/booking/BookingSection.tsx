@@ -4,6 +4,7 @@ import { useState } from "react"
 import { CalendarCheck, Users, BedDouble } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Checkbox } from "@/components/ui/checkbox"
+import { motion } from "motion/react"
 
 const ROOMS = [
   { id: "any", label: "Any Room" },
@@ -42,7 +43,13 @@ export function BookingSection() {
   return (
     <section className="py-16 md:py-20 bg-cream">
       <div className="container mx-auto px-4 md:px-8">
-        <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-xl border border-desert-sand/40 p-6 md:p-8">
+        <motion.div
+          className="max-w-4xl mx-auto bg-white rounded-2xl shadow-xl border border-desert-sand/40 p-6 md:p-8"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.3 }}
+        >
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8">
             <div>
               <h2 className="font-serif text-3xl md:text-4xl text-primary mb-2">
@@ -236,7 +243,7 @@ export function BookingSection() {
               </Button>
             </div>
           </form>
-        </div>
+        </motion.div>
       </div>
     </section>
   )

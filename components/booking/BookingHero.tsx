@@ -2,6 +2,7 @@
 
 import Image from "next/image"
 import Link from "next/link"
+import { motion } from "motion/react"
 
 export function BookingHero() {
   return (
@@ -18,15 +19,27 @@ export function BookingHero() {
       </div>
 
       <div className="relative z-10 w-full max-w-5xl px-4 md:px-8">
-        <div className="mb-6 text-sm font-sans text-gray-200 flex items-center gap-2">
+        <motion.div
+          className="mb-6 text-sm font-sans text-gray-200 flex items-center gap-2"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          viewport={{ once: true }}
+        >
           <Link href="/" className="hover:text-terracotta transition-colors">
             Home
           </Link>
           <span className="text-gray-400">/</span>
           <span className="text-gray-100">Book</span>
-        </div>
+        </motion.div>
 
-        <div className="space-y-5 text-white max-w-3xl">
+        <motion.div
+          className="space-y-5 text-white max-w-3xl"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
+          viewport={{ once: true, amount: 0.3 }}
+        >
           <p className="font-sans text-xs tracking-[0.25em] uppercase text-terracotta">
             Book Your Stay
           </p>
@@ -47,7 +60,7 @@ export function BookingHero() {
               Quick response to all requests
             </span>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   )

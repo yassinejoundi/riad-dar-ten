@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { ChevronDown } from "lucide-react"
+import { motion } from "motion/react"
 
 const FAQ_GROUPS = [
   {
@@ -132,7 +133,13 @@ export function BookingFAQ() {
   return (
     <section className="py-20 bg-cream">
       <div className="container mx-auto px-4 md:px-8">
-        <div className="text-center mb-12">
+        <motion.div
+          className="text-center mb-12"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.3 }}
+        >
           <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-primary mb-4">
             Frequently Asked Questions
           </h2>
@@ -140,9 +147,15 @@ export function BookingFAQ() {
             Find quick answers about booking, services, and staying at Riad Dar
             Ten. If you cannot find what you need, feel free to contact us.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid gap-10 md:grid-cols-2">
+        <motion.div
+          className="grid gap-10 md:grid-cols-2"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
+          viewport={{ once: true, amount: 0.2 }}
+        >
           {FAQ_GROUPS.map((group) => (
             <div key={group.id} className="space-y-4">
               <h3 className="font-serif text-xl text-primary">
@@ -188,9 +201,8 @@ export function BookingFAQ() {
               </div>
             </div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   )
 }
-
