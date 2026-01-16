@@ -28,14 +28,11 @@ The project combines strong visual storytelling, subtle motion, and a clear book
 
 Watch a short walkthrough of the website experience:
 
-<video src="https://res.cloudinary.com/dpmtluao5/video/upload/v1768583359/Riad-Dar-Dounia-Website_xveuth.mp4" controls width="800">
-  Your browser does not support the video tag. You can watch it here:
-  https://res.cloudinary.com/dpmtluao5/video/upload/v1768583359/Riad-Dar-Dounia-Website_xveuth.mp4
-</video>
+[▶ Watch the demo video on Cloudinary](https://res.cloudinary.com/dpmtluao5/video/upload/v1768583359/Riad-Dar-Dounia-Website_xveuth.mp4)
 
 ---
 
-## � Key Value & Potential
+## 🎯 Key Value & Potential
 
 - **Brand Storytelling**
 
