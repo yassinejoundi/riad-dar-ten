@@ -30,6 +30,8 @@ Watch a short walkthrough of the website experience:
 
 [▶ Watch the demo video on Cloudinary](https://res.cloudinary.com/dpmtluao5/video/upload/v1768583359/Riad-Dar-Dounia-Website_xveuth.mp4)
 
+https://player.cloudinary.com/embed/?cloud_name=dpmtluao5&public_id=Riad-Dar-Dounia-Website_xveuth
+
 ---
 
 ## 🎯 Key Value & Potential
