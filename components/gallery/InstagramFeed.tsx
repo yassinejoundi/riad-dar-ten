@@ -4,6 +4,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { Instagram, Heart, MessageCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { motion } from "motion/react"
 
 // Mock data for Instagram posts since we don't have a live API connection
 // In a real app, this would be fetched from the Instagram Basic Display API
@@ -86,8 +87,13 @@ export function InstagramFeed() {
   return (
     <section className="py-24 bg-white">
       <div className="container mx-auto px-4 md:px-8">
-        {/* Header */}
-        <div className="text-center mb-16 space-y-4">
+        <motion.div
+          className="text-center mb-16 space-y-4"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.3 }}
+        >
           <div className="flex items-center justify-center gap-2 text-terracotta mb-2">
             <Instagram size={24} />
             <span className="font-sans font-medium uppercase tracking-widest text-sm">
@@ -98,17 +104,30 @@ export function InstagramFeed() {
             Follow Our Daily Story
           </h2>
           <div className="w-24 h-1 bg-terracotta mx-auto mt-6" />
-        </div>
+        </motion.div>
 
-        {/* Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 mb-16">
-          {INSTAGRAM_POSTS.map((post) => (
-            <a
+        <motion.div
+          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 mb-16"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
+          viewport={{ once: true, amount: 0.3 }}
+        >
+          {INSTAGRAM_POSTS.map((post, index) => (
+            <motion.a
               key={post.id}
               href="https://www.instagram.com/riaddarten"
               target="_blank"
               rel="noopener noreferrer"
               className="group relative block aspect-square overflow-hidden rounded-lg bg-gray-100"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.6,
+                ease: "easeOut",
+                delay: index * 0.04,
+              }}
+              viewport={{ once: true, amount: 0.2 }}
             >
               <Image
                 src={post.src}
@@ -117,7 +136,6 @@ export function InstagramFeed() {
                 className="object-cover transition-transform duration-500 group-hover:scale-110"
               />
 
-              {/* Overlay */}
               <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-6 text-white">
                 <div className="flex items-center gap-2">
                   <Heart size={20} fill="currentColor" />
@@ -128,12 +146,17 @@ export function InstagramFeed() {
                   <span className="font-bold">{post.comments}</span>
                 </div>
               </div>
-            </a>
+            </motion.a>
           ))}
-        </div>
+        </motion.div>
 
-        {/* CTA */}
-        <div className="text-center">
+        <motion.div
+          className="text-center"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+          viewport={{ once: true, amount: 0.3 }}
+        >
           <Button
             asChild
             className="bg-primary text-white hover:bg-primary/90 px-8 py-6 text-lg font-sans tracking-wide gap-3"
@@ -147,7 +170,7 @@ export function InstagramFeed() {
               @riaddarten
             </Link>
           </Button>
-        </div>
+        </motion.div>
       </div>
     </section>
   )

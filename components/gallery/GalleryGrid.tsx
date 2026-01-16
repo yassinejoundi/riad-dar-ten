@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useMemo, useCallback } from "react"
 import Image from "next/image"
 import {
   X,
@@ -12,6 +12,7 @@ import {
 } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
+import { motion } from "motion/react"
 
 // Mock data for gallery images
 const GALLERY_IMAGES = [
@@ -94,26 +95,20 @@ interface GalleryGridProps {
 
 export function GalleryGrid({ activeCategory }: GalleryGridProps) {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null)
-  const [filteredImages, setFilteredImages] = useState(GALLERY_IMAGES)
-
-  useEffect(() => {
-    if (activeCategory === "All") {
-      setFilteredImages(GALLERY_IMAGES)
-    } else {
-      setFilteredImages(
-        GALLERY_IMAGES.filter((img) => img.category === activeCategory)
-      )
-    }
-  }, [activeCategory])
+  const filteredImages = useMemo(
+    () =>
+      activeCategory === "All"
+        ? GALLERY_IMAGES
+        : GALLERY_IMAGES.filter((img) => img.category === activeCategory),
+    [activeCategory]
+  )
 
   const openLightbox = (index: number) => {
     setLightboxIndex(index)
-    document.body.style.overflow = "hidden"
   }
 
   const closeLightbox = () => {
     setLightboxIndex(null)
-    document.body.style.overflow = "unset"
   }
 
   const nextImage = () => {
@@ -130,20 +125,27 @@ export function GalleryGrid({ activeCategory }: GalleryGridProps) {
     )
   }
 
-  const handleKeyDown = (e: KeyboardEvent) => {
-    if (e.key === "Escape") closeLightbox()
-    if (e.key === "ArrowRight") nextImage()
-    if (e.key === "ArrowLeft") prevImage()
-  }
+  const handleKeyDown = useCallback(
+    (e: KeyboardEvent) => {
+      if (e.key === "Escape") closeLightbox()
+      if (e.key === "ArrowRight") nextImage()
+      if (e.key === "ArrowLeft") prevImage()
+    },
+    [closeLightbox, nextImage, prevImage]
+  )
 
   useEffect(() => {
     if (lightboxIndex !== null) {
       window.addEventListener("keydown", handleKeyDown)
+      document.body.style.overflow = "hidden"
+    } else {
+      document.body.style.overflow = "unset"
     }
     return () => {
       window.removeEventListener("keydown", handleKeyDown)
+      document.body.style.overflow = "unset"
     }
-  }, [lightboxIndex])
+  }, [lightboxIndex, handleKeyDown])
 
   const handleShare = async (image: (typeof GALLERY_IMAGES)[0]) => {
     if (navigator.share) {
@@ -166,13 +168,26 @@ export function GalleryGrid({ activeCategory }: GalleryGridProps) {
   return (
     <section className="py-12 bg-cream min-h-screen">
       <div className="container mx-auto px-4 md:px-8">
-        {/* Masonry Grid */}
-        <div className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8">
+        <motion.div
+          className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.3 }}
+        >
           {filteredImages.map((image, index) => (
-            <div
+            <motion.div
               key={image.id}
               className="break-inside-avoid relative group rounded-xl overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-500"
               onClick={() => openLightbox(index)}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.6,
+                ease: "easeOut",
+                delay: index * 0.05,
+              }}
+              viewport={{ once: true, amount: 0.2 }}
             >
               <Image
                 src={image.src}
@@ -182,7 +197,6 @@ export function GalleryGrid({ activeCategory }: GalleryGridProps) {
                 className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
               />
 
-              {/* Hover Overlay */}
               <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
                 <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
                   <h3 className="text-white font-serif text-xl mb-1">
@@ -199,11 +213,10 @@ export function GalleryGrid({ activeCategory }: GalleryGridProps) {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
-        {/* Empty State */}
         {filteredImages.length === 0 && (
           <div className="text-center py-20">
             <p className="text-gray-500 font-sans text-lg">
@@ -213,10 +226,8 @@ export function GalleryGrid({ activeCategory }: GalleryGridProps) {
         )}
       </div>
 
-      {/* Lightbox */}
       {lightboxIndex !== null && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-md animate-fade-in">
-          {/* Close Button */}
           <button
             onClick={closeLightbox}
             className="absolute top-6 right-6 text-white/70 hover:text-white transition-colors z-50 p-2"
@@ -224,7 +235,6 @@ export function GalleryGrid({ activeCategory }: GalleryGridProps) {
             <X size={32} />
           </button>
 
-          {/* Navigation Arrows */}
           <button
             onClick={(e) => {
               e.stopPropagation()
@@ -245,7 +255,6 @@ export function GalleryGrid({ activeCategory }: GalleryGridProps) {
             <ChevronRight size={40} />
           </button>
 
-          {/* Main Content */}
           <div className="relative w-full h-full max-w-7xl max-h-[90vh] mx-auto p-4 flex flex-col items-center justify-center">
             <div className="relative w-full h-full flex items-center justify-center">
               <Image
@@ -257,7 +266,6 @@ export function GalleryGrid({ activeCategory }: GalleryGridProps) {
               />
             </div>
 
-            {/* Caption & Controls */}
             <div className="absolute bottom-8 left-0 right-0 text-center px-4">
               <div className="inline-block bg-black/60 backdrop-blur-sm rounded-2xl px-8 py-4 max-w-3xl">
                 <h2 className="text-white font-serif text-2xl md:text-3xl mb-2">
