@@ -2,6 +2,7 @@
 
 import Image from "next/image"
 import Link from "next/link"
+import { motion } from "motion/react"
 
 export function ContactHero() {
   return (
@@ -18,16 +19,28 @@ export function ContactHero() {
       </div>
 
       <div className="relative z-10 w-full max-w-6xl px-4 md:px-8">
-        <div className="mb-6 text-sm font-sans text-gray-200 flex items-center gap-2">
+        <motion.div
+          className="mb-6 text-sm font-sans text-gray-200 flex items-center gap-2"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          viewport={{ once: true }}
+        >
           <Link href="/" className="hover:text-terracotta transition-colors">
             Home
           </Link>
           <span className="text-gray-400">/</span>
           <span className="text-gray-100">Contact</span>
-        </div>
+        </motion.div>
 
         <div className="grid gap-8 md:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)] items-stretch">
-          <div className="space-y-4 text-white">
+          <motion.div
+            className="space-y-4 text-white"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
+            viewport={{ once: true, amount: 0.3 }}
+          >
             <p className="font-sans text-sm tracking-[0.25em] uppercase text-terracotta">
               Contact
             </p>
@@ -38,9 +51,15 @@ export function ContactHero() {
               Let&apos;s plan your perfect Marrakech escape, tailored to the way
               you like to travel.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="bg-white/90 backdrop-blur-md rounded-2xl p-6 md:p-8 shadow-xl border border-white/60 text-left">
+          <motion.div
+            className="bg-white/90 backdrop-blur-md rounded-2xl p-6 md:p-8 shadow-xl border border-white/60 text-left"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+            viewport={{ once: true, amount: 0.3 }}
+          >
             <h2 className="font-serif text-2xl text-primary mb-4">
               Get in touch
             </h2>
@@ -86,7 +105,7 @@ export function ContactHero() {
                 </p>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

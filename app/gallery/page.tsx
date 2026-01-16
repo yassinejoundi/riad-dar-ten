@@ -5,8 +5,6 @@ import { GalleryHero } from "@/components/gallery/GalleryHero"
 import { GalleryGrid } from "@/components/gallery/GalleryGrid"
 import { InstagramFeed } from "@/components/gallery/InstagramFeed"
 import { GalleryCTA } from "@/components/gallery/GalleryCTA"
-import { Navbar } from "@/components/common/Navbar"
-import { Footer } from "@/components/common/Footer"
 
 export default function GalleryPage() {
   const [activeCategory, setActiveCategory] = useState("All")

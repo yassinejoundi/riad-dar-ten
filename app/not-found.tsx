@@ -30,7 +30,7 @@ export default function NotFound() {
         <div className="w-24 h-1 bg-terracotta mx-auto mb-8" />
 
         <p className="text-gray-100 font-sans text-lg md:text-xl max-w-md mx-auto mb-10 leading-relaxed drop-shadow-sm">
-          The page you are looking for seems to have wandered off. Let's get you
+          The page you are looking for seems to have wandered off. Let’s get you
           back to the comfort of our riad.
         </p>
 

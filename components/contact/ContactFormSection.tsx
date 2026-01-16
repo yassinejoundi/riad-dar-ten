@@ -1,12 +1,21 @@
+"use client"
+
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
+import { motion } from "motion/react"
 
 export function ContactFormSection() {
   return (
     <section className="py-24 bg-cream">
       <div className="container mx-auto px-4 md:px-8">
         <div className="grid gap-12 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] items-stretch">
-          <div className="bg-white rounded-2xl shadow-xl p-8 md:p-10 border border-gray-100">
+          <motion.div
+            className="bg-white rounded-2xl shadow-xl p-8 md:p-10 border border-gray-100"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.3 }}
+          >
             <h2 className="font-serif text-3xl md:text-4xl text-primary mb-2">
               Send Us a Message
             </h2>
@@ -90,9 +99,15 @@ export function ContactFormSection() {
                 </Button>
               </div>
             </form>
-          </div>
+          </motion.div>
 
-          <div className="relative rounded-2xl overflow-hidden shadow-xl min-h-[260px] md:min-h-[360px]">
+          <motion.div
+            className="relative rounded-2xl overflow-hidden shadow-xl min-h-[260px] md:min-h-[360px]"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.15 }}
+            viewport={{ once: true, amount: 0.3 }}
+          >
             <Image
               src="/assets/images/contact/contact-form-side-image.png"
               alt="Welcoming staff at Riad Dar Ten"
@@ -100,7 +115,7 @@ export function ContactFormSection() {
               className="object-cover"
             />
             <div className="absolute inset-0 bg-primary/10 mix-blend-multiply" />
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
