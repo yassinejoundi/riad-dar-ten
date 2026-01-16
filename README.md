@@ -103,7 +103,7 @@ Main routes:
 Clone the repository:
 
 ```bash
-git clone https://github.com/your-username/riad-dar-ten.git
+git clone https://github.com/yassinejoundi/riad-dar-ten.git
 cd riad-dar-ten
 ```
 
