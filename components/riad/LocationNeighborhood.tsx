@@ -1,6 +1,6 @@
 "use client"
 
-import { MapPin, Footprints, ShieldCheck, Compass } from "lucide-react"
+import { Footprints, ShieldCheck, Compass } from "lucide-react"
 import { motion } from "motion/react"
 
 export function LocationNeighborhood() {
@@ -57,7 +57,7 @@ export function LocationNeighborhood() {
                 Unlike the labyrinthine depths of the souks, Ksour provides
                 straightforward access. You are mere steps away from the vibrant
                 energy of Jemaa el-Fnaa, yet far enough to enjoy a peaceful
-                night's sleep undisturbed by the city's hum.
+                night&apos;s sleep undisturbed by the city&apos;s hum.
               </p>
             </div>
 

@@ -2,7 +2,6 @@
 
 import Image from "next/image"
 import { Coffee, UtensilsCrossed, Clock } from "lucide-react"
-import { Card, CardContent } from "@/components/ui/card"
 import { motion } from "motion/react"
 
 export function DiningExperience() {

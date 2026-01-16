@@ -69,8 +69,8 @@ export function AmenitiesServices() {
             Every Detail Considered
           </h2>
           <p className="text-gray-600 font-sans text-lg max-w-2xl mx-auto">
-            We've curated a comprehensive range of amenities to ensure your stay
-            is as comfortable and effortless as possible.
+            We&apos;ve curated a comprehensive range of amenities to ensure your
+            stay is as comfortable and effortless as possible.
           </p>
         </motion.div>
 

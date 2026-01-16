@@ -10,7 +10,6 @@ import {
   Share2,
   Maximize2,
 } from "lucide-react"
-import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { motion } from "motion/react"
 
@@ -107,23 +106,23 @@ export function GalleryGrid({ activeCategory }: GalleryGridProps) {
     setLightboxIndex(index)
   }
 
-  const closeLightbox = () => {
+  const closeLightbox = useCallback(() => {
     setLightboxIndex(null)
-  }
+  }, [])
 
-  const nextImage = () => {
+  const nextImage = useCallback(() => {
     if (lightboxIndex === null) return
     setLightboxIndex((prev) =>
       prev === null || prev === filteredImages.length - 1 ? 0 : prev + 1
     )
-  }
+  }, [lightboxIndex, filteredImages.length])
 
-  const prevImage = () => {
+  const prevImage = useCallback(() => {
     if (lightboxIndex === null) return
     setLightboxIndex((prev) =>
       prev === null || prev === 0 ? filteredImages.length - 1 : prev - 1
     )
-  }
+  }, [lightboxIndex, filteredImages.length])
 
   const handleKeyDown = useCallback(
     (e: KeyboardEvent) => {

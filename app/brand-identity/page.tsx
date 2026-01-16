@@ -7,7 +7,7 @@ export default function BrandIdentity() {
           RIAD DAR TEN
         </h1>
         <p className="text-xl md:text-2xl font-accent italic text-secondary mb-8">
-          "Where Tradition Meets Tranquility"
+          &ldquo;Where Tradition Meets Tranquility&rdquo;
         </p>
         <p className="max-w-2xl text-lg text-muted-foreground mb-8">
           An intimate Moroccan sanctuary in the heart of Marrakech, where
@@ -106,7 +106,7 @@ export default function BrandIdentity() {
               Accent Typeface: Playfair Display
             </p>
             <p className="font-accent text-3xl italic text-primary">
-              "Escape to the Heart of Marrakech"
+              &ldquo;Escape to the Heart of Marrakech&rdquo;
             </p>
           </div>
         </div>

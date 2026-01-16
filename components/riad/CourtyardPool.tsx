@@ -46,8 +46,8 @@ export function CourtyardPool() {
             <div className="space-y-6 text-gray-600 font-sans leading-relaxed text-lg">
               <p>
                 At the heart of every traditional Riad lies the courtyard—a
-                sacred open space that serves as the home's lungs, drawing in
-                light and air while filtering out the noise of the outside
+                sacred open space that serves as the home&apos;s lungs, drawing
+                in light and air while filtering out the noise of the outside
                 world.
               </p>
               <p>
