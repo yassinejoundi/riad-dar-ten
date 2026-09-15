@@ -35,7 +35,10 @@ export function Footer() {
           </address>
         </div>
         <div className="flex flex-col gap-5 pt-7 font-sans text-xs uppercase tracking-[0.12em] text-cream/70 md:flex-row md:items-center md:justify-between">
-          <p>© {new Date().getFullYear()} Riad Dar Ten</p>
+          <div className="flex flex-col gap-3 sm:flex-row sm:gap-6">
+            <p>© {new Date().getFullYear()} Riad Dar Ten</p>
+            <p>Website built by <a href="https://yassinejoundi.com" target="_blank" rel="noopener noreferrer" className="text-cream underline decoration-terracotta underline-offset-4 transition-colors hover:text-saffron-gold">Yassine Joundi</a></p>
+          </div>
           <div className="flex gap-6"><Link href="/privacy" className="hover:text-cream">Privacy</Link><Link href="/terms" className="hover:text-cream">Terms</Link></div>
         </div>
       </div>
