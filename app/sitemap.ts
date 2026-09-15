@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next"
+import { rooms } from "@/lib/rooms"
 
 const baseUrl = "https://riaddarten.com"
 
@@ -13,6 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/brand-identity",
     "/privacy",
     "/terms",
+    ...rooms.map((room) => `/rooms/${room.slug}`),
   ]
 
   const lastModified = new Date()
