@@ -5,6 +5,7 @@ import { DayPicker, type DateRange } from "react-day-picker"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faArrowLeft, faArrowRight, faCheck, faUserGroup } from "@fortawesome/free-solid-svg-icons"
 import { rooms } from "@/lib/rooms"
+import { ThemedSelect } from "@/components/ui/themed-select"
 
 type RequestData = {
   checkIn: string
@@ -19,6 +20,8 @@ type RequestData = {
 
 const initialData: RequestData = { checkIn: "", checkOut: "", guests: "2", room: "any", name: "", email: "", phone: "", message: "" }
 const inputClass = "min-h-12 w-full border-b border-midnight-blue/30 bg-transparent px-0 py-3 font-sans text-base text-midnight-blue placeholder:text-midnight-blue/45 focus:border-terracotta focus:outline-none"
+const guestOptions = [{ value: "1", label: "1 guest" }, { value: "2", label: "2 guests" }]
+const roomOptions = [{ value: "any", label: "Any available room" }, ...rooms.map((room) => ({ value: room.slug, label: room.name }))]
 
 function toDate(value: string) {
   if (!value) return undefined
@@ -73,8 +76,8 @@ export function BookingRequestForm() {
         <p className="mt-6 font-sans text-sm text-midnight-blue/70" role="status">{data.checkIn && data.checkOut ? `${displayDate(data.checkIn)} to ${displayDate(data.checkOut)}` : "Select an arrival date and a departure date."}</p>
       </fieldset>
       <div className="grid gap-x-10 gap-y-8 lg:grid-cols-2">
-        <div><label htmlFor="request-guests" className="font-sans text-sm font-semibold">Guests <span aria-hidden="true" className="text-terracotta">*</span></label><div className="relative"><select id="request-guests" required value={data.guests} onChange={(e) => update("guests", e.target.value)} className={`${inputClass} appearance-none`}><option value="1">1 guest</option><option value="2">2 guests</option></select><FontAwesomeIcon icon={faUserGroup} className="pointer-events-none absolute right-1 top-4 size-4 text-terracotta" /></div></div>
-        <div><label htmlFor="request-room" className="font-sans text-sm font-semibold">Preferred room</label><select id="request-room" value={data.room} onChange={(e) => update("room", e.target.value)} className={`${inputClass} appearance-none`}><option value="any">Any available room</option>{rooms.map((room) => <option key={room.slug} value={room.slug}>{room.name}</option>)}</select></div>
+        <div><label htmlFor="request-guests" className="font-sans text-sm font-semibold">Guests <span aria-hidden="true" className="text-terracotta">*</span></label><ThemedSelect id="request-guests" name="guests" required value={data.guests} onValueChange={(value) => update("guests", value)} options={guestOptions} icon={faUserGroup} /></div>
+        <div><label htmlFor="request-room" className="font-sans text-sm font-semibold">Preferred room</label><ThemedSelect id="request-room" name="room" value={data.room} onValueChange={(value) => update("room", value)} options={roomOptions} /></div>
         <div><label htmlFor="request-name" className="font-sans text-sm font-semibold">Name <span aria-hidden="true" className="text-terracotta">*</span></label><input id="request-name" type="text" required autoComplete="name" value={data.name} onChange={(e) => update("name", e.target.value)} className={inputClass} placeholder="Your full name" /></div>
         <div><label htmlFor="request-email" className="font-sans text-sm font-semibold">Email <span aria-hidden="true" className="text-terracotta">*</span></label><input id="request-email" type="email" required autoComplete="email" value={data.email} onChange={(e) => update("email", e.target.value)} className={inputClass} placeholder="you@example.com" /></div>
         <div><label htmlFor="request-phone" className="font-sans text-sm font-semibold">Phone</label><input id="request-phone" type="tel" autoComplete="tel" inputMode="tel" value={data.phone} onChange={(e) => update("phone", e.target.value)} className={inputClass} placeholder="Country code and number" /></div>
