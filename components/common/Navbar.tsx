@@ -30,10 +30,27 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
+  useEffect(() => {
+    if (!isOpen) return
+
+    const previousOverflow = document.body.style.overflow
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setIsOpen(false)
+    }
+
+    document.body.style.overflow = "hidden"
+    window.addEventListener("keydown", handleKeyDown)
+
+    return () => {
+      document.body.style.overflow = previousOverflow
+      window.removeEventListener("keydown", handleKeyDown)
+    }
+  }, [isOpen])
+
   return (
     <nav
       className={cn(
-        "fixed z-50 w-full border-b transition-all duration-500",
+        "fixed inset-x-0 top-0 z-50 w-full border-b transition-all duration-500",
         scrolled || isOpen
           ? "border-midnight-blue/10 bg-cream/95 py-3 backdrop-blur-md"
           : "border-white/20 bg-transparent py-5"
@@ -86,6 +103,7 @@ export function Navbar() {
               )}
               aria-label={isOpen ? "Close menu" : "Open menu"}
               aria-expanded={isOpen}
+              aria-controls="mobile-navigation"
             >
               <FontAwesomeIcon icon={isOpen ? faXmark : faBars} className="size-5" />
             </button>
@@ -94,20 +112,21 @@ export function Navbar() {
       </div>
 
       <div
+        id="mobile-navigation"
         className={cn(
-          "fixed inset-0 z-40 flex flex-col items-center justify-center bg-cream transition-transform duration-500 ease-out lg:hidden",
-          isOpen ? "translate-x-0" : "translate-x-full"
+          "fixed inset-x-0 bottom-0 top-[69px] z-40 overflow-y-auto overscroll-contain bg-cream transition-[transform,visibility] duration-500 ease-out lg:hidden",
+          isOpen ? "visible translate-x-0" : "invisible translate-x-full"
         )}
         aria-hidden={!isOpen}
       >
-        <div className="flex flex-col items-center gap-6">
+        <div className="mx-auto flex min-h-full w-full max-w-md flex-col items-stretch justify-start gap-2 px-5 pb-8 pt-8 sm:items-center sm:justify-center sm:gap-4 sm:py-10">
           {navLinks.map((link) => (
             <Link
               key={link.name}
               href={link.href}
               onClick={() => setIsOpen(false)}
               tabIndex={isOpen ? 0 : -1}
-              className="font-serif text-4xl font-light text-midnight-blue transition-colors hover:text-terracotta"
+              className="flex min-h-14 items-center border-b border-midnight-blue/15 font-serif text-3xl font-light text-midnight-blue transition-colors hover:text-terracotta sm:min-h-16 sm:border-0 sm:text-4xl"
             >
               {link.name}
             </Link>
@@ -116,7 +135,7 @@ export function Navbar() {
             href="/book"
             onClick={() => setIsOpen(false)}
             tabIndex={isOpen ? 0 : -1}
-            className="mt-5 bg-terracotta px-8 py-4 font-sans text-xs font-semibold uppercase tracking-[0.2em] text-white transition-colors hover:bg-deep-spice"
+            className="mt-5 flex min-h-12 w-full items-center justify-center bg-terracotta px-8 py-4 text-center font-sans text-xs font-semibold uppercase tracking-[0.2em] text-white transition-colors hover:bg-deep-spice sm:w-auto"
           >
             Book your stay
           </Link>
