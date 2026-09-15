@@ -1,219 +1,45 @@
 "use client"
 
-import * as React from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowRight, BedDouble } from "lucide-react"
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-  type CarouselApi,
-} from "@/components/ui/carousel"
-import { Button } from "@/components/ui/button"
-import { cn } from "@/lib/utils"
 import { motion } from "motion/react"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faArrowRight, faBed, faUserGroup } from "@fortawesome/free-solid-svg-icons"
 
 const rooms = [
-  {
-    name: "Vanilla Double Room",
-    spice: "Vanilla Cream",
-    color: "bg-[#F3E5AB]",
-    bed: "1 Queen Bed",
-    image: "/assets/images/home/rooms/vanilla-double-room.png",
-    href: "/rooms/vanilla",
-  },
-  {
-    name: "Chocolate Double Room",
-    spice: "Dark Chocolate",
-    color: "bg-[#7B3F00]",
-    bed: "1 Full Bed",
-    image: "/assets/images/home/rooms/chocolate-double-room.png",
-    href: "/rooms/chocolate",
-  },
-  {
-    name: "Canelle Double Room",
-    spice: "Cinnamon Bark",
-    color: "bg-[#D2691E]",
-    bed: "1 Queen Bed",
-    image: "/assets/images/home/rooms/canelle-double-room.png",
-    href: "/rooms/canelle",
-  },
-  {
-    name: "Muscade Double Room",
-    spice: "Nutmeg Spice",
-    color: "bg-[#8A6642]",
-    bed: "1 Queen Bed",
-    image: "/assets/images/home/rooms/muscade-double-room.png",
-    href: "/rooms/muscade",
-  },
-  {
-    name: "Safran Double Room",
-    spice: "Saffron Gold",
-    color: "bg-[#F4C430]",
-    bed: "1 Queen Bed",
-    image: "/assets/images/home/rooms/safran-double-room.png",
-    href: "/rooms/safran",
-  },
-  {
-    name: "Paprika Double Room",
-    spice: "Paprika Red",
-    color: "bg-[#C64B3C]",
-    bed: "1 Queen Bed",
-    image: "/assets/images/home/rooms/paprika-double-room.png",
-    href: "/rooms/paprika",
-  },
-]
+  ["Vanilla", "Soft light and a calm, natural palette", "/assets/images/home/rooms/vanilla-double-room.png"],
+  ["Paprika", "Warm colour with a private balcony", "/assets/images/home/rooms/paprika-double-room.png"],
+  ["Safran", "Sun-washed tones inspired by the souks", "/assets/images/home/rooms/safran-double-room.png"],
+] as const
 
 export function RoomsCarousel() {
-  const [api, setApi] = React.useState<CarouselApi>()
-  const [current, setCurrent] = React.useState(0)
-  const [count, setCount] = React.useState(0)
-
-  React.useEffect(() => {
-    if (!api) {
-      return
-    }
-
-    setCount(api.scrollSnapList().length)
-    setCurrent(api.selectedScrollSnap())
-
-    api.on("select", () => {
-      setCurrent(api.selectedScrollSnap())
-    })
-  }, [api])
-
   return (
-    <section className="py-24 bg-cream overflow-hidden">
-      <div className="container mx-auto px-4 md:px-8">
-        <motion.div
-          className="text-center mb-12"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          viewport={{ once: true, amount: 0.3 }}
-        >
-          <h2 className="font-serif text-4xl md:text-5xl text-primary mb-3">
-            Six Rooms, Six Stories
-          </h2>
-          <p className="font-sans text-muted-foreground text-lg italic">
-            Each named after precious Moroccan spices
-          </p>
-        </motion.div>
-
-        <motion.div
-          className="relative max-w-6xl mx-auto"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 0.15 }}
-          viewport={{ once: true, amount: 0.3 }}
-        >
-          <Carousel
-            setApi={setApi}
-            className="w-full"
-            opts={{
-              align: "start",
-              loop: true,
-            }}
-          >
-            <CarouselContent className="-ml-4">
-              {rooms.map((room, index) => (
-                <CarouselItem
-                  key={index}
-                  className="pl-4 md:basis-1/2 lg:basis-1/3"
-                >
-                  <div className="group relative h-[500px] w-full overflow-hidden rounded-lg shadow-md transition-all duration-500 hover:shadow-xl bg-white flex flex-col">
-                    {/* Image Section */}
-                    <div className="relative h-3/5 w-full overflow-hidden">
-                      <div
-                        className={cn(
-                          "absolute inset-0 opacity-20 z-10",
-                          room.color
-                        )}
-                      />
-                      <Image
-                        src={room.image}
-                        alt={room.name}
-                        fill
-                        className="object-cover transition-transform duration-700 group-hover:scale-110"
-                      />
-                    </div>
-
-                    {/* Content Section */}
-                    <div className="flex flex-1 flex-col justify-between p-6 bg-white relative z-20">
-                      <div>
-                        <div className="flex items-center gap-2 text-terracotta mb-2">
-                          <BedDouble size={18} />
-                          <span className="text-xs font-sans font-semibold uppercase tracking-wider">
-                            {room.bed}
-                          </span>
-                        </div>
-                        <h3 className="font-serif text-2xl text-primary group-hover:text-terracotta transition-colors mb-1">
-                          {room.name}
-                        </h3>
-                        <p className="text-sm text-muted-foreground mb-4">
-                          Inspired by {room.spice}
-                        </p>
-                      </div>
-
-                      <Link
-                        href={room.href}
-                        className="inline-flex items-center text-sm font-semibold uppercase tracking-widest text-primary hover:text-terracotta transition-colors group-hover:translate-x-1 duration-300"
-                      >
-                        Discover
-                        <ArrowRight size={16} className="ml-2" />
-                      </Link>
-                    </div>
-
-                    {/* Color Accent Bar */}
-                    <div className={cn("h-1.5 w-full", room.color)} />
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-
-            <div className="hidden md:block">
-              <CarouselPrevious className="left-[-50px] border-primary text-primary hover:bg-primary hover:text-white" />
-              <CarouselNext className="right-[-50px] border-primary text-primary hover:bg-primary hover:text-white" />
-            </div>
-          </Carousel>
-
-          {/* Dots Indicator */}
-          <div className="flex justify-center gap-2 mt-8">
-            {Array.from({ length: count }).map((_, index) => (
-              <button
-                key={index}
-                onClick={() => api?.scrollTo(index)}
-                className={cn(
-                  "h-2.5 rounded-full transition-all duration-300",
-                  current === index
-                    ? "w-8 bg-terracotta"
-                    : "w-2.5 bg-terracotta/30 hover:bg-terracotta/50"
-                )}
-                aria-label={`Go to slide ${index + 1}`}
-              />
-            ))}
+    <section className="bg-midnight-blue py-24 text-cream md:py-36">
+      <div className="mx-auto max-w-[1440px] px-5 md:px-10">
+        <div className="mb-14 flex flex-col justify-between gap-8 md:flex-row md:items-end">
+          <div>
+            <p className="mb-5 font-sans text-[0.68rem] font-semibold uppercase tracking-[0.28em] text-saffron-gold">The rooms</p>
+            <h2 className="max-w-3xl font-serif text-5xl font-light leading-none md:text-7xl">Six rooms, each with its own mood.</h2>
           </div>
-        </motion.div>
-
-        <motion.div
-          className="text-center mt-12"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
-          viewport={{ once: true, amount: 0.3 }}
-        >
-          <Link href="/rooms">
-            <Button
-              variant="outline"
-              className="border-terracotta text-terracotta hover:bg-terracotta hover:text-white px-8 py-6 rounded-sm text-sm uppercase tracking-widest font-semibold transition-all"
-            >
-              View All Rooms
-            </Button>
-          </Link>
-        </motion.div>
+          <Link href="/rooms" className="group inline-flex min-h-11 items-center gap-3 self-start border-b border-cream/40 font-sans text-xs uppercase tracking-[0.18em] transition-colors hover:border-cream md:self-auto">Explore all rooms <FontAwesomeIcon icon={faArrowRight} className="size-3 transition-transform group-hover:translate-x-1" /></Link>
+        </div>
+        <div className="grid gap-10 lg:grid-cols-12 lg:gap-5">
+          {rooms.map(([name, description, image], index) => (
+            <motion.article key={name} className={index === 0 ? "lg:col-span-6" : "lg:col-span-3"} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: .2 }} transition={{ duration: .7, delay: index * .1 }}>
+              <Link href="/rooms" className="group block">
+                <div className={`relative overflow-hidden ${index === 0 ? "aspect-[4/5] md:aspect-[5/4] lg:aspect-[4/5]" : "aspect-[4/5]"}`}>
+                  <Image src={image} alt={`${name} double room at Riad Dar Ten`} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.035]" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-transparent" />
+                  <div className="absolute inset-x-0 bottom-0 p-6 md:p-8">
+                    <p className="mb-2 flex gap-4 font-sans text-[0.65rem] uppercase tracking-[0.15em] text-white/75"><span><FontAwesomeIcon icon={faUserGroup} className="mr-2" />2 guests</span><span><FontAwesomeIcon icon={faBed} className="mr-2" />Double</span></p>
+                    <h3 className="font-serif text-4xl font-light text-white">{name}</h3>
+                  </div>
+                </div>
+                <p className="mt-4 max-w-sm font-sans text-sm leading-6 text-cream/65">{description}</p>
+              </Link>
+            </motion.article>
+          ))}
+        </div>
       </div>
     </section>
   )

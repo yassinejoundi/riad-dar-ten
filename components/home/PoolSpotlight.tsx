@@ -1,74 +1,31 @@
 "use client"
 
 import Image from "next/image"
-import { Check } from "lucide-react"
 import { motion } from "motion/react"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faMugHot, faSun, faWaterLadder } from "@fortawesome/free-solid-svg-icons"
 
-const features = [
-  "Interior courtyard pool",
-  "Rooftop sun terrace",
-  "Traditional Moroccan craftsmanship",
-  "Peaceful atmosphere",
-]
+const moments = [
+  [faMugHot, "Breakfast", "Homemade each morning and best enjoyed slowly."],
+  [faSun, "The rooftop", "A private perch above the ochre roofs of the medina."],
+  [faWaterLadder, "The courtyard", "Cool water, filtered light and a pause from the city."],
+] as const
 
 export function PoolSpotlight() {
   return (
-    <section className="relative py-24 overflow-hidden bg-desert-sand/10">
-      <div className="container mx-auto px-4 md:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Image Side */}
-          <motion.div
-            className="relative h-[600px] w-full group overflow-hidden rounded-lg shadow-2xl"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            viewport={{ once: true, amount: 0.3 }}
-          >
-            <Image
-              src="/assets/images/home/pool-spotlight.png" // Using the hero image as requested (reusing existing path for now)
-              alt="The stunning courtyard pool"
-              fill
-              className="object-cover transition-transform duration-700 group-hover:scale-105"
-            />
-            {/* Overlay for mood */}
-            <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500" />
+    <section className="bg-cream py-24 md:py-36">
+      <div className="mx-auto max-w-[1320px] px-5 md:px-10">
+        <div className="grid gap-14 lg:grid-cols-[1.15fr_.85fr] lg:items-center lg:gap-24">
+          <motion.div className="relative min-h-[580px]" initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: .2 }} transition={{ duration: .8 }}>
+            <Image src="/assets/images/home/pool-spotlight.png" alt="Quiet courtyard pool surrounded by Moroccan architecture" fill sizes="(max-width: 1024px) 100vw, 58vw" className="object-cover" />
           </motion.div>
-
-          {/* Text Side */}
-          <motion.div
-            className="lg:pl-12"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.15 }}
-            viewport={{ once: true, amount: 0.3 }}
-          >
-            <span className="text-sm font-sans font-bold uppercase tracking-widest text-terracotta mb-4 block">
-              Relax & Unwind
-            </span>
-            <h2 className="font-serif text-4xl md:text-5xl text-primary mb-6 leading-tight">
-              The Heart of Our Riad
-            </h2>
-            <p className="font-sans text-muted-foreground text-lg leading-relaxed mb-8">
-              Experience the tranquility of our traditional tadelakt pool,
-              nestled in the interior patio. Surrounded by exquisite Moroccan
-              architecture, it serves as a serene oasis where the play of light
-              and water creates a mesmerizing atmosphere of calm.
-            </p>
-
-            <ul className="space-y-4">
-              {features.map((feature, index) => (
-                <li
-                  key={index}
-                  className="flex items-center space-x-3 text-primary font-serif text-xl"
-                >
-                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-tadelakt-green/20 flex items-center justify-center text-tadelakt-green">
-                    <Check size={14} strokeWidth={3} />
-                  </div>
-                  <span>{feature}</span>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
+          <div>
+            <p className="mb-5 font-sans text-[0.68rem] font-semibold uppercase tracking-[0.28em] text-terracotta">A day at Dar Ten</p>
+            <h2 className="mb-10 font-serif text-5xl font-light leading-[1.02] text-midnight-blue md:text-7xl">The luxury of<br/><em className="text-terracotta">unhurried time.</em></h2>
+            <div className="divide-y divide-midnight-blue/15 border-y border-midnight-blue/15">
+              {moments.map(([icon, title, copy]) => <div key={title} className="grid grid-cols-[36px_1fr] gap-5 py-6"><FontAwesomeIcon icon={icon} className="mt-1 size-4 text-terracotta" /><div><h3 className="mb-2 font-serif text-2xl font-light">{title}</h3><p className="font-sans text-sm leading-6 text-midnight-blue/65">{copy}</p></div></div>)}
+            </div>
+          </div>
         </div>
       </div>
     </section>

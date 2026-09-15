@@ -1,213 +1,42 @@
 import Link from "next/link"
-import { Facebook, Instagram, Mail, MapPin, Phone } from "lucide-react"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faInstagram } from "@fortawesome/free-brands-svg-icons"
+import { faArrowRight, faEnvelope, faLocationDot, faPhone } from "@fortawesome/free-solid-svg-icons"
+
+const links = [
+  ["The Riad", "/riad"],
+  ["Rooms", "/rooms"],
+  ["Gallery", "/gallery"],
+  ["Contact", "/contact"],
+] as const
 
 export function Footer() {
-  const currentYear = new Date().getFullYear()
-
   return (
-    <footer className="bg-midnight-blue text-cream pt-16 pb-8 border-t border-white/10">
-      <div className="container mx-auto px-4 md:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
-          {/* Brand Column */}
-          <div className="space-y-4">
-            <h2 className="font-serif text-3xl text-saffron-gold">
-              Riad Dar Ten
-            </h2>
-            <p className="font-sans text-white/80 leading-relaxed">
-              Where tradition meets tranquility in the heart of Marrakech. An
-              intimate sanctuary for your soul.
-            </p>
-            <div className="flex space-x-4 pt-2">
-              <Link
-                href="#"
-                className="text-white/70 hover:text-terracotta transition-colors"
-              >
-                <Instagram size={20} />
-              </Link>
-              <Link
-                href="#"
-                className="text-white/70 hover:text-terracotta transition-colors"
-              >
-                <Facebook size={20} />
-              </Link>
+    <footer className="bg-midnight-blue text-cream">
+      <div className="mx-auto max-w-[1440px] px-5 py-20 md:px-10 md:py-24">
+        <div className="grid gap-14 border-b border-white/15 pb-16 lg:grid-cols-[1.4fr_.6fr_1fr] lg:gap-20">
+          <div>
+            <Link href="/" className="font-serif text-4xl font-light tracking-[0.1em]">DAR TEN</Link>
+            <p className="mt-6 max-w-sm font-sans text-sm leading-7 text-cream/60">An intimate six-room guesthouse in Lakssour, at the heart of the Marrakech medina.</p>
+            <Link href="/book" className="group mt-8 inline-flex min-h-11 items-center gap-3 border-b border-cream/35 font-sans text-xs uppercase tracking-[0.18em] hover:border-cream">Book your stay <FontAwesomeIcon icon={faArrowRight} className="size-3 transition-transform group-hover:translate-x-1" /></Link>
+          </div>
+          <nav aria-label="Footer navigation">
+            <p className="mb-6 font-sans text-[0.65rem] uppercase tracking-[0.25em] text-saffron-gold">Explore</p>
+            <ul className="space-y-4">{links.map(([name, href]) => <li key={name}><Link href={href} className="font-serif text-2xl font-light text-cream/80 transition-colors hover:text-white">{name}</Link></li>)}</ul>
+          </nav>
+          <address className="not-italic">
+            <p className="mb-6 font-sans text-[0.65rem] uppercase tracking-[0.25em] text-saffron-gold">Find us</p>
+            <div className="space-y-5 font-sans text-sm leading-6 text-cream/65">
+              <p className="flex gap-4"><FontAwesomeIcon icon={faLocationDot} className="mt-1 size-3 text-terracotta" /><span>10 derb Moulay El Ghali<br />Lakssour, Medina, Marrakech</span></p>
+              <a href="tel:+212524390708" className="flex min-h-11 items-center gap-4 transition-colors hover:text-white"><FontAwesomeIcon icon={faPhone} className="size-3 text-terracotta" />+212 524 39 07 08</a>
+              <a href="mailto:riad.darten@gmail.com" className="flex min-h-11 items-center gap-4 transition-colors hover:text-white"><FontAwesomeIcon icon={faEnvelope} className="size-3 text-terracotta" />riad.darten@gmail.com</a>
+              <a href="https://www.instagram.com/riaddarten/" target="_blank" rel="noreferrer" className="flex min-h-11 items-center gap-4 transition-colors hover:text-white"><FontAwesomeIcon icon={faInstagram} className="size-4 text-terracotta" />@riaddarten</a>
             </div>
-          </div>
-
-          {/* Quick Links */}
-          <div>
-            <h3 className="font-serif text-xl text-saffron-gold mb-6">
-              Explore
-            </h3>
-            <ul className="space-y-3 font-sans text-white/80">
-              <li>
-                <Link
-                  href="/"
-                  className="hover:text-terracotta transition-colors"
-                >
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/riad"
-                  className="hover:text-terracotta transition-colors"
-                >
-                  The Riad
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/rooms"
-                  className="hover:text-terracotta transition-colors"
-                >
-                  Our Rooms
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/gallery"
-                  className="hover:text-terracotta transition-colors"
-                >
-                  Gallery
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/contact"
-                  className="hover:text-terracotta transition-colors"
-                >
-                  Contact
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Our Rooms (Replaces Newsletter) */}
-          <div>
-            <h3 className="font-serif text-xl text-saffron-gold mb-6">
-              Our Rooms
-            </h3>
-            <ul className="space-y-3 font-sans text-white/80">
-              <li>
-                <Link
-                  href="/rooms/vanilla"
-                  className="hover:text-terracotta transition-colors"
-                >
-                  Vanilla Double Room
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/rooms/chocolate"
-                  className="hover:text-terracotta transition-colors"
-                >
-                  Chocolate Double Room
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/rooms/canelle"
-                  className="hover:text-terracotta transition-colors"
-                >
-                  Canelle Double Room
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/rooms/muscade"
-                  className="hover:text-terracotta transition-colors"
-                >
-                  Muscade Double Room
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/rooms/safran"
-                  className="hover:text-terracotta transition-colors"
-                >
-                  Safran Double Room
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/rooms/paprika"
-                  className="hover:text-terracotta transition-colors"
-                >
-                  Paprika Double Room
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Contact Info */}
-          <div>
-            <h3 className="font-serif text-xl text-saffron-gold mb-6">
-              Contact Us
-            </h3>
-            <ul className="space-y-4 font-sans text-white/80">
-              <li className="flex items-start">
-                <MapPin
-                  size={18}
-                  className="mr-3 mt-1 text-terracotta flex-shrink-0"
-                />
-                <span>
-                  10 derb Moulay El Ghali (Lakssour, Médina)
-                  <br />
-                  40000 Marrakech
-                </span>
-              </li>
-              <li className="flex items-start">
-                <Phone
-                  size={18}
-                  className="mr-3 mt-1 text-terracotta flex-shrink-0"
-                />
-                <div className="flex flex-col gap-1">
-                  <span>+212 524 39 07 08</span>
-                  <span>+212 660 21 57 00</span>
-                  <span>+33 667 15 88 15</span>
-                </div>
-              </li>
-              <li className="flex items-center">
-                <Mail
-                  size={18}
-                  className="mr-3 text-terracotta flex-shrink-0"
-                />
-                <span>info@riaddarten.com</span>
-              </li>
-            </ul>
-          </div>
+          </address>
         </div>
-
-        {/* Divider */}
-        <div className="border-t border-white/10 pt-8 mt-8 flex flex-col md:flex-row justify-between items-center text-sm text-white/60 font-sans">
-          <p>&copy; {currentYear} Riad Dar Ten. All rights reserved.</p>
-          <div className="flex flex-col md:flex-row items-center gap-2 mt-4 md:mt-0">
-            <div className="flex space-x-6">
-              <Link
-                href="/privacy"
-                className="hover:text-white transition-colors"
-              >
-                Privacy Policy
-              </Link>
-              <Link
-                href="/terms"
-                className="hover:text-white transition-colors"
-              >
-                Terms of Service
-              </Link>
-            </div>
-            <span className="hidden md:inline mx-2 text-white/20">|</span>
-            <p className="mt-2 md:mt-0">
-              Created by{" "}
-              <Link
-                href="https://www.yassinejoundi.com"
-                target="_blank"
-                className="text-white font-medium hover:text-terracotta transition-colors"
-              >
-                Yassine Joundi
-              </Link>
-            </p>
-          </div>
+        <div className="flex flex-col gap-5 pt-7 font-sans text-[0.65rem] uppercase tracking-[0.14em] text-cream/40 md:flex-row md:items-center md:justify-between">
+          <p>© {new Date().getFullYear()} Riad Dar Ten</p>
+          <div className="flex gap-6"><Link href="/privacy" className="hover:text-cream">Privacy</Link><Link href="/terms" className="hover:text-cream">Terms</Link></div>
         </div>
       </div>
     </footer>

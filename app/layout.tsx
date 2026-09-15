@@ -29,8 +29,16 @@ const playfair = Playfair_Display({
 })
 
 export const metadata: Metadata = {
-  title: "Riad Dar Ten - Where Tradition Meets Tranquility",
-  description: "An intimate Moroccan sanctuary in the heart of Marrakech.",
+  metadataBase: new URL("https://www.riad-darten.com"),
+  title: "Riad Dar Ten | Boutique Riad in the Marrakech Medina",
+  description:
+    "Six intimate rooms, a peaceful courtyard pool and a rooftop terrace, two minutes from Jemaa el-Fna in the Marrakech medina.",
+  openGraph: {
+    title: "Riad Dar Ten | A Quiet Riad in the Heart of Marrakech",
+    description:
+      "Stay in a six-room riad moments from Jemaa el-Fna, with warm Moroccan hospitality and a tranquil courtyard.",
+    images: ["/assets/images/home/hero-background.png"],
+  },
 }
 
 export default function RootLayout({
@@ -39,7 +47,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth">
       <body
         className={`${cormorant.variable} ${montserrat.variable} ${playfair.variable} antialiased font-sans`}
       >

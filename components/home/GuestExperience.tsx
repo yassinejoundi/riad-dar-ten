@@ -1,121 +1,28 @@
-"use client"
-
 import Image from "next/image"
-import { Star, Instagram } from "lucide-react"
 import Link from "next/link"
-import { motion } from "motion/react"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faInstagram } from "@fortawesome/free-brands-svg-icons"
+import { faQuoteLeft, faStar } from "@fortawesome/free-solid-svg-icons"
 
-const instagramPhotos = [
-  "/assets/images/home/instagram/riaddarten-01.png",
-  "/assets/images/home/instagram/riaddarten-02.png",
-  "/assets/images/home/instagram/riaddarten-03.png",
-  "/assets/images/home/instagram/riaddarten-04.png",
-  "/assets/images/home/instagram/riaddarten-05.png",
-  "/assets/images/home/instagram/riaddarten-06.png",
-]
+const photos = ["riaddarten-01.png", "riaddarten-04.png", "riaddarten-06.png"]
 
 export function GuestExperience() {
   return (
-    <section className="py-24 bg-cream overflow-hidden">
-      <div className="container mx-auto px-4 md:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
-          {/* Testimonial Column */}
-          <motion.div
-            className="flex flex-col justify-center"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            viewport={{ once: true, amount: 0.3 }}
-          >
-            <span className="text-sm font-sans font-bold uppercase tracking-widest text-terracotta mb-4 block">
-              Guest Stories
-            </span>
-            <h2 className="font-serif text-4xl md:text-5xl text-primary mb-12">
-              Moments to Remember
-            </h2>
-
-            <div className="relative">
-              {/* Decorative Quote Mark */}
-              <div className="absolute -top-10 -left-6 text-9xl text-desert-sand/20 font-serif leading-none">
-                &ldquo;
-              </div>
-
-              <blockquote className="relative z-10">
-                <p className="font-serif text-2xl md:text-3xl text-muted-foreground italic leading-relaxed mb-8">
-                  &ldquo;An absolute gem in the medina. The atmosphere is
-                  magical, the staff incredibly warm, and the attention to
-                  detail is stunning. A perfect romantic escape.&rdquo;
-                </p>
-
-                <div className="flex items-center space-x-1 text-saffron-gold mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} size={20} fill="currentColor" />
-                  ))}
-                </div>
-
-                <cite className="not-italic">
-                  <span className="block font-sans font-bold text-primary text-lg">
-                    Sarah & James
-                  </span>
-                  <span className="block font-sans text-sm text-muted-foreground">
-                    London, UK
-                  </span>
-                </cite>
-              </blockquote>
+    <section className="bg-[#e7ddcf] py-24 md:py-36">
+      <div className="mx-auto max-w-[1320px] px-5 md:px-10">
+        <div className="grid gap-16 lg:grid-cols-[.8fr_1.2fr] lg:items-center lg:gap-24">
+          <div>
+            <FontAwesomeIcon icon={faQuoteLeft} className="mb-8 size-6 text-terracotta" />
+            <blockquote className="font-serif text-4xl font-light leading-[1.15] text-midnight-blue md:text-6xl">“A haven of peace in the middle of the Medina.”</blockquote>
+            <div className="mt-8 flex gap-1 text-terracotta" aria-label="Five out of five stars">{Array.from({ length: 5 }).map((_, i) => <FontAwesomeIcon key={i} icon={faStar} className="size-3" />)}</div>
+            <p className="mt-4 font-sans text-xs uppercase tracking-[0.2em] text-midnight-blue/60">Guest review · Booking.com</p>
+          </div>
+          <div>
+            <div className="grid grid-cols-3 items-end gap-2 md:gap-4">
+              {photos.map((photo, index) => <div key={photo} className={`relative overflow-hidden ${index === 1 ? "aspect-[3/5]" : "aspect-[3/4]"}`}><Image src={`/assets/images/home/instagram/${photo}`} alt={`A glimpse of life at Riad Dar Ten ${index + 1}`} fill sizes="33vw" className="object-cover" /></div>)}
             </div>
-
-            <div className="mt-12 p-6 bg-white rounded-lg border border-desert-sand/30">
-              <div className="flex items-center">
-                <span className="text-2xl mr-4 flex-shrink-0">💑</span>
-                <p className="font-sans text-primary font-medium">
-                  Couples especially love the location - they rated it{" "}
-                  <span className="font-bold">9.6</span> for a two-person trip.
-                </p>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Instagram Feed Column */}
-          <motion.div
-            className=""
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.15 }}
-            viewport={{ once: true, amount: 0.3 }}
-          >
-            <div className="flex items-center justify-between mb-8">
-              <h3 className="font-serif text-2xl text-primary">
-                Follow Our Journey
-              </h3>
-              <Link
-                href="https://instagram.com/riaddarten"
-                target="_blank"
-                className="flex items-center text-sm font-sans font-semibold uppercase tracking-widest text-terracotta hover:text-deep-spice transition-colors"
-              >
-                <Instagram size={18} className="mr-2" />
-                @riaddarten
-              </Link>
-            </div>
-
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-              {instagramPhotos.map((photo, index) => (
-                <div
-                  key={index}
-                  className="relative aspect-square overflow-hidden rounded-md group cursor-pointer"
-                >
-                  <Image
-                    src={photo}
-                    alt={`Riad Dar Ten Instagram ${index + 1}`}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
-                    <Instagram className="text-white" size={24} />
-                  </div>
-                </div>
-              ))}
-            </div>
-          </motion.div>
+            <Link href="https://www.instagram.com/riaddarten/" target="_blank" rel="noreferrer" className="mt-6 inline-flex min-h-11 items-center gap-3 font-sans text-xs uppercase tracking-[0.18em] text-midnight-blue transition-colors hover:text-terracotta"><FontAwesomeIcon icon={faInstagram} className="size-4" /> Follow @riaddarten</Link>
+          </div>
         </div>
       </div>
     </section>

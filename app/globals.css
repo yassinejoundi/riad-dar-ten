@@ -63,14 +63,14 @@
   --radius: 0.625rem;
 
   /* Brand Colors */
-  --terracotta: #d4a574;
-  --desert-sand: #e8d5c4;
-  --deep-spice: #8b4513;
-  --tadelakt-green: #7fb8a5;
-  --midnight-blue: #1a2942;
-  --cream: #f5f1e8;
-  --saffron-gold: #f4c430;
-  --paprika-red: #c64b3c;
+  --terracotta: #a9563f;
+  --desert-sand: #d8c7ae;
+  --deep-spice: #703a2b;
+  --tadelakt-green: #687a69;
+  --midnight-blue: #202925;
+  --cream: #f4efe5;
+  --saffron-gold: #b99052;
+  --paprika-red: #9f4035;
 
   /* Theme Mapping */
   --background: var(--cream);
@@ -115,6 +115,41 @@
   --sidebar-accent-foreground: var(--midnight-blue);
   --sidebar-border: var(--desert-sand);
   --sidebar-ring: var(--terracotta);
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+
+  body {
+    background: var(--background);
+    color: var(--foreground);
+  }
+
+  ::selection {
+    background: var(--terracotta);
+    color: white;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--terracotta);
+    outline-offset: 4px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 .dark {

@@ -1,70 +1,20 @@
-"use client"
-
 import Image from "next/image"
 import Link from "next/link"
-import { motion } from "motion/react"
-import { Button } from "@/components/ui/button"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons"
 
 export function FinalCTA() {
   return (
-    <section className="relative py-32 overflow-hidden">
-      {/* Background Image with Overlay */}
-      <div className="absolute inset-0 z-0">
-        <Image
-          src="/assets/images/home/welcome.png"
-          alt="Riad Dar Ten Courtyard"
-          fill
-          className="object-cover object-center"
-          priority={false}
-        />
-        <div className="absolute inset-0 bg-primary/80 mix-blend-multiply" />
-      </div>
-
-      <div className="container relative z-10 mx-auto px-4 md:px-8 text-center">
-        <motion.h2
-          className="font-serif text-4xl md:text-6xl text-white mb-6"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          viewport={{ once: true, amount: 0.3 }}
-        >
-          Begin Your Marrakech Story
-        </motion.h2>
-        <motion.p
-          className="font-sans text-xl md:text-2xl text-white/90 mb-10"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 0.15 }}
-          viewport={{ once: true, amount: 0.3 }}
-        >
-          Limited rooms, unlimited memories
-        </motion.p>
-
-        <motion.div
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
-          viewport={{ once: true, amount: 0.3 }}
-        >
-          <Link href="/book">
-            <Button
-              size="lg"
-              className="bg-terracotta hover:bg-terracotta/90 text-white font-sans text-lg px-8 py-6 h-auto"
-            >
-              Check Availability
-            </Button>
-          </Link>
-          <Link href="/contact">
-            <Button
-              variant="outline"
-              size="lg"
-              className="border-white text-white hover:bg-white hover:text-primary font-sans text-lg px-8 py-6 h-auto bg-transparent"
-            >
-              Contact Us
-            </Button>
-          </Link>
-        </motion.div>
+    <section className="relative min-h-[680px] overflow-hidden">
+      <Image src="/assets/images/home/cta-background.png" alt="Riad Dar Ten terrace at sunset" fill sizes="100vw" className="object-cover" />
+      <div className="absolute inset-0 bg-black/50" />
+      <div className="relative mx-auto flex min-h-[680px] max-w-[1320px] items-center justify-center px-5 py-24 text-center text-white md:px-10">
+        <div className="max-w-3xl">
+          <p className="mb-6 font-sans text-[0.68rem] font-semibold uppercase tracking-[0.3em] text-white/75">Your room in Marrakech</p>
+          <h2 className="font-serif text-6xl font-light leading-[.95] md:text-8xl">Come home to<br/><em>Dar Ten.</em></h2>
+          <p className="mx-auto mb-10 mt-7 max-w-lg font-sans text-base leading-7 text-white/80">Reserve one of our six rooms and let the medina unfold from a quieter place.</p>
+          <Link href="/book" className="group inline-flex min-h-12 items-center gap-3 bg-terracotta px-8 py-4 font-sans text-xs font-semibold uppercase tracking-[0.2em] transition-colors hover:bg-deep-spice">Check availability <FontAwesomeIcon icon={faArrowRight} className="size-3 transition-transform group-hover:translate-x-1" /></Link>
+        </div>
       </div>
     </section>
   )

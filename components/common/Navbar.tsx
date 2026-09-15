@@ -2,13 +2,13 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import { Menu, X } from "lucide-react"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons"
 import { cn } from "@/lib/utils"
 
 const navLinks = [
-  { name: "Home", href: "/" },
   { name: "The Riad", href: "/riad" },
-  { name: "Rooms & Suites", href: "/rooms" },
+  { name: "Rooms", href: "/rooms" },
   { name: "Gallery", href: "/gallery" },
   { name: "Contact", href: "/contact" },
 ]
@@ -33,34 +33,32 @@ export function Navbar() {
   return (
     <nav
       className={cn(
-        "fixed w-full z-50 transition-all duration-300 ease-in-out",
-        scrolled
-          ? "bg-cream/95 backdrop-blur-sm shadow-sm py-4"
-          : "bg-transparent py-6"
+        "fixed z-50 w-full border-b transition-all duration-500",
+        scrolled || isOpen
+          ? "border-midnight-blue/10 bg-cream/95 py-3 backdrop-blur-md"
+          : "border-white/20 bg-transparent py-5"
       )}
     >
-      <div className="container mx-auto px-4 md:px-8">
+      <div className="mx-auto max-w-[1440px] px-5 md:px-10">
         <div className="flex items-center justify-between">
-          {/* Logo */}
-          <Link href="/" className="group">
-            <h1
+          <Link href="/" className="relative z-50 leading-none" aria-label="Riad Dar Ten home">
+            <span
               className={cn(
-                "font-serif text-2xl md:text-3xl font-semibold tracking-wider transition-colors",
-                scrolled ? "text-primary" : "text-white"
+                "font-serif text-[1.7rem] font-light tracking-[0.16em] transition-colors md:text-3xl",
+                scrolled || isOpen ? "text-midnight-blue" : "text-white"
               )}
             >
-              RIAD DAR TEN
-            </h1>
+              DAR TEN
+            </span>
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden items-center gap-7 lg:flex">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
                 className={cn(
-                  "transition-colors font-sans text-sm font-medium uppercase tracking-wide",
+                  "py-3 font-sans text-[0.68rem] font-medium uppercase tracking-[0.18em] transition-colors",
                   scrolled
                     ? "text-midnight-blue hover:text-terracotta"
                     : "text-white/90 hover:text-white"
@@ -71,53 +69,45 @@ export function Navbar() {
             ))}
             <Link
               href="/book"
-              className="bg-terracotta text-white px-6 py-2.5 rounded-sm font-sans text-sm font-semibold tracking-wide hover:bg-deep-spice transition-colors duration-300"
+              className="border border-terracotta bg-terracotta px-6 py-3 font-sans text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-white transition-colors hover:bg-deep-spice"
             >
-              BOOK NOW
+              Book your stay
             </Link>
           </div>
 
-          {/* Mobile Menu Button */}
-          <div className="md:hidden">
+          <div className="lg:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
               className={cn(
-                "transition-colors p-2",
-                scrolled
+                "relative z-50 flex size-11 items-center justify-center transition-colors",
+                scrolled || isOpen
                   ? "text-midnight-blue hover:text-terracotta"
                   : "text-white hover:text-white"
               )}
-              aria-label="Toggle menu"
+              aria-label={isOpen ? "Close menu" : "Open menu"}
+              aria-expanded={isOpen}
             >
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
+              <FontAwesomeIcon icon={isOpen ? faXmark : faBars} className="size-5" />
             </button>
           </div>
         </div>
       </div>
 
-      {/* Mobile Navigation Overlay */}
       <div
         className={cn(
-          "fixed inset-0 bg-cream/95 backdrop-blur-md z-40 transition-transform duration-300 ease-in-out md:hidden flex flex-col items-center justify-center space-y-8",
+          "fixed inset-0 z-40 flex flex-col items-center justify-center bg-cream transition-transform duration-500 ease-out lg:hidden",
           isOpen ? "translate-x-0" : "translate-x-full"
         )}
-        style={{ top: "0", height: "100vh" }}
+        aria-hidden={!isOpen}
       >
-        <button
-          onClick={() => setIsOpen(false)}
-          className="absolute top-6 right-6 text-midnight-blue hover:text-terracotta transition-colors p-2"
-          aria-label="Close menu"
-        >
-          <X size={24} />
-        </button>
-
-        <div className="flex flex-col items-center space-y-6">
+        <div className="flex flex-col items-center gap-6">
           {navLinks.map((link) => (
             <Link
               key={link.name}
               href={link.href}
               onClick={() => setIsOpen(false)}
-              className="text-midnight-blue hover:text-terracotta transition-colors font-serif text-2xl font-medium"
+              tabIndex={isOpen ? 0 : -1}
+              className="font-serif text-4xl font-light text-midnight-blue transition-colors hover:text-terracotta"
             >
               {link.name}
             </Link>
@@ -125,9 +115,10 @@ export function Navbar() {
           <Link
             href="/book"
             onClick={() => setIsOpen(false)}
-            className="mt-4 bg-terracotta text-white px-8 py-3 rounded-sm font-sans text-lg font-semibold tracking-wide hover:bg-deep-spice transition-colors duration-300"
+            tabIndex={isOpen ? 0 : -1}
+            className="mt-5 bg-terracotta px-8 py-4 font-sans text-xs font-semibold uppercase tracking-[0.2em] text-white transition-colors hover:bg-deep-spice"
           >
-            BOOK NOW
+            Book your stay
           </Link>
         </div>
       </div>

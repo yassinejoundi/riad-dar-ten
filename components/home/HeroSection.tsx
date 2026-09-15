@@ -3,68 +3,64 @@
 import Image from "next/image"
 import Link from "next/link"
 import { motion } from "motion/react"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faArrowDown, faArrowRight } from "@fortawesome/free-solid-svg-icons"
 
 export function HeroSection() {
   return (
-    <section className="relative h-screen w-full overflow-hidden">
-      {/* Background Image */}
+    <section className="relative min-h-[720px] h-[100svh] w-full overflow-hidden bg-midnight-blue">
       <div className="absolute inset-0">
         <Image
           src="/assets/images/home/hero-background.png"
-          alt="Riad Dar Ten Interior"
+          alt="Sunlit courtyard and plunge pool at Riad Dar Ten"
           fill
-          className="object-cover"
+          className="object-cover object-[62%_center] md:object-center"
           priority
-          quality={100}
+          sizes="100vw"
         />
-        {/* Overlay for readability */}
-        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/65 via-black/25 to-black/10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-black/20" />
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 flex h-full flex-col items-center justify-center px-4 text-center text-white">
+      <div className="relative z-10 mx-auto flex h-full max-w-[1440px] items-end px-5 pb-24 text-white md:px-10 md:pb-20">
+        <div className="max-w-4xl">
+        <motion.p className="mb-5 font-sans text-[0.68rem] font-medium uppercase tracking-[0.32em] text-white/80" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8 }}>
+          Lakssour · Marrakech Medina
+        </motion.p>
         <motion.h1
-          className="mb-4 font-serif text-5xl font-light tracking-wide md:text-7xl lg:text-8xl"
+          className="max-w-3xl font-serif text-[clamp(3.5rem,8vw,7.6rem)] font-light leading-[0.88] tracking-[-0.035em]"
           initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          viewport={{ once: true }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
         >
-          RIAD DAR TEN
+          A quiet house in the heart of Marrakech
         </motion.h1>
         <motion.p
-          className="mb-8 max-w-2xl font-accent text-2xl italic tracking-wider text-cream md:text-3xl"
+          className="mb-8 mt-6 max-w-lg font-sans text-base font-light leading-7 text-white/85 md:text-lg"
           initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 0.15 }}
-          viewport={{ once: true }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
         >
-          &quot;Where Tradition Meets Tranquility&quot;
-        </motion.p>
-        <motion.p
-          className="mb-10 max-w-xl text-lg font-light leading-relaxed text-gray-200 md:text-xl"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
-          viewport={{ once: true }}
-        >
-          An intimate Moroccan sanctuary in the heart of Marrakech, where
-          contemporary comfort meets timeless tradition.
+          Six intimate rooms gathered around a tranquil courtyard, two minutes
+          on foot from Jemaa el-Fna.
         </motion.p>
 
-        <motion.div
+        <motion.div className="flex flex-col items-start gap-5 sm:flex-row sm:items-center"
           initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 0.45 }}
-          viewport={{ once: true }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
         >
           <Link
             href="/book"
-            className="group relative overflow-hidden rounded-sm bg-terracotta px-8 py-4 font-sans text-sm font-semibold uppercase tracking-widest text-white transition-all hover:bg-deep-spice hover:shadow-lg"
+            className="group inline-flex min-h-12 items-center gap-3 bg-terracotta px-7 py-4 font-sans text-xs font-semibold uppercase tracking-[0.2em] text-white transition-colors hover:bg-deep-spice"
           >
-            <span className="relative z-10">Book Your Stay</span>
+            <span>Book your stay</span><FontAwesomeIcon icon={faArrowRight} className="size-3 transition-transform group-hover:translate-x-1" />
+          </Link>
+          <Link href="#discover" className="inline-flex min-h-11 items-center gap-3 border-b border-white/50 font-sans text-xs uppercase tracking-[0.18em] text-white transition-colors hover:border-white">
+            Discover Dar Ten <FontAwesomeIcon icon={faArrowDown} className="size-3" />
           </Link>
         </motion.div>
+        </div>
       </div>
     </section>
   )
