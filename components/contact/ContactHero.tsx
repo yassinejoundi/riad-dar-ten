@@ -4,22 +4,46 @@ import Image from "next/image"
 import Link from "next/link"
 import { motion } from "motion/react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faArrowDown } from "@fortawesome/free-solid-svg-icons"
+import { faArrowDown, faLocationDot } from "@fortawesome/free-solid-svg-icons"
 
 export function ContactHero() {
   return (
-    <section className="relative min-h-[760px] overflow-hidden bg-midnight-blue text-white lg:h-[92svh]">
-      <div className="absolute inset-x-0 top-0 h-[58%] lg:inset-y-0 lg:left-auto lg:h-auto lg:w-[54%]">
-        <Image src="/assets/images/contact/hero-background.png" alt="The welcoming entrance to Riad Dar Ten" fill priority sizes="(max-width: 1024px) 100vw, 54vw" className="object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-t from-midnight-blue via-midnight-blue/20 to-black/15 lg:bg-gradient-to-r lg:from-midnight-blue lg:via-transparent lg:to-transparent" />
-      </div>
-      <div className="relative mx-auto grid min-h-[760px] w-full max-w-[1440px] items-end px-5 pb-16 pt-[48vh] md:px-10 md:pb-20 lg:h-full lg:grid-cols-2 lg:items-center lg:pb-0 lg:pt-24">
-        <div className="max-w-2xl lg:pr-16">
-          <motion.p className="mb-5 font-sans text-xs font-medium uppercase tracking-[.28em] text-saffron-gold" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: .8 }}>Contact & arrival</motion.p>
-          <motion.h1 className="text-balance font-serif text-[clamp(3.6rem,7vw,7rem)] font-light leading-[.92] tracking-[-.035em]" initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}>Let&apos;s plan your arrival.</motion.h1>
-          <motion.p className="mt-7 max-w-lg text-pretty font-sans text-base leading-7 text-cream/80 md:text-lg md:leading-8" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .8, delay: .2 }}>From choosing a room to finding the door through the medina, we are here to make the journey simple.</motion.p>
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: .35 }}><Link href="#contact" className="mt-8 inline-flex min-h-11 items-center gap-3 border-b border-cream/50 font-sans text-xs uppercase tracking-[.18em] hover:border-cream">Speak with us <FontAwesomeIcon icon={faArrowDown} className="size-3" /></Link></motion.div>
-        </div>
+    <section className="relative min-h-[850px] overflow-hidden bg-midnight-blue md:min-h-[900px] lg:h-[100svh]">
+      <Image
+        src="/assets/images/contact/hero-background.png"
+        alt="The candlelit courtyard and pool at Riad Dar Ten"
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover object-center"
+      />
+      <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black/60 to-transparent" />
+
+      <motion.div
+        className="absolute right-6 top-28 hidden border-l border-white/50 py-2 pl-5 text-white lg:block"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8, delay: 0.4 }}
+      >
+        <p className="font-sans text-xs font-medium uppercase tracking-[0.2em]"><FontAwesomeIcon icon={faLocationDot} className="mr-3 text-saffron-gold" />Lakssour, Marrakech</p>
+      </motion.div>
+
+      <div className="absolute inset-x-0 bottom-0 mx-auto w-full max-w-[1440px] px-5 md:px-10">
+        <motion.div
+          className="max-w-4xl bg-cream px-6 py-10 text-midnight-blue md:px-12 md:py-12 lg:px-16 lg:py-14"
+          initial={{ opacity: 0, y: 35 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <p className="mb-5 font-sans text-xs font-semibold uppercase tracking-[0.24em] text-terracotta">Contact & arrival</p>
+          <div className="grid gap-7 lg:grid-cols-[1.35fr_.65fr] lg:items-end lg:gap-12">
+            <h1 className="text-balance font-serif text-[clamp(3.4rem,6vw,6.6rem)] font-light leading-[0.92] tracking-[-0.035em]">Your journey starts at our door.</h1>
+            <div>
+              <p className="text-pretty font-sans text-base leading-7 text-midnight-blue/75">Questions, room advice or help finding us in the medina: speak with the house directly.</p>
+              <Link href="#contact" className="mt-6 inline-flex min-h-11 items-center gap-3 border-b border-midnight-blue/35 font-sans text-xs font-semibold uppercase tracking-[0.16em] hover:border-midnight-blue">Start a conversation <FontAwesomeIcon icon={faArrowDown} className="size-3" /></Link>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   )
