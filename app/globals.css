@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@import "react-day-picker/style.css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -149,6 +150,51 @@
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+.booking-calendar {
+  --rdp-accent-color: var(--terracotta);
+  --rdp-accent-background-color: color-mix(in srgb, var(--terracotta) 14%, transparent);
+  --rdp-day-height: 2.75rem;
+  --rdp-day-width: 2.75rem;
+  --rdp-day_button-height: 2.75rem;
+  --rdp-day_button-width: 2.75rem;
+  margin: 0;
+  font-family: var(--font-montserrat);
+}
+
+.booking-calendar .rdp-months {
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.booking-calendar .rdp-month {
+  width: 100%;
+}
+
+.booking-calendar .rdp-month_grid {
+  width: 100%;
+}
+
+.booking-calendar .rdp-day_button {
+  margin: auto;
+  font-size: 0.875rem;
+}
+
+.booking-calendar .rdp-selected .rdp-day_button {
+  border-radius: 0;
+}
+
+.booking-calendar .rdp-range_start .rdp-day_button,
+.booking-calendar .rdp-range_end .rdp-day_button {
+  color: white;
+}
+
+@media (min-width: 48rem) {
+  .booking-calendar .rdp-months {
+    flex-direction: row;
+    gap: 3rem;
   }
 }
 
