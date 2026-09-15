@@ -3,9 +3,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons"
 
 const questions = [
-  ["Where can I see the price for my dates?", "Live rates and availability are shown in the secure booking engine. Prices can vary by date, room and booking conditions."],
+  ["When will I receive the price for my dates?", "After receiving your request, the team will confirm availability, the current rate and the conditions that apply to your stay."],
   ["Can I request a particular room?", "Yes. Select an available room when booking, or contact us if you would like help choosing between the six rooms."],
-  ["What are the cancellation conditions?", "The exact cancellation and payment terms are displayed before you confirm. Review them carefully because they may vary by rate and date."],
+  ["What are the cancellation conditions?", "The exact cancellation and payment terms will be included with the availability response. Review them before confirming your reservation."],
   ["Can you help with arrival in the medina?", "Yes. Contact us with your arrival details and we can help with directions or discuss a transfer."],
 ] as const
 

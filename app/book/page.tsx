@@ -5,7 +5,7 @@ import { BookingFAQ } from "@/components/booking/BookingFAQ"
 
 export const metadata: Metadata = {
   title: "Book Direct | Riad Dar Ten",
-  description: "Check live availability and book your stay directly with Riad Dar Ten in the Marrakech medina.",
+  description: "Request your stay directly with Riad Dar Ten and share your preferred dates, room and arrival details.",
   openGraph: { images: ["/assets/images/booking/hero-background.png"] },
 }
 
