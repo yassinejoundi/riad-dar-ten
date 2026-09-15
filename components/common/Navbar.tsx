@@ -48,16 +48,17 @@ export function Navbar() {
   }, [isOpen])
 
   return (
-    <nav
-      className={cn(
-        "fixed inset-x-0 top-0 z-50 w-full border-b transition-all duration-500",
-        scrolled || isOpen
-          ? "border-midnight-blue/10 bg-cream/95 py-3 backdrop-blur-md"
-          : "border-white/20 bg-transparent py-5"
-      )}
-    >
-      <div className="mx-auto max-w-[1440px] px-5 md:px-10">
-        <div className="flex items-center justify-between">
+    <>
+      <nav
+        className={cn(
+          "fixed inset-x-0 top-0 z-50 w-full border-b transition-all duration-500",
+          scrolled || isOpen
+            ? "border-midnight-blue/10 bg-cream/95 py-3 backdrop-blur-md"
+            : "border-white/20 bg-transparent py-5"
+        )}
+      >
+        <div className="mx-auto max-w-[1440px] px-5 md:px-10">
+          <div className="flex items-center justify-between">
           <Link href="/" className="relative z-50 leading-none" aria-label="Riad Dar Ten home">
             <span
               className={cn(
@@ -108,11 +109,13 @@ export function Navbar() {
               <FontAwesomeIcon icon={isOpen ? faXmark : faBars} className="size-5" />
             </button>
           </div>
+          </div>
         </div>
-      </div>
+      </nav>
 
-      <div
+      <nav
         id="mobile-navigation"
+        aria-label="Mobile navigation"
         className={cn(
           "fixed inset-x-0 bottom-0 top-[69px] z-40 overflow-y-auto overscroll-contain bg-cream transition-[transform,visibility] duration-500 ease-out lg:hidden",
           isOpen ? "visible translate-x-0" : "invisible translate-x-full"
@@ -140,7 +143,7 @@ export function Navbar() {
             Book your stay
           </Link>
         </div>
-      </div>
-    </nav>
+      </nav>
+    </>
   )
 }
