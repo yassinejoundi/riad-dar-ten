@@ -25,11 +25,11 @@ export function RoomDetail({ room }: { room: Room }) {
         <div className="mx-auto grid max-w-[1320px] px-5 md:px-10 lg:grid-cols-[1.15fr_.85fr]">
           <Link href={`/rooms/${nextRoom.slug}`} className="group relative min-h-[520px] overflow-hidden">
             <Image src={nextRoom.image} alt={`${nextRoom.name} double room`} fill sizes="(max-width: 1024px) 100vw, 58vw" className="object-cover transition-transform duration-700 group-hover:scale-[1.035]" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-transparent" />
-            <div className="absolute inset-x-0 bottom-0 p-7 text-white md:p-10">
-              <p className="mb-3 font-sans text-xs font-semibold uppercase tracking-[.2em] text-white/90">Continue exploring</p>
-              <h2 className="font-serif text-5xl font-light md:text-7xl">Next, {nextRoom.name}.</h2>
-              <p className="mt-3 font-sans text-base text-white/90">{nextRoom.tone}</p>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-black/5" />
+            <div className="absolute inset-x-0 bottom-0 max-w-2xl p-7 text-white md:p-10">
+              <p className="mb-3 font-sans text-xs font-semibold uppercase tracking-[.18em] text-white">Continue exploring</p>
+              <h2 className="text-balance font-serif text-5xl font-light leading-[1.02] md:text-7xl">Next, {nextRoom.name}.</h2>
+              <p className="mt-4 text-pretty font-sans text-base leading-7 text-white">{nextRoom.tone}</p>
             </div>
           </Link>
           <div className="flex flex-col justify-center bg-terracotta p-8 text-white md:p-12 lg:p-14">
