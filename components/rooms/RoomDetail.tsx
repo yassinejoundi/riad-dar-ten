@@ -21,7 +21,25 @@ export function RoomDetail({ room }: { room: Room }) {
 
       <section className="bg-[#e7ddcf] py-24 md:py-36"><div className="mx-auto max-w-[1320px] px-5 md:px-10"><div className="grid gap-4 md:grid-cols-12"><div className="relative min-h-[560px] md:col-span-7"><Image src={room.image} alt={`Interior details in the ${room.name} room`} fill sizes="(max-width: 768px) 100vw, 58vw" className="object-cover" /></div><div className="relative min-h-[420px] md:col-span-5 md:mt-24"><Image src="/assets/images/home/welcome.png" alt="The shared courtyard at Riad Dar Ten" fill sizes="(max-width: 768px) 100vw, 42vw" className="object-cover" /></div></div><p className="mt-6 max-w-2xl text-pretty font-sans text-base leading-7 text-midnight-blue/75"><FontAwesomeIcon icon={faUserGroup} className="mr-3 text-terracotta" />Made for two, with the courtyard, pool and rooftop terrace just beyond your door.</p></div></section>
 
-      <section className="bg-midnight-blue py-24 text-cream md:py-32"><div className="mx-auto flex max-w-[1320px] flex-col justify-between gap-12 px-5 md:px-10 lg:flex-row lg:items-end"><div><p className="mb-5 font-sans text-xs font-semibold uppercase tracking-[.24em] text-saffron-gold">Continue exploring</p><h2 className="font-serif text-5xl font-light md:text-7xl">Next, {nextRoom.name}.</h2><p className="mt-5 max-w-lg font-sans text-base leading-7 text-cream/75">{nextRoom.tone}</p></div><div className="flex flex-col gap-5 sm:flex-row"><Link href={`/rooms/${nextRoom.slug}`} className="group inline-flex min-h-12 items-center gap-3 border border-cream/40 px-7 py-4 font-sans text-xs uppercase tracking-[.18em] hover:border-cream">View {nextRoom.name} <FontAwesomeIcon icon={faArrowRight} className="size-3 transition-transform group-hover:translate-x-1" /></Link><Link href="/book" className="inline-flex min-h-12 items-center bg-terracotta px-7 py-4 font-sans text-xs font-semibold uppercase tracking-[.18em] text-white hover:bg-deep-spice">Check availability</Link></div></div></section>
+      <section className="bg-cream py-24 md:py-36">
+        <div className="mx-auto grid max-w-[1320px] px-5 md:px-10 lg:grid-cols-[1.15fr_.85fr]">
+          <Link href={`/rooms/${nextRoom.slug}`} className="group relative min-h-[520px] overflow-hidden">
+            <Image src={nextRoom.image} alt={`${nextRoom.name} double room`} fill sizes="(max-width: 1024px) 100vw, 58vw" className="object-cover transition-transform duration-700 group-hover:scale-[1.035]" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-transparent" />
+            <div className="absolute inset-x-0 bottom-0 p-7 text-white md:p-10">
+              <p className="mb-3 font-sans text-xs font-semibold uppercase tracking-[.2em] text-white/90">Continue exploring</p>
+              <h2 className="font-serif text-5xl font-light md:text-7xl">Next, {nextRoom.name}.</h2>
+              <p className="mt-3 font-sans text-base text-white/90">{nextRoom.tone}</p>
+            </div>
+          </Link>
+          <div className="flex flex-col justify-center bg-terracotta p-8 text-white md:p-12 lg:p-14">
+            <p className="mb-5 font-sans text-xs font-semibold uppercase tracking-[.22em] text-white/90">Stay at Dar Ten</p>
+            <h2 className="text-balance font-serif text-5xl font-light leading-[1.02] md:text-6xl">Ready to make it yours?</h2>
+            <p className="mt-6 text-pretty font-sans text-base leading-7 text-white/90">Choose your dates and reserve your room directly.</p>
+            <Link href="/book" className="group mt-9 inline-flex min-h-12 items-center justify-between border border-white/60 px-6 py-4 font-sans text-xs font-semibold uppercase tracking-[.18em] transition-colors hover:bg-white hover:text-terracotta">Check availability <FontAwesomeIcon icon={faArrowRight} className="size-3 transition-transform group-hover:translate-x-1" /></Link>
+          </div>
+        </div>
+      </section>
     </div>
   )
 }
