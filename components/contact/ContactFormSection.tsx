@@ -1,123 +1,24 @@
-"use client"
-
 import Image from "next/image"
-import { Button } from "@/components/ui/button"
-import { motion } from "motion/react"
+import Link from "next/link"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faArrowRight, faEnvelope, faLocationDot, faPhone } from "@fortawesome/free-solid-svg-icons"
+import { faWhatsapp } from "@fortawesome/free-brands-svg-icons"
+
+const contactMethods = [
+  [faWhatsapp, "WhatsApp", "+212 660 21 57 00", "https://wa.me/212660215700"],
+  [faPhone, "Telephone", "+212 524 39 07 08", "tel:+212524390708"],
+  [faEnvelope, "Email", "riad.darten@gmail.com", "mailto:riad.darten@gmail.com"],
+] as const
+
+const inputClass = "min-h-12 w-full border-b border-midnight-blue/30 bg-transparent px-0 py-3 font-sans text-base text-midnight-blue placeholder:text-midnight-blue/45 focus:border-terracotta focus:outline-none"
 
 export function ContactFormSection() {
   return (
-    <section className="py-24 bg-cream">
-      <div className="container mx-auto px-4 md:px-8">
-        <div className="grid gap-12 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] items-stretch">
-          <motion.div
-            className="bg-white rounded-2xl shadow-xl p-8 md:p-10 border border-gray-100"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            viewport={{ once: true, amount: 0.3 }}
-          >
-            <h2 className="font-serif text-3xl md:text-4xl text-primary mb-2">
-              Send Us a Message
-            </h2>
-            <p className="font-sans text-gray-600 mb-8">
-              Share your plans, questions, or special requests and we&apos;ll
-              respond personally.
-            </p>
+    <div id="contact">
+      <section className="bg-cream py-24 md:py-36"><div className="mx-auto grid max-w-[1320px] gap-16 px-5 md:px-10 lg:grid-cols-[.8fr_1.2fr] lg:gap-24"><div><p className="mb-5 font-sans text-xs font-semibold uppercase tracking-[.24em] text-terracotta">Speak with us</p><h2 className="mb-8 text-balance font-serif text-5xl font-light leading-[1.02] md:text-7xl">A small house, a personal welcome.</h2><p className="max-w-md text-pretty font-sans text-base leading-7 text-midnight-blue/75">Reach us directly for questions about rooms, arrivals or your time in Marrakech. For availability and rates, the quickest route is online booking.</p><div className="mt-10 divide-y divide-midnight-blue/15 border-y border-midnight-blue/15">{contactMethods.map(([icon, label, value, href]) => <a key={label} href={href} className="group grid min-h-24 grid-cols-[32px_1fr_auto] items-center gap-4 py-5"><FontAwesomeIcon icon={icon} className="size-4 text-terracotta" /><span><span className="block font-sans text-xs font-semibold uppercase tracking-[.18em] text-midnight-blue/65">{label}</span><span className="mt-1 block font-serif text-xl font-light md:text-2xl">{value}</span></span><FontAwesomeIcon icon={faArrowRight} className="size-3 transition-transform group-hover:translate-x-1" /></a>)}</div><Link href="/book" className="mt-8 inline-flex min-h-12 items-center gap-3 bg-terracotta px-7 py-4 font-sans text-xs font-semibold uppercase tracking-[.18em] text-white hover:bg-deep-spice">Check availability <FontAwesomeIcon icon={faArrowRight} className="size-3" /></Link></div>
+      <div className="border border-midnight-blue/15 p-6 md:p-10 lg:p-12"><p className="mb-3 font-sans text-xs font-semibold uppercase tracking-[.2em] text-terracotta">Send an email</p><h2 className="font-serif text-4xl font-light md:text-5xl">Tell us about your plans.</h2><p className="mt-4 max-w-lg text-pretty font-sans text-base leading-7 text-midnight-blue/70">Submitting opens your email application with these details, so you can review the message before sending.</p><form action="mailto:riad.darten@gmail.com" method="post" encType="text/plain" className="mt-10 space-y-7"><div><label htmlFor="contact-name" className="font-sans text-sm font-semibold">Name <span aria-hidden="true" className="text-terracotta">*</span></label><input id="contact-name" name="Name" type="text" required autoComplete="name" className={inputClass} placeholder="Your name" /></div><div className="grid gap-7 sm:grid-cols-2"><div><label htmlFor="contact-email" className="font-sans text-sm font-semibold">Email <span aria-hidden="true" className="text-terracotta">*</span></label><input id="contact-email" name="Email" type="email" required autoComplete="email" className={inputClass} placeholder="you@example.com" /></div><div><label htmlFor="contact-phone" className="font-sans text-sm font-semibold">Phone</label><input id="contact-phone" name="Phone" type="tel" autoComplete="tel" inputMode="tel" className={inputClass} placeholder="Country code and number" /></div></div><div><label htmlFor="contact-message" className="font-sans text-sm font-semibold">Message <span aria-hidden="true" className="text-terracotta">*</span></label><textarea id="contact-message" name="Message" required className={`${inputClass} min-h-36 resize-y`} placeholder="Dates, room preferences or questions" /></div><button type="submit" className="inline-flex min-h-12 items-center gap-3 bg-midnight-blue px-7 py-4 font-sans text-xs font-semibold uppercase tracking-[.18em] text-white hover:bg-deep-spice">Prepare email <FontAwesomeIcon icon={faArrowRight} className="size-3" /></button></form></div></div></section>
 
-            <form className="space-y-6">
-              <div className="space-y-2">
-                <label
-                  htmlFor="name"
-                  className="block font-sans text-sm font-medium text-gray-800"
-                >
-                  Name<span className="text-terracotta">*</span>
-                </label>
-                <input
-                  id="name"
-                  name="name"
-                  type="text"
-                  required
-                  className="w-full rounded-lg border border-gray-300 bg-white/80 px-4 py-3 font-sans text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-terracotta focus:border-transparent"
-                  placeholder="Your full name"
-                />
-              </div>
-
-              <div className="grid gap-6 md:grid-cols-2">
-                <div className="space-y-2">
-                  <label
-                    htmlFor="email"
-                    className="block font-sans text-sm font-medium text-gray-800"
-                  >
-                    Email<span className="text-terracotta">*</span>
-                  </label>
-                  <input
-                    id="email"
-                    name="email"
-                    type="email"
-                    required
-                    className="w-full rounded-lg border border-gray-300 bg-white/80 px-4 py-3 font-sans text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-terracotta focus:border-transparent"
-                    placeholder="you@example.com"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <label
-                    htmlFor="phone"
-                    className="block font-sans text-sm font-medium text-gray-800"
-                  >
-                    Phone
-                  </label>
-                  <input
-                    id="phone"
-                    name="phone"
-                    type="tel"
-                    className="w-full rounded-lg border border-gray-300 bg-white/80 px-4 py-3 font-sans text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-terracotta focus:border-transparent"
-                    placeholder="+212 ..."
-                  />
-                </div>
-              </div>
-
-              <div className="space-y-2">
-                <label
-                  htmlFor="message"
-                  className="block font-sans text-sm font-medium text-gray-800"
-                >
-                  Special Requests/Message
-                  <span className="text-terracotta">*</span>
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  required
-                  className="w-full rounded-lg border border-gray-300 bg-white/80 px-4 py-3 font-sans text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-terracotta focus:border-transparent min-h-[140px] resize-vertical"
-                  placeholder="Tell us about your dates, preferences, or any questions."
-                />
-              </div>
-
-              <div className="pt-2">
-                <Button className="px-8 py-6 h-auto font-sans text-sm md:text-base tracking-wide bg-primary text-white hover:bg-primary/90">
-                  Send Message
-                </Button>
-              </div>
-            </form>
-          </motion.div>
-
-          <motion.div
-            className="relative rounded-2xl overflow-hidden shadow-xl min-h-[260px] md:min-h-[360px]"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.15 }}
-            viewport={{ once: true, amount: 0.3 }}
-          >
-            <Image
-              src="/assets/images/contact/contact-form-side-image.png"
-              alt="Welcoming staff at Riad Dar Ten"
-              fill
-              className="object-cover"
-            />
-            <div className="absolute inset-0 bg-primary/10 mix-blend-multiply" />
-          </motion.div>
-        </div>
-      </div>
-    </section>
+      <section className="bg-midnight-blue py-24 text-cream md:py-36"><div className="mx-auto max-w-[1320px] px-5 md:px-10"><div className="mb-12 grid gap-8 lg:grid-cols-2 lg:items-end"><div><p className="mb-5 font-sans text-xs font-semibold uppercase tracking-[.24em] text-saffron-gold">Finding Dar Ten</p><h2 className="text-balance font-serif text-5xl font-light leading-[1.02] md:text-7xl">Two minutes from the square.</h2></div><div className="lg:justify-self-end"><p className="flex gap-4 font-sans text-base leading-7 text-cream/80"><FontAwesomeIcon icon={faLocationDot} className="mt-1 size-4 shrink-0 text-terracotta" /><span>10 derb Moulay El Ghali<br />Lakssour, Medina, 40000 Marrakech</span></p><p className="mt-5 max-w-lg text-pretty font-sans text-base leading-7 text-cream/75">Medina streets are best approached with clear directions. Contact us before arrival if you would like help with your transfer or meeting point.</p></div></div><div className="grid gap-4 lg:grid-cols-[.65fr_1.35fr]"><div className="relative min-h-[420px]"><Image src="/assets/images/contact/contact-form-side-image.png" alt="A quiet corner inside Riad Dar Ten" fill sizes="(max-width: 1024px) 100vw, 35vw" className="object-cover" /></div><div className="min-h-[520px] overflow-hidden"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3397.2133549842956!2d-7.9932132238420035!3d31.628008241815227!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xdafee428df5384f%3A0xa47e07166af7acc9!2sRiad%20Dar%20Ten!5e0!3m2!1sen!2s!4v1768066932953!5m2!1sen!2s" width="100%" height="100%" style={{ border: 0, minHeight: 520 }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" title="Map showing Riad Dar Ten in the Marrakech medina" /></div></div></div></section>
+    </div>
   )
 }

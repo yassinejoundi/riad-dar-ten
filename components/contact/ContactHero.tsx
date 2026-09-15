@@ -3,111 +3,15 @@
 import Image from "next/image"
 import Link from "next/link"
 import { motion } from "motion/react"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faArrowDown } from "@fortawesome/free-solid-svg-icons"
 
 export function ContactHero() {
   return (
-    <section className="relative pt-32 pb-16 min-h-[60vh] flex items-center justify-center overflow-hidden">
-      <div className="absolute inset-0 z-0">
-        <Image
-          src="/assets/images/contact/hero-background.png"
-          alt="Riad Dar Ten entrance"
-          fill
-          className="object-cover"
-          priority
-        />
-        <div className="absolute inset-0 bg-black/55" />
-      </div>
-
-      <div className="relative z-10 w-full max-w-6xl px-4 md:px-8">
-        <motion.div
-          className="mb-6 text-sm font-sans text-gray-200 flex items-center gap-2"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
-          viewport={{ once: true }}
-        >
-          <Link href="/" className="hover:text-terracotta transition-colors">
-            Home
-          </Link>
-          <span className="text-gray-400">/</span>
-          <span className="text-gray-100">Contact</span>
-        </motion.div>
-
-        <div className="grid gap-8 md:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)] items-stretch">
-          <motion.div
-            className="space-y-4 text-white"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
-            viewport={{ once: true, amount: 0.3 }}
-          >
-            <p className="font-sans text-sm tracking-[0.25em] uppercase text-terracotta">
-              Contact
-            </p>
-            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl leading-tight drop-shadow-md">
-              We&apos;re Here to Help
-            </h1>
-            <p className="font-sans text-lg md:text-xl text-gray-100 max-w-xl drop-shadow-sm">
-              Let&apos;s plan your perfect Marrakech escape, tailored to the way
-              you like to travel.
-            </p>
-          </motion.div>
-
-          <motion.div
-            className="bg-white/90 backdrop-blur-md rounded-2xl p-6 md:p-8 shadow-xl border border-white/60 text-left"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-            viewport={{ once: true, amount: 0.3 }}
-          >
-            <h2 className="font-serif text-2xl text-primary mb-4">
-              Get in touch
-            </h2>
-            <div className="space-y-4 font-sans text-sm text-gray-700">
-              <div>
-                <p className="text-xs uppercase tracking-[0.22em] text-gray-500 mb-1">
-                  WhatsApp
-                </p>
-                <a
-                  href="https://wa.me/212660215700"
-                  className="text-primary hover:text-terracotta transition-colors"
-                >
-                  +212 6 60 21 57 00
-                </a>
-              </div>
-              <div>
-                <p className="text-xs uppercase tracking-[0.22em] text-gray-500 mb-1">
-                  Email
-                </p>
-                <a
-                  href="mailto:info@riaddarten.com"
-                  className="text-primary hover:text-terracotta transition-colors break-all"
-                >
-                  info@riaddarten.com
-                </a>
-              </div>
-              <div>
-                <p className="text-xs uppercase tracking-[0.22em] text-gray-500 mb-1">
-                  Address
-                </p>
-                <p className="text-gray-700">
-                  Riad Dar Ten
-                  <br />
-                  Marrakech Medina, Morocco
-                </p>
-              </div>
-              <div>
-                <p className="text-xs uppercase tracking-[0.22em] text-gray-500 mb-1">
-                  Check-in
-                </p>
-                <p className="text-gray-700">
-                  From 14:00 · Flexible on request
-                </p>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </div>
+    <section className="relative flex min-h-[720px] h-[88svh] items-end overflow-hidden bg-midnight-blue text-white">
+      <Image src="/assets/images/contact/hero-background.png" alt="The welcoming entrance to Riad Dar Ten" fill priority sizes="100vw" className="object-cover" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/40 to-black/15" /><div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20" />
+      <div className="relative mx-auto w-full max-w-[1440px] px-5 pb-20 md:px-10 md:pb-24"><motion.p className="mb-5 font-sans text-xs font-medium uppercase tracking-[.28em] text-white/90" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: .8 }}>Contact & arrival</motion.p><motion.h1 className="max-w-4xl text-balance font-serif text-[clamp(3.8rem,8vw,7.8rem)] font-light leading-[.92] tracking-[-.035em]" initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}>Let us help you find your way home.</motion.h1><motion.p className="mt-7 max-w-xl text-pretty font-sans text-base leading-7 text-white/90 md:text-lg md:leading-8" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .8, delay: .2 }}>Questions before your stay, help choosing a room, or directions through the medina: speak with us directly.</motion.p><motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: .35 }}><Link href="#contact" className="mt-8 inline-flex min-h-11 items-center gap-3 border-b border-white/50 font-sans text-xs uppercase tracking-[.18em] hover:border-white">Get in touch <FontAwesomeIcon icon={faArrowDown} className="size-3" /></Link></motion.div></div>
     </section>
   )
 }
