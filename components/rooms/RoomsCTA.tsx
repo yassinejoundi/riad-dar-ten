@@ -1,98 +1,10 @@
-"use client"
-
-import Link from "next/link"
 import Image from "next/image"
-import { Button } from "@/components/ui/button"
-import { CalendarCheck, MessageCircleQuestion } from "lucide-react"
-import { motion } from "motion/react"
+import Link from "next/link"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons"
 
 export function RoomsCTA() {
   return (
-    <section className="relative py-24 min-h-[600px] flex items-center">
-      {/* Background Image */}
-      <div className="absolute inset-0">
-        <Image
-          src="/assets/images/rooms/cta-background.jpg"
-          alt="Riad Dar Ten Courtyard"
-          fill
-          className="object-cover"
-        />
-        <div className="absolute inset-0 bg-black/60" />
-      </div>
-
-      <div className="container mx-auto px-4 relative z-10">
-        <motion.div
-          className="max-w-4xl mx-auto text-center space-y-8"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          viewport={{ once: true, amount: 0.3 }}
-        >
-          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-white">
-            Your Sanctuary Awaits
-          </h2>
-          <p className="text-gray-200 font-sans text-lg md:text-xl leading-relaxed">
-            Whether you’re ready to secure your stay or have questions about
-            accommodations, our team is here to ensure your Moroccan experience
-            is perfect.
-          </p>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-8">
-            {/* Booking Option */}
-            <motion.div
-              className="bg-white/95 backdrop-blur-sm p-8 rounded-xl shadow-xl transition-transform duration-300 hover:-translate-y-1"
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
-              viewport={{ once: true, amount: 0.3 }}
-            >
-              <div className="w-12 h-12 bg-terracotta/10 rounded-full flex items-center justify-center text-terracotta mx-auto mb-4">
-                <CalendarCheck size={24} />
-              </div>
-              <h3 className="font-serif text-2xl text-primary mb-2">
-                Ready to Reserve?
-              </h3>
-              <p className="font-sans text-gray-600 mb-6">
-                Check availability and book your preferred room directly for the
-                best rates.
-              </p>
-              <Button
-                asChild
-                className="w-full bg-primary text-white hover:bg-primary/90 py-6 text-lg font-sans tracking-wide"
-              >
-                <Link href="/book">Book Now</Link>
-              </Button>
-            </motion.div>
-
-            {/* Contact Option */}
-            <motion.div
-              className="bg-white/95 backdrop-blur-sm p-8 rounded-xl shadow-xl transition-transform duration-300 hover:-translate-y-1"
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-              viewport={{ once: true, amount: 0.3 }}
-            >
-              <div className="w-12 h-12 bg-terracotta/10 rounded-full flex items-center justify-center text-terracotta mx-auto mb-4">
-                <MessageCircleQuestion size={24} />
-              </div>
-              <h3 className="font-serif text-2xl text-primary mb-2">
-                Have Questions?
-              </h3>
-              <p className="font-sans text-gray-600 mb-6">
-                Need help choosing a room or planning your special occasion? Let
-                us assist you.
-              </p>
-              <Button
-                asChild
-                variant="outline"
-                className="w-full border-primary text-primary hover:bg-primary hover:text-white py-6 text-lg font-sans tracking-wide"
-              >
-                <Link href="/contact">Contact Us</Link>
-              </Button>
-            </motion.div>
-          </div>
-        </motion.div>
-      </div>
-    </section>
+    <section className="relative min-h-[680px] overflow-hidden text-white"><Image src="/assets/images/rooms/cta-background.jpg" alt="Riad Dar Ten courtyard" fill sizes="100vw" className="object-cover" /><div className="absolute inset-0 bg-black/65" /><div className="relative mx-auto flex min-h-[680px] max-w-[1320px] items-center justify-center px-5 py-24 text-center md:px-10"><div className="max-w-3xl"><p className="mb-6 font-sans text-xs font-semibold uppercase tracking-[.26em] text-white/90">Your room in Marrakech</p><h2 className="text-balance font-serif text-6xl font-light leading-[1.02] md:text-8xl">Which door will<br/><em>be yours?</em></h2><p className="mx-auto mb-10 mt-7 max-w-lg text-pretty font-sans text-base leading-7 text-white/90">Check your dates or speak with us if you would like help choosing your room.</p><div className="flex flex-col items-center justify-center gap-5 sm:flex-row"><Link href="/book" className="group inline-flex min-h-12 items-center gap-3 bg-terracotta px-8 py-4 font-sans text-xs font-semibold uppercase tracking-[.18em] hover:bg-deep-spice">Check availability <FontAwesomeIcon icon={faArrowRight} className="size-3 transition-transform group-hover:translate-x-1" /></Link><Link href="/contact" className="inline-flex min-h-11 items-center border-b border-white/50 font-sans text-xs uppercase tracking-[.18em] hover:border-white">Ask us a question</Link></div></div></div></section>
   )
 }

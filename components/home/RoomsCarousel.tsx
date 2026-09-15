@@ -7,9 +7,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faArrowRight, faBed, faUserGroup } from "@fortawesome/free-solid-svg-icons"
 
 const rooms = [
-  ["Vanilla", "Soft light and a calm, natural palette", "/assets/images/home/rooms/vanilla-double-room.png"],
-  ["Paprika", "Warm colour with a private balcony", "/assets/images/home/rooms/paprika-double-room.png"],
-  ["Safran", "Sun-washed tones inspired by the souks", "/assets/images/home/rooms/safran-double-room.png"],
+  ["Vanilla", "Soft light and a calm, natural palette", "/assets/images/home/rooms/vanilla-double-room.png", "vanilla"],
+  ["Paprika", "Warm colour with a private balcony", "/assets/images/home/rooms/paprika-double-room.png", "paprika"],
+  ["Safran", "Sun-washed tones inspired by the souks", "/assets/images/home/rooms/safran-double-room.png", "safran"],
 ] as const
 
 export function RoomsCarousel() {
@@ -24,9 +24,9 @@ export function RoomsCarousel() {
           <Link href="/rooms" className="group inline-flex min-h-11 items-center gap-3 self-start border-b border-cream/40 font-sans text-xs uppercase tracking-[0.18em] transition-colors hover:border-cream md:self-auto">Explore all rooms <FontAwesomeIcon icon={faArrowRight} className="size-3 transition-transform group-hover:translate-x-1" /></Link>
         </div>
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-5">
-          {rooms.map(([name, description, image], index) => (
+          {rooms.map(([name, description, image, slug], index) => (
             <motion.article key={name} className={index === 0 ? "lg:col-span-6" : "lg:col-span-3"} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: .2 }} transition={{ duration: .7, delay: index * .1 }}>
-              <Link href="/rooms" className="group block">
+              <Link href={`/rooms/${slug}`} className="group block">
                 <div className={`relative overflow-hidden ${index === 0 ? "aspect-[4/5] md:aspect-[5/4] lg:aspect-[4/5]" : "aspect-[4/5]"}`}>
                   <Image src={image} alt={`${name} double room at Riad Dar Ten`} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.035]" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-transparent" />
