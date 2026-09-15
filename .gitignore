@@ -43,5 +43,7 @@ next-env.d.ts
 # local agent tooling and project briefs
 /.agents/
 /.project/
+/AGENTS.md
+/CLAUDE.md
 /opencode.jsonc
 /skills-lock.json
