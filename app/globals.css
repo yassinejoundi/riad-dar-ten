@@ -161,6 +161,7 @@
   --rdp-day_button-height: 2.75rem;
   --rdp-day_button-width: 2.75rem;
   margin: 0;
+  max-width: 100%;
   font-family: var(--font-montserrat);
 }
 
@@ -170,11 +171,17 @@
 }
 
 .booking-calendar .rdp-month {
+  min-width: 0;
   width: 100%;
 }
 
 .booking-calendar .rdp-month_grid {
+  table-layout: fixed;
   width: 100%;
+}
+
+.booking-calendar .rdp-day {
+  width: auto;
 }
 
 .booking-calendar .rdp-day_button {
@@ -195,6 +202,11 @@
   .booking-calendar .rdp-months {
     flex-direction: row;
     gap: 3rem;
+  }
+
+  .booking-calendar .rdp-month {
+    flex: 1 1 0;
+    width: auto;
   }
 }
 
