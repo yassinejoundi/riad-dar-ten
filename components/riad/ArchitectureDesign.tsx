@@ -1,153 +1,18 @@
-"use client"
-
 import Image from "next/image"
-import { Check } from "lucide-react"
-import { motion } from "motion/react"
+
+const details = ["Smooth tadelakt plaster", "Carved Moroccan arches", "Natural wood and woven textiles", "A palette drawn from earth and spice"]
 
 export function ArchitectureDesign() {
   return (
-    <section className="py-24 bg-cream">
-      <div className="container mx-auto px-4 md:px-8">
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          viewport={{ once: true, amount: 0.3 }}
-        >
-          <span className="text-sm font-sans font-bold uppercase tracking-widest text-terracotta mb-4 block">
-            Design Philosophy
-          </span>
-          <h2 className="font-serif text-4xl md:text-5xl text-primary">
-            Timeless Moroccan Craftsmanship
-          </h2>
-        </motion.div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:grid-cols-2 gap-12 lg:gap-24 items-center mb-24">
-          <motion.div
-            className="order-2 lg:order-1"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            viewport={{ once: true, amount: 0.3 }}
-          >
-            <div className="grid grid-cols-2 gap-4">
-              <div className="relative h-64 rounded-lg overflow-hidden translate-y-8">
-                <Image
-                  src="/assets/images/home/pool-spotlight.png"
-                  alt="Tadelakt Pool"
-                  fill
-                  className="object-cover hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              <div className="relative h-64 rounded-lg overflow-hidden">
-                <Image
-                  src="/assets/images/home/welcome.png"
-                  alt="Traditional Arches"
-                  fill
-                  className="object-cover hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-            </div>
-          </motion.div>
-
-          <motion.div
-            className="order-1 lg:order-2"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.15 }}
-            viewport={{ once: true, amount: 0.3 }}
-          >
-            <h3 className="font-serif text-3xl text-primary mb-6">
-              Traditional Elements
-            </h3>
-            <p className="font-sans text-muted-foreground mb-8 leading-relaxed">
-              Our restoration process focused on preserving the authentic soul
-              of the building. We worked with local Maâlems (master craftsmen)
-              to restore the original features using age-old techniques.
-            </p>
-            <ul className="space-y-4">
-              {[
-                "Hand-polished Tadelakt walls and pool",
-                "Intricate carved Cedar woodwork",
-                "Authentic Zellige geometric tile work",
-                "Classic Moroccan arches and domes",
-              ].map((item, index) => (
-                <li
-                  key={index}
-                  className="flex items-center text-primary font-sans"
-                >
-                  <span className="w-6 h-6 rounded-full bg-white flex items-center justify-center mr-3 text-terracotta flex-shrink-0 shadow-sm">
-                    <Check size={14} />
-                  </span>
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </motion.div>
+    <section className="bg-midnight-blue py-24 text-cream md:py-36">
+      <div className="mx-auto max-w-[1440px] px-5 md:px-10">
+        <div className="mb-14 grid gap-8 lg:grid-cols-2 lg:items-end">
+          <div><p className="mb-5 font-sans text-xs font-semibold uppercase tracking-[.24em] text-saffron-gold">Architecture & craft</p><h2 className="text-balance font-serif text-5xl font-light leading-[1.02] md:text-7xl">Moroccan tradition, expressed with restraint.</h2></div>
+          <p className="max-w-lg text-pretty font-sans text-base leading-7 text-cream/75 lg:justify-self-end">Dar Ten&apos;s character lives in tactile details rather than ornament for ornament&apos;s sake. Soft plaster, geometric tile, timber and linen hold the light differently through the day.</p>
         </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            viewport={{ once: true, amount: 0.3 }}
-          >
-            <h3 className="font-serif text-3xl text-primary mb-6">
-              Contemporary Touches
-            </h3>
-            <p className="font-sans text-muted-foreground mb-8 leading-relaxed">
-              While respecting tradition, we have seamlessly integrated modern
-              amenities to ensure your absolute comfort. The design palette is
-              intentionally calm and neutral to create a soothing retreat from
-              the vibrant city.
-            </p>
-            <ul className="space-y-4">
-              {[
-                "Soothing neutral color palette",
-                "Modern en-suite bathrooms",
-                "High-speed WiFi & LCD TVs",
-                "Plush, high-quality furnishings",
-              ].map((item, index) => (
-                <li
-                  key={index}
-                  className="flex items-center text-primary font-sans"
-                >
-                  <span className="w-6 h-6 rounded-full bg-white flex items-center justify-center mr-3 text-tadelakt-green flex-shrink-0 shadow-sm">
-                    <Check size={14} />
-                  </span>
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.15 }}
-            viewport={{ once: true, amount: 0.3 }}
-          >
-            <div className="grid grid-cols-2 gap-4">
-              <div className="relative h-64 rounded-lg overflow-hidden">
-                <Image
-                  src="/assets/images/home/rooms/vanilla-double-room.png"
-                  alt="Modern Comfort"
-                  fill
-                  className="object-cover hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              <div className="relative h-64 rounded-lg overflow-hidden translate-y-8">
-                <Image
-                  src="/assets/images/home/rooms/safran-double-room.png"
-                  alt="Contemporary Furnishing"
-                  fill
-                  className="object-cover hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-            </div>
-          </motion.div>
+        <div className="grid gap-4 md:grid-cols-12">
+          <div className="relative min-h-[520px] md:col-span-7"><Image src="/assets/images/home/pool-spotlight.png" alt="Tadelakt and carved details around the courtyard pool" fill sizes="(max-width: 768px) 100vw, 58vw" className="object-cover" /></div>
+          <div className="flex flex-col justify-between bg-[#2b3732] p-8 md:col-span-5 md:p-12"><p className="font-serif text-3xl font-light leading-snug text-cream/90">“A palette of plaster, earth, wood and water.”</p><ol className="mt-16 divide-y divide-cream/15 border-y border-cream/15">{details.map((detail, i) => <li key={detail} className="flex gap-5 py-5 font-sans text-base text-cream/75"><span className="font-serif text-terracotta">0{i + 1}</span>{detail}</li>)}</ol></div>
         </div>
       </div>
     </section>

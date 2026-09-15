@@ -2,112 +2,13 @@
 
 import Image from "next/image"
 import { motion } from "motion/react"
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel"
-
-const galleryImages = [
-  {
-    src: "/assets/images/home/pool-spotlight.png",
-    alt: "Illuminated Tadelakt pool at night",
-    caption: "Evening tranquility by the pool",
-  },
-  {
-    src: "/assets/images/home/welcome.png",
-    alt: "Courtyard view during the day",
-    caption: "Sun-drenched central patio",
-  },
-  {
-    src: "/assets/images/home/hero-background.png",
-    alt: "Architectural details of the courtyard",
-    caption: "Traditional Moroccan design elements",
-  },
-]
 
 export function CourtyardPool() {
   return (
-    <section className="py-24 bg-white overflow-hidden">
-      <div className="container mx-auto px-4 md:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          <motion.div
-            className="order-2 lg:order-1"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            viewport={{ once: true, amount: 0.3 }}
-          >
-            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-primary mb-6">
-              The Soul of Dar Ten
-            </h2>
-            <div className="space-y-6 text-gray-600 font-sans leading-relaxed text-lg">
-              <p>
-                At the heart of every traditional Riad lies the courtyard—a
-                sacred open space that serves as the home&apos;s lungs, drawing
-                in light and air while filtering out the noise of the outside
-                world.
-              </p>
-              <p>
-                Our central patio is dominated by a stunning{" "}
-                <span className="text-terracotta font-medium">
-                  Tadelakt pool
-                </span>
-                , honoring the ancient Moroccan craft of waterproof lime
-                plaster. Cool to the touch and soft on the skin, it offers a
-                refreshing respite from the Marrakech sun.
-              </p>
-              <p>
-                Designed as an open-air sanctuary, the courtyard connects you
-                directly with the elements. By day, sunlight plays across the
-                geometric tiles; by night, the opening frames a canvas of stars,
-                creating a peaceful oasis in the bustling Medina.
-              </p>
-            </div>
-          </motion.div>
-
-          <motion.div
-            className="order-1 lg:order-2"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.15 }}
-            viewport={{ once: true, amount: 0.3 }}
-          >
-            <Carousel
-              opts={{
-                align: "start",
-                loop: true,
-              }}
-              className="w-full"
-            >
-              <CarouselContent>
-                {galleryImages.map((image, index) => (
-                  <CarouselItem key={index}>
-                    <div className="relative aspect-[4/5] md:aspect-square lg:aspect-[4/5] w-full overflow-hidden rounded-lg shadow-xl">
-                      <Image
-                        src={image.src}
-                        alt={image.alt}
-                        fill
-                        className="object-cover transition-transform duration-700 hover:scale-105"
-                      />
-                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6 pt-12">
-                        <p className="text-white font-serif text-lg tracking-wide">
-                          {image.caption}
-                        </p>
-                      </div>
-                    </div>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              <div className="hidden md:flex justify-end gap-2 mt-4 pr-2">
-                <CarouselPrevious className="static translate-y-0 text-primary border-primary hover:bg-primary hover:text-white" />
-                <CarouselNext className="static translate-y-0 text-primary border-primary hover:bg-primary hover:text-white" />
-              </div>
-            </Carousel>
-          </motion.div>
-        </div>
+    <section className="bg-cream py-24 md:py-36">
+      <div className="mx-auto grid max-w-[1320px] gap-14 px-5 md:px-10 lg:grid-cols-[1.1fr_.9fr] lg:items-center lg:gap-24">
+        <motion.div className="relative min-h-[580px]" initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: .2 }} transition={{ duration: .8 }}><Image src="/assets/images/gallery/pool-night.png" alt="Riad Dar Ten courtyard pool illuminated at night" fill sizes="(max-width: 1024px) 100vw, 55vw" className="object-cover" /></motion.div>
+        <div><p className="mb-5 font-sans text-xs font-semibold uppercase tracking-[.24em] text-terracotta">The courtyard</p><h2 className="mb-8 text-balance font-serif text-5xl font-light leading-[1.02] md:text-7xl">The quiet heart of Dar Ten.</h2><div className="space-y-5 text-pretty font-sans text-base leading-7 text-midnight-blue/75 md:text-lg md:leading-8"><p>At the centre of the house, the patio draws in sky and softens the sounds of the medina. Its pool is finished in tadelakt, the hand-polished Moroccan plaster that gives the water its muted, mineral colour.</p><p>Morning light reaches the arches; evenings settle into candlelight. Between excursions, it is a natural place to read, cool off or simply pause.</p></div></div>
       </div>
     </section>
   )

@@ -1,108 +1,15 @@
-"use client"
-
 import Image from "next/image"
-import { Sun, Coffee, Moon, Camera } from "lucide-react"
-import { motion } from "motion/react"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faCoffee, faMoon, faSun } from "@fortawesome/free-solid-svg-icons"
+
+const moments = [[faCoffee, "Breakfast in the open air"], [faSun, "A quiet place for afternoon sun"], [faMoon, "Cool evenings above the medina"]] as const
 
 export function RooftopTerrace() {
-  const features = [
-    {
-      icon: Camera,
-      title: "Panoramic Views",
-      description: "Overlooking the Ksour district and Medina rooftops",
-    },
-    {
-      icon: Coffee,
-      title: "Breakfast Service",
-      description: "Start your day with fresh local flavors outdoors",
-    },
-    {
-      icon: Sun,
-      title: "Sunbathing Area",
-      description: "Soak up the warm Marrakech sun in privacy",
-    },
-    {
-      icon: Moon,
-      title: "Evening Relaxation",
-      description: "Unwind under the stars with peaceful ambiance",
-    },
-  ]
-
   return (
-    <section className="py-24 bg-cream">
-      <div className="container mx-auto px-4 md:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          <motion.div
-            className="order-1 grid grid-cols-2 gap-4"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            viewport={{ once: true, amount: 0.3 }}
-          >
-            <div className="relative h-64 md:h-80 rounded-lg overflow-hidden shadow-lg">
-              <Image
-                src="/assets/images/home/cta-background.png"
-                alt="Rooftop terrace view"
-                fill
-                className="object-cover"
-              />
-            </div>
-            <div className="relative h-64 md:h-80 rounded-lg overflow-hidden shadow-lg">
-              <Image
-                src="/assets/images/home/instagram/riaddarten-01.png"
-                alt="Breakfast on the terrace"
-                fill
-                className="object-cover"
-              />
-            </div>
-            <div className="relative h-64 md:h-80 rounded-lg overflow-hidden shadow-lg col-span-2 mt-4">
-              <Image
-                src="/assets/images/home/hero-background.png"
-                alt="Sunset relaxation"
-                fill
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
-            </div>
-          </motion.div>
-
-          <motion.div
-            className="order-2"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.15 }}
-            viewport={{ once: true, amount: 0.3 }}
-          >
-            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-primary mb-6">
-              Sunrise to Sunset, <br />
-              <span className="italic text-terracotta">Above the Medina</span>
-            </h2>
-            <p className="text-gray-600 font-sans leading-relaxed text-lg mb-10">
-              Ascend to our rooftop terrace, a sky-high sanctuary that offers a
-              breathtaking perspective of Marrakech. From the golden hues of
-              dawn to the vibrant colors of sunset, this open-air haven is the
-              perfect place to disconnect and observe the rhythm of the city
-              from above.
-            </p>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {features.map((feature, index) => (
-                <div key={index} className="flex flex-col space-y-3">
-                  <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-terracotta shadow-sm">
-                    <feature.icon size={20} />
-                  </div>
-                  <h3 className="font-serif text-xl text-primary">
-                    {feature.title}
-                  </h3>
-                  <p className="text-sm text-gray-600 font-sans">
-                    {feature.description}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-        </div>
-      </div>
+    <section className="relative min-h-[760px] overflow-hidden text-white">
+      <Image src="/assets/images/gallery/rooftop-terrace.png" alt="Rooftop terrace at Riad Dar Ten" fill sizes="100vw" className="object-cover" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/45 to-black/15" />
+      <div className="relative mx-auto flex min-h-[760px] max-w-[1320px] items-center px-5 py-24 md:px-10"><div className="max-w-xl"><p className="mb-5 font-sans text-xs font-semibold uppercase tracking-[.24em] text-white/90">Above the rooftops</p><h2 className="mb-8 text-balance font-serif text-5xl font-light leading-[1.02] md:text-7xl">From first coffee to the last light.</h2><p className="mb-10 text-pretty font-sans text-base leading-7 text-white/90 md:text-lg md:leading-8">The terrace opens a gentler view of Marrakech: terracotta roofs, open sky and the distant outline of the Atlas on clear days.</p><ul className="divide-y divide-white/25 border-y border-white/25">{moments.map(([icon, label]) => <li key={label} className="flex items-center gap-4 py-5 font-sans text-base text-white/90"><FontAwesomeIcon icon={icon} className="size-4 text-saffron-gold" />{label}</li>)}</ul></div></div>
     </section>
   )
 }

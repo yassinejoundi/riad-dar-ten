@@ -6,19 +6,18 @@ import { CourtyardPool } from "@/components/riad/CourtyardPool"
 import { RooftopTerrace } from "@/components/riad/RooftopTerrace"
 import { DiningExperience } from "@/components/riad/DiningExperience"
 import { AmenitiesServices } from "@/components/riad/AmenitiesServices"
-import { DarTenDifference } from "@/components/riad/DarTenDifference"
 import { LocationNeighborhood } from "@/components/riad/LocationNeighborhood"
 import { RiadCTA } from "@/components/riad/RiadCTA"
 
 export const metadata: Metadata = {
   title: "The Riad | Riad Dar Ten",
   description:
-    "Discover the history and architecture of Riad Dar Ten, a sanctuary of peace in the heart of Marrakech.",
+    "Step inside Riad Dar Ten: a six-room Marrakech guesthouse with a tranquil courtyard pool, rooftop terrace and warm Moroccan hospitality.",
 }
 
 export default function RiadPage() {
   return (
-    <main className="min-h-screen bg-cream">
+    <div className="min-h-screen overflow-hidden bg-cream text-midnight-blue">
       <RiadHero />
       <OurStory />
       <ArchitectureDesign />
@@ -26,9 +25,8 @@ export default function RiadPage() {
       <RooftopTerrace />
       <DiningExperience />
       <AmenitiesServices />
-      <DarTenDifference />
       <LocationNeighborhood />
       <RiadCTA />
-    </main>
+    </div>
   )
 }
