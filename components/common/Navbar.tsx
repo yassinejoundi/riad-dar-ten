@@ -58,7 +58,7 @@ export function Navbar() {
                 key={link.name}
                 href={link.href}
                 className={cn(
-                  "py-3 font-sans text-[0.68rem] font-medium uppercase tracking-[0.18em] transition-colors",
+                  "py-3 font-sans text-xs font-medium uppercase tracking-[0.16em] transition-colors",
                   scrolled
                     ? "text-midnight-blue hover:text-terracotta"
                     : "text-white/90 hover:text-white"
@@ -69,7 +69,7 @@ export function Navbar() {
             ))}
             <Link
               href="/book"
-              className="border border-terracotta bg-terracotta px-6 py-3 font-sans text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-white transition-colors hover:bg-deep-spice"
+              className="border border-terracotta bg-terracotta px-6 py-3 font-sans text-xs font-semibold uppercase tracking-[0.18em] text-white transition-colors hover:bg-deep-spice"
             >
               Book your stay
             </Link>

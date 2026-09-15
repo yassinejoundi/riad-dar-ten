@@ -15,10 +15,10 @@ export function WelcomeSection() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             viewport={{ once: true, amount: 0.3 }}
           >
-            <p className="mb-6 font-sans text-[0.68rem] font-semibold uppercase tracking-[0.28em] text-terracotta">The house</p>
-            <h2 className="mb-8 font-serif text-5xl font-light leading-[0.98] text-midnight-blue md:text-7xl">A slower rhythm,<br/><em className="font-light text-terracotta">behind the medina walls.</em></h2>
+            <p className="mb-6 font-sans text-xs font-semibold uppercase tracking-[0.24em] text-terracotta">The house</p>
+            <h2 className="mb-8 text-balance font-serif text-5xl font-light leading-[1.02] text-midnight-blue md:text-7xl">A slower rhythm,<br/><em className="font-light text-terracotta">behind the medina walls.</em></h2>
 
-            <div className="max-w-xl space-y-5 font-sans text-base leading-7 text-midnight-blue/70 md:text-lg md:leading-8">
+            <div className="max-w-xl space-y-5 text-pretty font-sans text-base leading-7 text-midnight-blue/75 md:text-lg md:leading-8">
               <p>
                 Step through Dar Ten&apos;s unassuming door and the city softens.
                 Light moves across carved plaster, palms frame a still pool, and
@@ -32,9 +32,9 @@ export function WelcomeSection() {
             </div>
 
             <div className="mt-10 grid grid-cols-3 border-y border-midnight-blue/15 py-6">
-              <div><strong className="block font-serif text-3xl font-light">6</strong><span className="font-sans text-[0.65rem] uppercase tracking-widest text-midnight-blue/60">rooms</span></div>
-              <div className="border-x border-midnight-blue/15 px-5"><strong className="block font-serif text-3xl font-light">2 min</strong><span className="font-sans text-[0.65rem] uppercase tracking-widest text-midnight-blue/60">to the square</span></div>
-              <div className="pl-5"><strong className="block font-serif text-3xl font-light">1</strong><span className="font-sans text-[0.65rem] uppercase tracking-widest text-midnight-blue/60">quiet patio</span></div>
+              <div><strong className="block font-serif text-3xl font-light">6</strong><span className="font-sans text-xs uppercase tracking-wider text-midnight-blue/70">rooms</span></div>
+              <div className="border-x border-midnight-blue/15 px-5"><strong className="block font-serif text-3xl font-light">2 min</strong><span className="font-sans text-xs uppercase tracking-wider text-midnight-blue/70">to the square</span></div>
+              <div className="pl-5"><strong className="block font-serif text-3xl font-light">1</strong><span className="font-sans text-xs uppercase tracking-wider text-midnight-blue/70">quiet patio</span></div>
             </div>
           </motion.div>
 

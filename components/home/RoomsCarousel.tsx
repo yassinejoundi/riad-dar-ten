@@ -18,8 +18,8 @@ export function RoomsCarousel() {
       <div className="mx-auto max-w-[1440px] px-5 md:px-10">
         <div className="mb-14 flex flex-col justify-between gap-8 md:flex-row md:items-end">
           <div>
-            <p className="mb-5 font-sans text-[0.68rem] font-semibold uppercase tracking-[0.28em] text-saffron-gold">The rooms</p>
-            <h2 className="max-w-3xl font-serif text-5xl font-light leading-none md:text-7xl">Six rooms, each with its own mood.</h2>
+            <p className="mb-5 font-sans text-xs font-semibold uppercase tracking-[0.24em] text-saffron-gold">The rooms</p>
+            <h2 className="max-w-3xl text-balance font-serif text-5xl font-light leading-[1.02] md:text-7xl">Six rooms, each with its own mood.</h2>
           </div>
           <Link href="/rooms" className="group inline-flex min-h-11 items-center gap-3 self-start border-b border-cream/40 font-sans text-xs uppercase tracking-[0.18em] transition-colors hover:border-cream md:self-auto">Explore all rooms <FontAwesomeIcon icon={faArrowRight} className="size-3 transition-transform group-hover:translate-x-1" /></Link>
         </div>
@@ -31,11 +31,11 @@ export function RoomsCarousel() {
                   <Image src={image} alt={`${name} double room at Riad Dar Ten`} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.035]" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-transparent" />
                   <div className="absolute inset-x-0 bottom-0 p-6 md:p-8">
-                    <p className="mb-2 flex gap-4 font-sans text-[0.65rem] uppercase tracking-[0.15em] text-white/75"><span><FontAwesomeIcon icon={faUserGroup} className="mr-2" />2 guests</span><span><FontAwesomeIcon icon={faBed} className="mr-2" />Double</span></p>
+                    <p className="mb-2 flex gap-4 font-sans text-xs font-medium uppercase tracking-[0.12em] text-white/90"><span><FontAwesomeIcon icon={faUserGroup} className="mr-2" />2 guests</span><span><FontAwesomeIcon icon={faBed} className="mr-2" />Double</span></p>
                     <h3 className="font-serif text-4xl font-light text-white">{name}</h3>
                   </div>
                 </div>
-                <p className="mt-4 max-w-sm font-sans text-sm leading-6 text-cream/65">{description}</p>
+                <p className="mt-4 max-w-sm text-pretty font-sans text-base leading-7 text-cream/75">{description}</p>
               </Link>
             </motion.article>
           ))}

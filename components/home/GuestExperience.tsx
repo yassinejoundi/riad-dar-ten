@@ -13,9 +13,9 @@ export function GuestExperience() {
         <div className="grid gap-16 lg:grid-cols-[.8fr_1.2fr] lg:items-center lg:gap-24">
           <div>
             <FontAwesomeIcon icon={faQuoteLeft} className="mb-8 size-6 text-terracotta" />
-            <blockquote className="font-serif text-4xl font-light leading-[1.15] text-midnight-blue md:text-6xl">“A haven of peace in the middle of the Medina.”</blockquote>
+            <blockquote className="text-balance font-serif text-4xl font-light leading-[1.15] text-midnight-blue md:text-6xl">“A haven of peace in the middle of the Medina.”</blockquote>
             <div className="mt-8 flex gap-1 text-terracotta" aria-label="Five out of five stars">{Array.from({ length: 5 }).map((_, i) => <FontAwesomeIcon key={i} icon={faStar} className="size-3" />)}</div>
-            <p className="mt-4 font-sans text-xs uppercase tracking-[0.2em] text-midnight-blue/60">Guest review · Booking.com</p>
+            <p className="mt-4 font-sans text-xs font-medium uppercase tracking-[0.18em] text-midnight-blue/75">Guest review · Booking.com</p>
           </div>
           <div>
             <div className="grid grid-cols-3 items-end gap-2 md:gap-4">
