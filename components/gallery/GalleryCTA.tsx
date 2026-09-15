@@ -1,41 +1,8 @@
-"use client";
-
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { CalendarCheck } from "lucide-react";
-import { motion } from "motion/react";
+import Image from "next/image"
+import Link from "next/link"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons"
 
 export function GalleryCTA() {
-  return (
-    <section className="py-24 bg-cream">
-      <div className="container mx-auto px-4 text-center">
-        <motion.div
-          className="max-w-3xl mx-auto space-y-8"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          viewport={{ once: true, amount: 0.3 }}
-        >
-          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-primary">
-            Ready to Experience It <br className="hidden sm:block" />
-            <span className="italic text-terracotta">in Person?</span>
-          </h2>
-
-          <p className="text-gray-600 font-sans text-lg md:text-xl max-w-2xl mx-auto">
-            Turn these images into memories. Book your stay at Riad Dar Ten today.
-          </p>
-
-          <Button
-            asChild
-            className="bg-primary text-white hover:bg-primary/90 px-10 py-8 text-xl font-sans tracking-wide shadow-lg hover:shadow-xl transition-all duration-300 gap-3"
-          >
-            <Link href="/book">
-              <CalendarCheck size={24} />
-              Book Your Stay
-            </Link>
-          </Button>
-        </motion.div>
-      </div>
-    </section>
-  );
+  return <section className="relative min-h-[680px] overflow-hidden text-white"><Image src="/assets/images/home/cta-background.png" alt="Riad Dar Ten rooftop in warm evening light" fill sizes="100vw" className="object-cover" /><div className="absolute inset-0 bg-black/65" /><div className="relative mx-auto flex min-h-[680px] max-w-[1320px] items-center justify-center px-5 py-24 text-center md:px-10"><div className="max-w-3xl"><p className="mb-6 font-sans text-xs font-semibold uppercase tracking-[.26em] text-white/90">Beyond the photographs</p><h2 className="text-balance font-serif text-6xl font-light leading-[1.02] md:text-8xl">See Dar Ten<br/><em>for yourself.</em></h2><p className="mx-auto mb-10 mt-7 max-w-lg text-pretty font-sans text-base leading-7 text-white/90">Choose one of six rooms and make the house part of your Marrakech story.</p><Link href="/book" className="group inline-flex min-h-12 items-center gap-3 bg-terracotta px-8 py-4 font-sans text-xs font-semibold uppercase tracking-[.18em] hover:bg-deep-spice">Check availability <FontAwesomeIcon icon={faArrowRight} className="size-3 transition-transform group-hover:translate-x-1" /></Link></div></div></section>
 }
