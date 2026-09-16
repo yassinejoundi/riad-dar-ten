@@ -9,7 +9,7 @@ export function HeroSection() {
         src="/assets/images/restaurant/hero-courtyard.png"
         alt="A candlelit dinner table in the Dar Ten courtyard"
         fill
-        priority
+        preload
         sizes="100vw"
         className="object-cover object-[58%_center]"
       />
@@ -18,7 +18,7 @@ export function HeroSection() {
 
       <div className="relative z-10 mx-auto flex w-full max-w-[1440px] flex-col justify-end px-5 pb-12 pt-32 md:px-10 md:pb-16 lg:pb-20">
         <div className="max-w-4xl">
-          <p className="mb-6 font-sans text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-white/80">
+          <p className="mb-6 font-sans text-xs font-semibold uppercase tracking-[0.28em] text-white/80">
             Contemporary Moroccan table · Marrakech
           </p>
           <h1 className="max-w-3xl text-balance font-serif text-[clamp(3.8rem,8.5vw,8rem)] font-light leading-[0.84] tracking-[-0.045em]">
@@ -46,7 +46,7 @@ export function HeroSection() {
           </div>
         </div>
 
-        <div className="mt-12 flex max-w-xl flex-wrap gap-x-10 gap-y-3 border-t border-white/25 pt-5 font-sans text-[0.7rem] uppercase tracking-[0.16em] text-white/75 md:absolute md:bottom-16 md:right-10 md:mt-0 md:w-[22rem]">
+        <div className="mt-12 flex max-w-xl flex-wrap gap-x-10 gap-y-3 border-t border-white/25 pt-5 font-sans text-xs uppercase tracking-[0.16em] text-white/75 md:absolute md:bottom-16 md:right-10 md:mt-0 md:w-[22rem]">
           <span>Dinner · Tue–Sun</span>
           <span>From 6:30 pm</span>
         </div>

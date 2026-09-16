@@ -19,14 +19,14 @@ export function RestaurantStory() {
               <p className="font-accent text-2xl italic leading-snug md:text-3xl">
                 “The memory stays. The plate moves forward.”
               </p>
-              <p className="mt-5 font-sans text-[0.62rem] font-semibold uppercase tracking-[0.2em] text-saffron-gold">
+              <p className="mt-5 font-sans text-xs font-semibold uppercase tracking-[0.2em] text-saffron-gold">
                 Our kitchen philosophy
               </p>
             </div>
           </div>
 
           <div className="lg:py-12">
-            <p className="mb-6 font-sans text-[0.7rem] font-semibold uppercase tracking-[0.25em] text-terracotta">
+            <p className="mb-6 font-sans text-xs font-semibold uppercase tracking-[0.25em] text-terracotta">
               Rooted here · Made now
             </p>
             <h2 className="max-w-xl text-balance font-serif text-[clamp(3.25rem,6vw,6rem)] font-light leading-[0.92] tracking-[-0.035em] text-midnight-blue">
@@ -47,15 +47,15 @@ export function RestaurantStory() {
 
             <dl className="mt-12 grid grid-cols-3 border-y border-midnight-blue/15 py-6">
               <div>
-                <dt className="font-sans text-[0.62rem] uppercase tracking-[0.17em] text-midnight-blue/60">Produce</dt>
+                <dt className="font-sans text-xs uppercase tracking-[0.17em] text-midnight-blue/60">Produce</dt>
                 <dd className="mt-2 font-serif text-xl font-light md:text-2xl">Local</dd>
               </div>
               <div className="border-x border-midnight-blue/15 px-5">
-                <dt className="font-sans text-[0.62rem] uppercase tracking-[0.17em] text-midnight-blue/60">Menu</dt>
+                <dt className="font-sans text-xs uppercase tracking-[0.17em] text-midnight-blue/60">Menu</dt>
                 <dd className="mt-2 font-serif text-xl font-light md:text-2xl">Seasonal</dd>
               </div>
               <div className="pl-5">
-                <dt className="font-sans text-[0.62rem] uppercase tracking-[0.17em] text-midnight-blue/60">Cooking</dt>
+                <dt className="font-sans text-xs uppercase tracking-[0.17em] text-midnight-blue/60">Cooking</dt>
                 <dd className="mt-2 font-serif text-xl font-light md:text-2xl">By fire</dd>
               </div>
             </dl>

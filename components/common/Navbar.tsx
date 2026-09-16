@@ -53,14 +53,14 @@ export function Navbar() {
         <div className="mx-auto flex max-w-[1440px] items-center justify-between px-5 md:px-10">
           <Link href="/" className="relative z-50" aria-label="Dar Ten restaurant home">
             <span className={cn("block font-serif text-2xl font-light tracking-[0.16em] transition-colors md:text-[1.7rem]", solid ? "text-midnight-blue" : "text-white")}>DAR TEN</span>
-            <span className={cn("mt-0.5 block font-sans text-[0.48rem] uppercase tracking-[0.3em] transition-colors", solid ? "text-midnight-blue/65" : "text-white/70")}>Kitchen · Marrakech</span>
+            <span className={cn("mt-0.5 block font-sans text-[0.625rem] uppercase tracking-[0.25em] transition-colors", solid ? "text-midnight-blue/65" : "text-white/70")}>Kitchen · Marrakech</span>
           </Link>
 
           <div className="hidden items-center gap-7 lg:flex">
             {navLinks.map((link) => (
-              <Link key={link.name} href={link.href} className={cn("flex min-h-11 items-center font-sans text-[0.68rem] font-medium uppercase tracking-[0.16em] transition-colors", solid ? "text-midnight-blue hover:text-terracotta" : "text-white/85 hover:text-white")}>{link.name}</Link>
+              <Link key={link.name} href={link.href} className={cn("flex min-h-11 items-center font-sans text-xs font-medium uppercase tracking-[0.16em] transition-colors", solid ? "text-midnight-blue hover:text-terracotta" : "text-white/85 hover:text-white")}>{link.name}</Link>
             ))}
-            <Link href="/#reserve" className="inline-flex min-h-11 items-center bg-terracotta px-6 py-3 font-sans text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-white transition-colors hover:bg-deep-spice">Reserve</Link>
+            <Link href="/#reserve" className="inline-flex min-h-11 items-center bg-terracotta px-6 py-3 font-sans text-xs font-semibold uppercase tracking-[0.18em] text-white transition-colors hover:bg-deep-spice">Reserve</Link>
           </div>
 
           <button
@@ -85,7 +85,7 @@ export function Navbar() {
         <div className="mx-auto flex min-h-full max-w-md flex-col justify-center px-5 py-10">
           {navLinks.map((link, index) => (
             <Link key={link.name} href={link.href} onClick={() => setIsOpen(false)} tabIndex={isOpen ? 0 : -1} className="flex min-h-16 items-center gap-5 border-b border-midnight-blue/15 font-serif text-3xl font-light text-midnight-blue">
-              <span className="font-sans text-[0.62rem] tracking-[0.15em] text-terracotta">0{index + 1}</span>{link.name}
+              <span className="font-sans text-xs tracking-[0.15em] text-terracotta">0{index + 1}</span>{link.name}
             </Link>
           ))}
           <Link href="/#reserve" onClick={() => setIsOpen(false)} tabIndex={isOpen ? 0 : -1} className="mt-8 flex min-h-12 items-center justify-center bg-terracotta px-7 py-4 font-sans text-xs font-semibold uppercase tracking-[0.18em] text-white">Reserve a table</Link>

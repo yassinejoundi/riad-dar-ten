@@ -16,7 +16,7 @@ export function Footer() {
           <div>
             <Link href="/" className="inline-block" aria-label="Dar Ten restaurant home">
               <span className="block font-serif text-4xl font-light tracking-[0.15em]">DAR TEN</span>
-              <span className="mt-1 block font-sans text-[0.55rem] uppercase tracking-[0.3em] text-cream/55">Kitchen · Marrakech</span>
+              <span className="mt-1 block font-sans text-[0.625rem] uppercase tracking-[0.25em] text-cream/55">Kitchen · Marrakech</span>
             </Link>
             <p className="mt-7 max-w-sm text-pretty font-serif text-2xl font-light leading-8 text-cream/75">
               Moroccan memory, seasonal ingredients, one intimate table.
@@ -24,7 +24,7 @@ export function Footer() {
           </div>
 
           <nav aria-label="Footer navigation">
-            <p className="mb-5 font-sans text-[0.62rem] font-semibold uppercase tracking-[0.2em] text-saffron-gold">Explore</p>
+            <p className="mb-5 font-sans text-xs font-semibold uppercase tracking-[0.2em] text-saffron-gold">Explore</p>
             <ul className="space-y-1">
               {links.map(([name, href]) => (
                 <li key={name}><Link href={href} className="flex min-h-11 items-center font-sans text-sm text-cream/70 transition-colors hover:text-white">{name}</Link></li>
@@ -33,7 +33,7 @@ export function Footer() {
           </nav>
 
           <div>
-            <p className="mb-5 font-sans text-[0.62rem] font-semibold uppercase tracking-[0.2em] text-saffron-gold">Keep close</p>
+            <p className="mb-5 font-sans text-xs font-semibold uppercase tracking-[0.2em] text-saffron-gold">Keep close</p>
             <a href="https://www.instagram.com/riaddarten/" target="_blank" rel="noreferrer" className="inline-flex min-h-11 items-center gap-3 font-sans text-sm text-cream/70 transition-colors hover:text-white">
               <Instagram className="size-4 text-terracotta" aria-hidden="true" />
               @riaddarten
@@ -42,7 +42,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="flex flex-col gap-5 pt-7 font-sans text-[0.62rem] uppercase tracking-[0.14em] text-cream/55 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-col gap-5 pt-7 font-sans text-xs uppercase tracking-[0.14em] text-cream/55 sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} Dar Ten Marrakech</p>
           <div className="flex gap-6">
             <Link href="/privacy" className="flex min-h-11 items-center transition-colors hover:text-cream">Privacy</Link>

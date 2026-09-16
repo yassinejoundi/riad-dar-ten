@@ -5,7 +5,7 @@ export function VisitReservation() {
     <section id="visit" className="scroll-mt-20 bg-tadelakt-green text-white">
       <div className="mx-auto grid max-w-[1440px] lg:grid-cols-2">
         <div className="px-5 py-24 md:px-10 md:py-32 lg:px-16 lg:pr-20">
-          <p className="mb-6 font-sans text-[0.7rem] font-semibold uppercase tracking-[0.25em] text-white/70">Find our door</p>
+          <p className="mb-6 font-sans text-xs font-semibold uppercase tracking-[0.25em] text-white/70">Find our door</p>
           <h2 className="text-balance font-serif text-[clamp(3.5rem,6vw,6.5rem)] font-light leading-[0.9] tracking-[-0.035em]">
             Hidden in the medina.<br /><em className="font-light text-desert-sand">Worth finding.</em>
           </h2>
@@ -19,14 +19,14 @@ export function VisitReservation() {
             <div className="grid grid-cols-[2.5rem_1fr] gap-4 py-6">
               <MapPin className="mt-1 size-4 text-desert-sand" aria-hidden="true" />
               <div>
-                <p className="font-sans text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-white/70">Address</p>
+                <p className="font-sans text-xs font-semibold uppercase tracking-[0.18em] text-white/70">Address</p>
                 <address className="mt-2 font-serif text-2xl font-light not-italic">10 Derb Moulay El Ghali<br />Lakssour, Marrakech</address>
               </div>
             </div>
             <div className="grid grid-cols-[2.5rem_1fr] gap-4 py-6">
               <Clock3 className="mt-1 size-4 text-desert-sand" aria-hidden="true" />
               <div>
-                <p className="font-sans text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-white/70">Dinner</p>
+                <p className="font-sans text-xs font-semibold uppercase tracking-[0.18em] text-white/70">Dinner</p>
                 <p className="mt-2 font-serif text-2xl font-light">Tuesday–Sunday · 6:30–11:00 pm</p>
               </div>
             </div>
@@ -39,7 +39,7 @@ export function VisitReservation() {
         </div>
 
         <div id="reserve" className="scroll-mt-20 bg-terracotta px-5 py-24 md:px-10 md:py-32 lg:flex lg:flex-col lg:justify-center lg:px-20">
-          <p className="mb-6 font-sans text-[0.7rem] font-semibold uppercase tracking-[0.25em] text-white/70">Reservations</p>
+          <p className="mb-6 font-sans text-xs font-semibold uppercase tracking-[0.25em] text-white/70">Reservations</p>
           <h2 className="max-w-xl text-balance font-serif text-[clamp(3.5rem,6vw,6.5rem)] font-light leading-[0.9] tracking-[-0.035em]">
             Your table is<br /><em className="font-light text-desert-sand">almost set.</em>
           </h2>

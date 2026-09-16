@@ -36,7 +36,7 @@ export function SeasonalMenu() {
       <div className="mx-auto max-w-[1440px] px-5 md:px-10">
         <div className="grid gap-16 lg:grid-cols-[.82fr_1.18fr] lg:items-start lg:gap-24">
           <div className="lg:sticky lg:top-28">
-            <p className="mb-6 font-sans text-[0.7rem] font-semibold uppercase tracking-[0.25em] text-saffron-gold">
+            <p className="mb-6 font-sans text-xs font-semibold uppercase tracking-[0.25em] text-saffron-gold">
               A taste of Dar Ten
             </p>
             <h2 className="max-w-xl text-balance font-serif text-[clamp(3.5rem,6vw,6.5rem)] font-light leading-[0.9] tracking-[-0.035em]">
@@ -63,15 +63,15 @@ export function SeasonalMenu() {
             {dishes.map((dish, index) => (
               <article key={dish.name} className="grid grid-cols-[1fr_auto] gap-6 border-b border-cream/20 py-8 md:py-10">
                 <div>
-                  <p className="font-sans text-[0.62rem] font-semibold uppercase tracking-[0.2em] text-saffron-gold">
+                  <p className="font-sans text-xs font-semibold uppercase tracking-[0.2em] text-saffron-gold">
                     {String(index + 1).padStart(2, "0")} · {dish.course}
                   </p>
                   <h3 className="mt-3 font-serif text-3xl font-light md:text-4xl">{dish.name}</h3>
                   <p className="mt-2 max-w-xl text-pretty font-sans text-sm leading-6 text-cream/65 md:text-base md:leading-7">{dish.detail}</p>
-                  {dish.note && <p className="mt-3 font-sans text-[0.62rem] uppercase tracking-[0.16em] text-desert-sand">{dish.note}</p>}
+                  {dish.note && <p className="mt-3 font-sans text-xs uppercase tracking-[0.16em] text-desert-sand">{dish.note}</p>}
                 </div>
                 <p className="font-serif text-xl font-light tabular-nums text-cream/85">
-                  <span className="sr-only">Price </span>{dish.price} <span className="font-sans text-[0.58rem] uppercase tracking-wider">MAD</span>
+                  <span className="sr-only">Price </span>{dish.price} <span className="font-sans text-xs uppercase tracking-wider">MAD</span>
                 </p>
               </article>
             ))}
