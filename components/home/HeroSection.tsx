@@ -1,65 +1,54 @@
-"use client"
-
 import Image from "next/image"
 import Link from "next/link"
-import { motion } from "motion/react"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faArrowDown, faArrowRight } from "@fortawesome/free-solid-svg-icons"
+import { ArrowDownRight, ArrowUpRight } from "lucide-react"
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-[720px] h-[100svh] w-full overflow-hidden bg-midnight-blue">
-      <div className="absolute inset-0">
-        <Image
-          src="/assets/images/home/hero-background.png"
-          alt="Sunlit courtyard and plunge pool at Riad Dar Ten"
-          fill
-          className="object-cover object-[62%_center] md:object-center"
-          priority
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/40 to-black/20" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-black/25" />
-      </div>
+    <section className="relative flex min-h-[46rem] h-[100svh] overflow-hidden bg-midnight-blue text-white">
+      <Image
+        src="/assets/images/restaurant/hero-courtyard.png"
+        alt="A candlelit dinner table in the Dar Ten courtyard"
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover object-[58%_center]"
+      />
+      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(13,20,17,.88)_0%,rgba(13,20,17,.57)_42%,rgba(13,20,17,.08)_78%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(0deg,rgba(13,20,17,.5)_0%,transparent_45%,rgba(13,20,17,.18)_100%)]" />
 
-      <div className="relative z-10 mx-auto flex h-full max-w-[1440px] items-end px-5 pb-24 text-white md:px-10 md:pb-20">
+      <div className="relative z-10 mx-auto flex w-full max-w-[1440px] flex-col justify-end px-5 pb-12 pt-32 md:px-10 md:pb-16 lg:pb-20">
         <div className="max-w-4xl">
-        <motion.p className="mb-5 font-sans text-xs font-medium uppercase tracking-[0.28em] text-white/90" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8 }}>
-          Lakssour · Marrakech Medina
-        </motion.p>
-        <motion.h1
-          className="max-w-3xl text-balance font-serif text-[clamp(3.5rem,8vw,7.6rem)] font-light leading-[0.92] tracking-[-0.035em]"
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-        >
-          A quiet house in the heart of Marrakech
-        </motion.h1>
-        <motion.p
-          className="mb-8 mt-6 max-w-lg text-pretty font-sans text-base leading-7 text-white/90 md:text-lg"
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
-        >
-          Six intimate rooms gathered around a tranquil courtyard, two minutes
-          on foot from Jemaa el-Fna.
-        </motion.p>
+          <p className="mb-6 font-sans text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-white/80">
+            Contemporary Moroccan table · Marrakech
+          </p>
+          <h1 className="max-w-3xl text-balance font-serif text-[clamp(3.8rem,8.5vw,8rem)] font-light leading-[0.84] tracking-[-0.045em]">
+            Morocco,<br />served in a <em className="font-light text-desert-sand">new light.</em>
+          </h1>
+          <p className="mt-7 max-w-xl text-pretty font-sans text-base leading-7 text-white/85 md:text-lg md:leading-8">
+            A seasonal expression of Moroccan cooking, gathered around one
+            courtyard table in the heart of the medina.
+          </p>
+          <div className="mt-9 flex flex-wrap items-center gap-x-7 gap-y-4">
+            <Link
+              href="#reserve"
+              className="group inline-flex min-h-12 items-center gap-3 bg-terracotta px-7 py-4 font-sans text-xs font-semibold uppercase tracking-[0.18em] text-white transition-colors hover:bg-deep-spice"
+            >
+              Reserve a table
+              <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
+            </Link>
+            <Link
+              href="#menu"
+              className="group inline-flex min-h-12 items-center gap-3 border-b border-white/50 font-sans text-xs font-medium uppercase tracking-[0.18em] text-white transition-colors hover:border-white"
+            >
+              Explore the menu
+              <ArrowDownRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:translate-y-0.5" aria-hidden="true" />
+            </Link>
+          </div>
+        </div>
 
-        <motion.div className="flex flex-col items-start gap-5 sm:flex-row sm:items-center"
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
-        >
-          <Link
-            href="/book"
-            className="group inline-flex min-h-12 items-center gap-3 bg-terracotta px-7 py-4 font-sans text-xs font-semibold uppercase tracking-[0.2em] text-white transition-colors hover:bg-deep-spice"
-          >
-            <span>Book your stay</span><FontAwesomeIcon icon={faArrowRight} className="size-3 transition-transform group-hover:translate-x-1" />
-          </Link>
-          <Link href="#discover" className="inline-flex min-h-11 items-center gap-3 border-b border-white/50 font-sans text-xs uppercase tracking-[0.18em] text-white transition-colors hover:border-white">
-            Discover Dar Ten <FontAwesomeIcon icon={faArrowDown} className="size-3" />
-          </Link>
-        </motion.div>
+        <div className="mt-12 flex max-w-xl flex-wrap gap-x-10 gap-y-3 border-t border-white/25 pt-5 font-sans text-[0.7rem] uppercase tracking-[0.16em] text-white/75 md:absolute md:bottom-16 md:right-10 md:mt-0 md:w-[22rem]">
+          <span>Dinner · Tue–Sun</span>
+          <span>From 6:30 pm</span>
         </div>
       </div>
     </section>
