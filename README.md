@@ -7,7 +7,7 @@ Riad Dar Ten is an editorial boutique riad experience built around warm Moroccan
 **Live site:** [riad-dar-ten.vercel.app](https://riad-dar-ten.vercel.app/)
 
 <p align="center">
-  <img src="public/readme/riad-dar-ten-preview.svg" alt="Riad Dar Ten website shown in a desktop browser mockup" width="100%" />
+  <img src="public/readme/riad-dar-ten-preview.png" alt="Riad Dar Ten website shown in a desktop browser mockup" width="100%" />
 </p>
 
 ## The experience

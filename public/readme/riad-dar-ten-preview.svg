@@ -2,10 +2,15 @@
   <title id="title">Riad Dar Ten desktop website mockup</title>
   <desc id="desc">A centered browser mockup of the Riad Dar Ten Marrakech homepage on a warm editorial backdrop.</desc>
   <defs>
-    <linearGradient id="heroShade" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#160d08" stop-opacity="0.82"/>
-      <stop offset="0.55" stop-color="#160d08" stop-opacity="0.18"/>
-      <stop offset="1" stop-color="#160d08" stop-opacity="0.68"/>
+    <linearGradient id="heroShadeLeft" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#000000" stop-opacity="0.75"/>
+      <stop offset="0.55" stop-color="#000000" stop-opacity="0.4"/>
+      <stop offset="1" stop-color="#000000" stop-opacity="0.2"/>
+    </linearGradient>
+    <linearGradient id="heroShadeBottom" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#000000" stop-opacity="0.25"/>
+      <stop offset="0.55" stop-color="#000000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#000000" stop-opacity="0.55"/>
     </linearGradient>
     <pattern id="zellige" width="42" height="42" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
       <path d="M0 21h42M21 0v42" stroke="#f4cfa7" stroke-width="1" opacity="0.14"/>
@@ -15,7 +20,7 @@
       <feDropShadow dx="0" dy="24" stdDeviation="24" flood-color="#140e16" flood-opacity="0.32"/>
     </filter>
     <clipPath id="browserContent">
-      <rect x="220" y="210" width="1160" height="700" rx="0"/>
+      <rect x="220" y="140" width="1160" height="770" rx="0"/>
     </clipPath>
   </defs>
 
@@ -45,32 +50,32 @@
     <text x="780" y="121" text-anchor="middle" fill="#817a73" font-family="Arial, sans-serif" font-size="11" letter-spacing="1.2">riad-dar-ten.vercel.app</text>
     <path d="M1250 111v12m-5-7 5-5 5 5M1292 111h16m-8-8v16M1336 109h12v12h-12zM1340 106h12v12" fill="none" stroke="#7c746d" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
 
-    <!-- Website navigation -->
-    <rect x="220" y="140" width="1160" height="70" fill="#fbf7ef"/>
-    <text x="270" y="184" fill="#1a2942" font-family="Georgia, serif" font-size="29" font-style="normal" letter-spacing="4">DAR TEN</text>
-    <text x="665" y="181" fill="#1a2942" font-family="Arial, sans-serif" font-size="12" letter-spacing="1.2">THE RIAD</text>
-    <text x="770" y="181" fill="#1a2942" font-family="Arial, sans-serif" font-size="12" letter-spacing="1.2">ROOMS</text>
-    <text x="860" y="181" fill="#1a2942" font-family="Arial, sans-serif" font-size="12" letter-spacing="1.2">GALLERY</text>
-    <text x="970" y="181" fill="#1a2942" font-family="Arial, sans-serif" font-size="12" letter-spacing="1.2">CONTACT</text>
-    <rect x="1160" y="157" width="170" height="38" rx="19" fill="#c76f4d"/>
-    <text x="1245" y="181" text-anchor="middle" fill="#fffaf2" font-family="Arial, sans-serif" font-size="11" font-weight="bold" letter-spacing="1.2">BOOK YOUR STAY  ↗</text>
-
-    <!-- Homepage hero -->
+    <!-- Homepage hero: the same background, overlay, copy, and CTA hierarchy as the live site -->
     <g clip-path="url(#browserContent)">
-      <image href="../assets/images/home/hero-background.png" x="220" y="210" width="1160" height="700" preserveAspectRatio="xMidYMid slice"/>
-      <rect x="220" y="210" width="1160" height="700" fill="url(#heroShade)"/>
-      <text x="274" y="436" fill="#f4cfa7" font-family="Arial, sans-serif" font-size="11" font-weight="bold" letter-spacing="2.5">LAKSSOUR · MARRAKECH MEDINA</text>
-      <text x="274" y="508" fill="#fffaf2" font-family="Georgia, serif" font-size="60">A quiet house in the</text>
-      <text x="274" y="574" fill="#fffaf2" font-family="Georgia, serif" font-size="60">heart of Marrakech</text>
-      <text x="276" y="620" fill="#fffaf2" font-family="Arial, sans-serif" font-size="16" opacity="0.9">Six intimate rooms gathered around a tranquil courtyard,</text>
-      <text x="276" y="645" fill="#fffaf2" font-family="Arial, sans-serif" font-size="16" opacity="0.9">two minutes on foot from Jemaa el-Fna.</text>
-      <rect x="276" y="684" width="148" height="44" rx="22" fill="#c76f4d"/>
-      <text x="350" y="711" text-anchor="middle" fill="#fffaf2" font-family="Arial, sans-serif" font-size="11" font-weight="bold">BOOK YOUR STAY  →</text>
-      <rect x="444" y="684" width="165" height="44" rx="22" fill="none" stroke="#fffaf2" stroke-width="1.5"/>
-      <text x="526" y="711" text-anchor="middle" fill="#fffaf2" font-family="Arial, sans-serif" font-size="11" font-weight="bold">DISCOVER DAR TEN</text>
-      <line x1="276" y1="810" x2="1324" y2="810" stroke="#fffaf2" stroke-opacity="0.32"/>
-      <text x="276" y="846" fill="#fffaf2" font-family="Arial, sans-serif" font-size="12" opacity="0.82">A small guesthouse. A slower rhythm.</text>
-      <text x="1265" y="846" fill="#fffaf2" font-family="Arial, sans-serif" font-size="11" font-weight="bold" letter-spacing="1.5">ENTER THE RIAD  ↓</text>
+      <image href="../assets/images/home/hero-background.png" x="220" y="140" width="1160" height="770" preserveAspectRatio="xMidYMid slice"/>
+      <rect x="220" y="140" width="1160" height="770" fill="url(#heroShadeLeft)"/>
+      <rect x="220" y="140" width="1160" height="770" fill="url(#heroShadeBottom)"/>
+
+      <!-- Transparent hero navigation -->
+      <rect x="220" y="140" width="1160" height="70" fill="#160d08" fill-opacity="0.1"/>
+      <line x1="220" y1="210" x2="1380" y2="210" stroke="#fffaf2" stroke-opacity="0.2"/>
+      <text x="270" y="184" fill="#fffaf2" font-family="Georgia, serif" font-size="29" font-style="normal" letter-spacing="4">DAR TEN</text>
+      <text x="665" y="181" fill="#fffaf2" font-family="Arial, sans-serif" font-size="12" letter-spacing="1.2">THE RIAD</text>
+      <text x="770" y="181" fill="#fffaf2" font-family="Arial, sans-serif" font-size="12" letter-spacing="1.2">ROOMS</text>
+      <text x="860" y="181" fill="#fffaf2" font-family="Arial, sans-serif" font-size="12" letter-spacing="1.2">GALLERY</text>
+      <text x="970" y="181" fill="#fffaf2" font-family="Arial, sans-serif" font-size="12" letter-spacing="1.2">CONTACT</text>
+      <rect x="1160" y="157" width="170" height="38" fill="#c76f4d"/>
+      <text x="1245" y="181" text-anchor="middle" fill="#fffaf2" font-family="Arial, sans-serif" font-size="11" font-weight="bold" letter-spacing="1.2">BOOK YOUR STAY</text>
+
+      <!-- Hero content -->
+      <text x="270" y="532" fill="#fffaf2" font-family="Arial, sans-serif" font-size="11" font-weight="bold" letter-spacing="2.5">LAKSSOUR · MARRAKECH MEDINA</text>
+      <text x="270" y="604" fill="#fffaf2" font-family="Georgia, serif" font-size="60">A quiet house in the</text>
+      <text x="270" y="670" fill="#fffaf2" font-family="Georgia, serif" font-size="60">heart of Marrakech</text>
+      <text x="272" y="716" fill="#fffaf2" font-family="Arial, sans-serif" font-size="16" opacity="0.9">Six intimate rooms gathered around a tranquil</text>
+      <text x="272" y="741" fill="#fffaf2" font-family="Arial, sans-serif" font-size="16" opacity="0.9">courtyard, two minutes on foot from Jemaa el-Fna.</text>
+      <rect x="272" y="776" width="194" height="48" fill="#c76f4d"/>
+      <text x="369" y="806" text-anchor="middle" fill="#fffaf2" font-family="Arial, sans-serif" font-size="11" font-weight="bold" letter-spacing="1.5">BOOK YOUR STAY  →</text>
+      <text x="488" y="806" fill="#fffaf2" font-family="Arial, sans-serif" font-size="11" font-weight="bold" letter-spacing="1.5">DISCOVER DAR TEN  ↓</text>
     </g>
   </g>
 </svg>
