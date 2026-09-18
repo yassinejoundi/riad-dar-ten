@@ -2,11 +2,6 @@
   <title id="title">Riad Dar Ten desktop website preview</title>
   <desc id="desc">A browser mockup showing the Riad Dar Ten Marrakech homepage.</desc>
   <defs>
-    <linearGradient id="backdrop" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#17243b"/>
-      <stop offset="0.55" stop-color="#273954"/>
-      <stop offset="1" stop-color="#b96645"/>
-    </linearGradient>
     <linearGradient id="heroShade" x1="0" y1="0" x2="0.85" y2="1">
       <stop offset="0" stop-color="#120b07" stop-opacity="0.35"/>
       <stop offset="0.58" stop-color="#120b07" stop-opacity="0.28"/>
@@ -20,9 +15,10 @@
     </clipPath>
   </defs>
 
-  <rect width="1600" height="1000" fill="url(#backdrop)"/>
-  <circle cx="1450" cy="120" r="250" fill="#f5f1e8" opacity="0.07"/>
-  <circle cx="80" cy="910" r="280" fill="#d4a574" opacity="0.12"/>
+  <image href="riad-dar-ten-background.png" width="1600" height="1000" preserveAspectRatio="xMidYMid slice"/>
+  <rect width="1600" height="1000" fill="#17243b" opacity="0.34"/>
+  <circle cx="1450" cy="120" r="250" fill="#f5f1e8" opacity="0.08"/>
+  <circle cx="80" cy="910" r="280" fill="#d4a574" opacity="0.15"/>
 
   <g filter="url(#shadow)">
     <rect x="100" y="110" width="1400" height="820" rx="22" fill="#f5f1e8"/>
