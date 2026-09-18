@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title>Riad Dar Ten</title>
+  <rect width="64" height="64" rx="14" fill="#1A2942"/>
+  <path d="M16 48V28c0-8.837 7.163-16 16-16s16 7.163 16 16v20h-7V29c0-4.971-4.029-9-9-9s-9 4.029-9 9v19z" fill="#F5F1E8"/>
+  <path d="M22 48V32h20v16h-6V38h-8v10z" fill="#D4A574"/>
+  <path d="M12 50h40" fill="none" stroke="#D4A574" stroke-width="3" stroke-linecap="round"/>
+</svg>
