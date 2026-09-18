@@ -1,10 +1,19 @@
 <div align="center">
 
-# Riad Dar Ten – Boutique Riad Website
+# Riad Dar Ten
 
-An intimate, high-converting web experience for a boutique riad in Marrakech.
+### A quiet house in the heart of Marrakech.
 
-Built to showcase the atmosphere, rooms, and services of **Riad Dar Ten**, and to turn inspiration into bookings.
+An immersive boutique riad website shaped around warm Moroccan hospitality, cinematic storytelling, and a direct path to booking.
+
+<a href="https://riad-dar-ten.vercel.app/"><strong>Visit the live project →</strong></a>
+
+<br />
+<br />
+
+![Riad Dar Ten desktop website preview](public/readme/riad-dar-ten-preview.svg)
+
+<p><sub>A responsive Next.js experience for a six-room riad in the Marrakech medina.</sub></p>
 
 </div>
 
@@ -21,6 +30,20 @@ This website is crafted to:
 - Make it easy for visitors to **contact and book directly**
 
 The project combines strong visual storytelling, subtle motion, and a clear booking funnel to support both **brand perception** and **real-world conversions**.
+
+## 🔗 Explore the project
+
+The site is live at **[riad-dar-ten.vercel.app](https://riad-dar-ten.vercel.app/)**. Explore the home page, step inside the riad, browse the rooms, and follow the story through to a direct booking request.
+
+## 📌 Repository details
+
+**Description**
+
+> A cinematic Next.js website for Riad Dar Ten, a six-room boutique riad in Marrakech. Explore the rooms, courtyard, rooftop, and Moroccan hospitality through an immersive, booking-focused experience.
+
+**Topics**
+
+`nextjs, react, typescript, tailwindcss, vercel, boutique-hotel, riad, marrakech, morocco, travel-website, hospitality, web-design`
 
 ---
 
@@ -162,6 +185,12 @@ Some natural next steps that this codebase is ready for:
 - Special offers and seasonal packages
 
 ---
+
+## 👋 Built by
+
+This project was designed and built by **[Yassine Joundi](https://yassinejoundi.com/)**.
+
+I created Dar Ten as a complete digital expression of the riad: calm, tactile, editorial, and always moving visitors towards a meaningful stay.
 
 ## 📬 Contact & Author
 
